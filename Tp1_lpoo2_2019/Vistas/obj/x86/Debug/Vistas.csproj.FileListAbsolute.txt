@@ -183,3 +183,4 @@ C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\Vistas\obj\x86\Debug\Vista
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\Vistas\obj\x86\Debug\Vistas.g.resources
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\Vistas\obj\x86\Debug\Vistas.Properties.Resources.resources
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\Vistas\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
+C:\Users\Vani\Documents\Facultad\LPOO II\Repositorio\ULTIMO TP\Tp1_lpoo2_2019\Vistas\bin\Debug\Vistas.exe.config
