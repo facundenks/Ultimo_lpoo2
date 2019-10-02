@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDpasajesModelStoreContainer" CdmEntityContainer="PasajesEntities">
+    <EntitySetMapping Name="Autobus">
+      <EntityTypeMapping TypeName="BDpasajesModel.Autobus">
+        <MappingFragment StoreEntitySet="Autobus">
+          <ScalarProperty Name="aut_codigo" ColumnName="aut_codigo" />
+          <ScalarProperty Name="aut_capacidad" ColumnName="aut_capacidad" />
+          <ScalarProperty Name="aut_tiposervicio" ColumnName="aut_tiposervicio" />
+          <ScalarProperty Name="aut_matricula" ColumnName="aut_matricula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="BDpasajesModel.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="ciu_codigo" ColumnName="ciu_codigo" />
+          <ScalarProperty Name="ciu_nombre" ColumnName="ciu_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="BDpasajesModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cli_dni" ColumnName="cli_dni" />
+          <ScalarProperty Name="cli_nombre" ColumnName="cli_nombre" />
+          <ScalarProperty Name="cli_apellido" ColumnName="cli_apellido" />
+          <ScalarProperty Name="cli_telefono" ColumnName="cli_telefono" />
+          <ScalarProperty Name="cli_email" ColumnName="cli_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pasaje">
+      <EntityTypeMapping TypeName="BDpasajesModel.Pasaje">
+        <MappingFragment StoreEntitySet="Pasaje">
+          <ScalarProperty Name="pas_codigo" ColumnName="pas_codigo" />
+          <ScalarProperty Name="cli_dni" ColumnName="cli_dni" />
+          <ScalarProperty Name="ser_codigo" ColumnName="ser_codigo" />
+          <ScalarProperty Name="pas_asiento" ColumnName="pas_asiento" />
+          <ScalarProperty Name="pas_precio" ColumnName="pas_precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="BDpasajesModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="rol_codigo" ColumnName="rol_codigo" />
+          <ScalarProperty Name="rol_descripcion" ColumnName="rol_descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="BDpasajesModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="ser_codigo" ColumnName="ser_codigo" />
+          <ScalarProperty Name="aut_codigo" ColumnName="aut_codigo" />
+          <ScalarProperty Name="ser_fecha" ColumnName="ser_fecha" />
+          <ScalarProperty Name="ter_codigo_origen" ColumnName="ter_codigo_origen" />
+          <ScalarProperty Name="ter_codigo_destino" ColumnName="ter_codigo_destino" />
+          <ScalarProperty Name="ser_estado" ColumnName="ser_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminal">
+      <EntityTypeMapping TypeName="BDpasajesModel.Terminal">
+        <MappingFragment StoreEntitySet="Terminal">
+          <ScalarProperty Name="ter_codigo" ColumnName="ter_codigo" />
+          <ScalarProperty Name="ciu_codigo" ColumnName="ciu_codigo" />
+          <ScalarProperty Name="ter_nombre" ColumnName="ter_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BDpasajesModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="usu_id" ColumnName="usu_id" />
+          <ScalarProperty Name="usu_nombreUsuario" ColumnName="usu_nombreUsuario" />
+          <ScalarProperty Name="usu_apellidoNombre" ColumnName="usu_apellidoNombre" />
+          <ScalarProperty Name="usu_contraseña" ColumnName="usu_contraseña" />
+          <ScalarProperty Name="rol_codigo" ColumnName="rol_codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDpasajesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PasajesEntity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Autobus" EntityType="BDpasajesModel.Autobus" />
+    <EntitySet Name="Ciudad" EntityType="BDpasajesModel.Ciudad" />
+    <EntitySet Name="Cliente" EntityType="BDpasajesModel.Cliente" />
+    <EntitySet Name="Pasaje" EntityType="BDpasajesModel.Pasaje" />
+    <EntitySet Name="Rol" EntityType="BDpasajesModel.Rol" />
+    <EntitySet Name="Servicio" EntityType="BDpasajesModel.Servicio" />
+    <EntitySet Name="Terminal" EntityType="BDpasajesModel.Terminal" />
+    <EntitySet Name="Usuario" EntityType="BDpasajesModel.Usuario" />
+  </EntityContainer>
+  <EntityType Name="Autobus">
+    <Key>
+      <PropertyRef Name="aut_codigo" />
+    </Key>
+    <Property Name="aut_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aut_capacidad" Type="Int32" />
+    <Property Name="aut_tiposervicio" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="aut_matricula" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="ciu_codigo" />
+    </Key>
+    <Property Name="ciu_codigo" Type="Int32" Nullable="false" />
+    <Property Name="ciu_nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cli_dni" />
+    </Key>
+    <Property Name="cli_dni" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cli_nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cli_apellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cli_telefono" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="cli_email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Pasaje">
+    <Key>
+      <PropertyRef Name="pas_codigo" />
+    </Key>
+    <Property Name="pas_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cli_dni" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ser_codigo" Type="Int32" />
+    <Property Name="pas_asiento" Type="Int32" />
+    <Property Name="pas_precio" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="rol_codigo" />
+    </Key>
+    <Property Name="rol_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol_descripcion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="ser_codigo" />
+    </Key>
+    <Property Name="ser_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="aut_codigo" Type="Int32" />
+    <Property Name="ser_fecha" Type="DateTime" />
+    <Property Name="ter_codigo_origen" Type="Int32" />
+    <Property Name="ter_codigo_destino" Type="Int32" />
+    <Property Name="ser_estado" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="ter_codigo" />
+    </Key>
+    <Property Name="ter_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ciu_codigo" Type="Int32" />
+    <Property Name="ter_nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="usu_id" />
+    </Key>
+    <Property Name="usu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usu_nombreUsuario" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="usu_apellidoNombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="usu_contraseña" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="rol_codigo" Type="Int32" />
+  </EntityType>
+</Schema>
