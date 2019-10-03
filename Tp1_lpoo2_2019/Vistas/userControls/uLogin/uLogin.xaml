@@ -8,7 +8,7 @@
     <Grid>
         <Label Content="Usuario:" Margin="87,132,160,140" Name="label1" />
         <Label Content="Contraseña:" Margin="68,179,160,93" Name="label2" />
-        <Button Background="Green" Content="Aceptar" Cursor="Hand" Margin="104,237,96,38" Name="btnAceptar" Style="{StaticResource AceptarButton}" Click="btnAceptar_Click" />
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="Green" Content="Aceptar" Cursor="Hand" Margin="104,237,96,38" Name="btnAceptar" Click="btnAceptar_Click" />
         <TextBox Background="#E5F0EEF0" Margin="0,133,34,0" Name="txtUsuario" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" />
         <PasswordBox Background="#E5F0EEF0" Margin="0,181,35,0" Name="txtPass" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="119" />
         <Rectangle Margin="30,133,0,0" Name="rectangle1" Stroke="Black" HorizontalAlignment="Left" Width="32" Height="27" VerticalAlignment="Top">
