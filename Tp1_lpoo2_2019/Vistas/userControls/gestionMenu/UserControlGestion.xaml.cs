@@ -30,5 +30,12 @@ namespace Vistas.userControls.gestionMenu
             userControls.userControlABM.UserControlABMAutobus autobuses = new userControls.userControlABM.UserControlABMAutobus();
             GridAdministracion.Children.Add(autobuses);
         }
+
+        private void GridCiudad_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridAdministracion.Children.Clear();
+            userControls.userControlABM.userControlABMCiudad ciudades = new userControls.userControlABM.userControlABMCiudad();
+            GridAdministracion.Children.Add(ciudades);
+        }
     }
 }
