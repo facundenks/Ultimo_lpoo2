@@ -51,11 +51,6 @@ namespace Vistas.userControls.userControlABM
 
         }
 
-        private void btnLimpiarUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            limpiar();
-        }
-
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
         {
             if (txtEmail.Text.Length == 0)
@@ -98,6 +93,11 @@ namespace Vistas.userControls.userControlABM
             txtEmail.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
+        }
+
+        private void btnLimpiarUsuario_Click_1(object sender, RoutedEventArgs e)
+        {
+            limpiar();
         }
     }
 }

@@ -29,3 +29,8 @@ C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\ClasesBase\bin\Debug\Clase
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\ClasesBase\bin\Debug\ClasesBase.pdb
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\ClasesBase\obj\Debug\ClasesBase.dll
 C:\Users\Facu\Documents\Nuevo_lpoo2_tp\Tp1_lpoo2_2019\ClasesBase\obj\Debug\ClasesBase.pdb
+C:\Users\Facu\Documents\Ultimo_lpoo2\Tp1_lpoo2_2019\ClasesBase\bin\Debug\ClasesBase.dll.config
+C:\Users\Facu\Documents\Ultimo_lpoo2\Tp1_lpoo2_2019\ClasesBase\bin\Debug\ClasesBase.dll
+C:\Users\Facu\Documents\Ultimo_lpoo2\Tp1_lpoo2_2019\ClasesBase\bin\Debug\ClasesBase.pdb
+C:\Users\Facu\Documents\Ultimo_lpoo2\Tp1_lpoo2_2019\ClasesBase\obj\Debug\ClasesBase.dll
+C:\Users\Facu\Documents\Ultimo_lpoo2\Tp1_lpoo2_2019\ClasesBase\obj\Debug\ClasesBase.pdb
