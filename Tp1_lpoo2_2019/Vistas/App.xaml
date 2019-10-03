@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ResourceDictionary/EstilosMain.xaml"/>
+                <ResourceDictionary Source="ResourceDictionary/Plantilla.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
