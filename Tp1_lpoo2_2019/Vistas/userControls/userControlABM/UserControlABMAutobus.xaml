@@ -33,9 +33,10 @@
                 <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtPatente" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
             </Grid>
         </GroupBox>
-        <Button Style="{StaticResource CancelarButton}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="203,335,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Cursor="Hand" Width="100" />
-        <Button Style="{StaticResource AceptarButton}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,335,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" />
-        <Button Style="{StaticResource CancelarButton}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Width="100" />
-        <Button Style="{StaticResource AceptarButton}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="203,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" />
+        <!---->
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,332,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,332,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
     </Grid>
 </UserControl>
