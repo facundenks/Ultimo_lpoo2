@@ -28,18 +28,18 @@
                 <Label Content="Patente" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,130,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
                 
                 <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" IsEnabled="True" />
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtCapacidad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtCapacidad_KeyDown" />
-                <ComboBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="87,34,0,0" Name="cmbServicio" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" >
+                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtCapacidad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtCapacidad_KeyDown" TabIndex="1"/>
+                <ComboBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="87,34,0,0" Name="cmbServicio" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2">
                     <ComboBoxItem>Cama</ComboBoxItem>
                     <ComboBoxItem>Semi Cama</ComboBoxItem>
                 </ComboBox>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtPatente" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
+                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtPatente" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3"/>
             </Grid>
         </GroupBox>
         <!---->
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,332,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"  Click="btnGuardarUsuario_Click"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,0,0,44" Name="btnGuardarUsuario" VerticalAlignment="Bottom" Cursor="Hand" Height="24"  Width="167"  Click="btnGuardarUsuario_Click" TabIndex="4"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,332,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5"/>
     </Grid>
 </UserControl>
