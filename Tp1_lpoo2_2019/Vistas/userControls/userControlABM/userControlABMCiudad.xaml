@@ -4,8 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="600">
     <Grid>
-            
+        <Grid Margin="10,10,-10,-10">
+            <Grid Height="60" VerticalAlignment="Top" Width="1350">
+                <Label Content="Datos Autobus" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" Height="45" HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Center" />
+            </Grid>
+            <Line Stroke="#F45BB0DD" X1="15" X2="1000" Y1="50" Y2="50" />
+            <GroupBox Foreground="#F45BB0DD" Header="Datos de Autobus" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="582">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="28*" />
+                        <ColumnDefinition Width="243*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*" />
+                        <RowDefinition Height="18*" />
+                        <RowDefinition Height="137*" />
+                    </Grid.RowDefinitions>
+                    <Label Content="ID" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="0,10,0,0" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" />
+                    <Label Content="Capacidad" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="0,50,0,0" Name="lblId" Target="{Binding}" VerticalAlignment="Top" />
+                    <Label Content="Servicio" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="0,90,0,0" Name="lblCapacidad" Target="{Binding}" VerticalAlignment="Top" />
+                    <Label Content="Patente" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="0,130,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" />
+                    <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="87,10,0,0" Name="txtID" VerticalAlignment="Top" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="87,50,0,0" Name="txtCapacidad" VerticalAlignment="Top" />
+                    <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="87,34,0,0" Name="cmbServicio" VerticalAlignment="Top" Width="120" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="87,130,0,0" Name="txtPatente" VerticalAlignment="Top" />
+                </Grid>
+            </GroupBox>
+            <Button Background="#FFD73C61" Content="Guardar" Cursor="Hand" HorizontalAlignment="Left" Margin="203,335,0,0" Name="btnGuardarUsuario" Style="{StaticResource CancelarButton}" VerticalAlignment="Top" Width="100" />
+            <Button Background="#FFD73C61" Content="Modificar" Cursor="Hand" HorizontalAlignment="Left" Margin="317,335,0,0" Name="btnModificarUsuario" Style="{StaticResource AceptarButton}" VerticalAlignment="Top" />
+            <Button Background="#FFD73C61" Content="Eliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" Style="{StaticResource CancelarButton}" VerticalAlignment="Top" Width="100" />
+            <Button Background="#FFD73C61" Content="Limpiar" Cursor="Hand" HorizontalAlignment="Left" Margin="203,365,0,0" Name="btnLimpiarUsuario" Style="{StaticResource AceptarButton}" VerticalAlignment="Top" />
+        </Grid>
     </Grid>
 </UserControl>
