@@ -69,15 +69,18 @@ namespace Vistas.userControls.userControlABM
                 if (txtApellido.Text != "" && txtDNI.Text != "" && txtEmail.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
                 {
 
-                    oCliente.cli_dni = txtDNI.Text;
-                    oCliente.cli_nombre = txtNombre.Text;
-                    oCliente.cli_apellido = txtApellido.Text;
-                    oCliente.cli_email = txtEmail.Text;
-                    oCliente.cli_telefono = txtTelefono.Text;
+                    if (MessageBox.Show("Mensaje", "Guardar Cliente", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    {
+                        oCliente.cli_dni = txtDNI.Text;
+                        oCliente.cli_nombre = txtNombre.Text;
+                        oCliente.cli_apellido = txtApellido.Text;
+                        oCliente.cli_email = txtEmail.Text;
+                        oCliente.cli_telefono = txtTelefono.Text;
 
-                    limpiar();
+                        _clienteRepositorio.AgrgarCliente(oCliente);
 
-                    _clienteRepositorio.AgrgarCliente(oCliente);
+                        limpiar();
+                    }
                 }
                 else
                 {
