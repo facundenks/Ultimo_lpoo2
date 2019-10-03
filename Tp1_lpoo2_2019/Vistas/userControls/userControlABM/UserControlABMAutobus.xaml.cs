@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
+using ClasesBase.DAO.Repositorio;
 
 namespace Vistas.userControls.userControlABM
 {
@@ -19,9 +21,55 @@ namespace Vistas.userControls.userControlABM
     /// </summary>
     public partial class UserControlABMAutobus : UserControl
     {
+        Autobus oAutobus = new Autobus();
+        AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
+
         public UserControlABMAutobus()
         {
             InitializeComponent();
+        }
+
+        private void txtCapacidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtCapacidad.Text != "" && cmbServicio.SelectedIndex != -1 && txtPatente.Text != "")
+            {
+                if (MessageBox.Show("Mensaje", "Guardar Autobus", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                {
+                    oAutobus.aut_capacidad = Convert.ToInt32(txtCapacidad.Text);
+                    oAutobus.aut_tiposervicio = Convert.ToString(((ComboBoxItem)cmbServicio.SelectedItem).Content);
+                    oAutobus.aut_matricula = txtPatente.Text;
+
+                    _autobusRepositorio.AgrgarAutobus(oAutobus);
+
+                    limpiar();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Completar todos los campos");
+            }
+        }
+
+        private void limpiar()
+        {
+            txtID.Clear();
+            txtCapacidad.Clear();
+            cmbServicio.SelectedIndex = -1;
+            txtPatente.Clear();
+        }
+
+        private void btnLimpiarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            limpiar();
         }
     }
 }

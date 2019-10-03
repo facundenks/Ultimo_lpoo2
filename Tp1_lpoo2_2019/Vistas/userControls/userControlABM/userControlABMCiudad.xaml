@@ -24,14 +24,14 @@
                     </Grid.RowDefinitions>
                     <Label Content="Codigo de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" Margin="0,9,0,0" Grid.RowSpan="2" />
                     <Label Content="Nombre de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Grid.Column="1" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblId" Target="{Binding}" VerticalAlignment="Top" Grid.Row="2" Margin="0,29,0,0" />
-                    <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="150,9,0,0" Name="txtID" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2" />
-                    <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="150,29,0,0" Name="txtCapacidad" VerticalAlignment="Top" />
+                    <TextBox Grid.Column="1" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="150,9,0,0" Name="txtIdCiudad" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2" KeyDown="txtIdCiudad_KeyDown" />
+                    <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="150,29,0,0" Name="txtNombreCiudad" VerticalAlignment="Top" />
                 </Grid>
             </GroupBox>
-            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Guardar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,335,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Width="167" Height="24" />
+            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Guardar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,335,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Width="167" Height="24" Click="btnGuardarUsuario_Click" />
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Modificar" Cursor="Hand" HorizontalAlignment="Left" Margin="317,335,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Width="167" Height="24"/>
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Eliminar" Cursor="Hand" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Width="167" Height="24" />
-            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Limpiar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Width="167" Height="24"/>
+            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Limpiar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Width="167" Height="24" Click="btnLimpiarUsuario_Click" />
         </Grid>
     </Grid>
 </UserControl>

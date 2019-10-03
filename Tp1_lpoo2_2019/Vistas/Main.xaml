@@ -40,17 +40,17 @@
             <TextBlock Text="Venta de Pasajes" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
             <Image HorizontalAlignment="Right" Height="30" Width="30" Margin="8"  MouseLeftButtonUp="Image_MouseLeftButtonUp" Source="/Vistas;component/Images/salir2.png"/>
         </Grid>
-        <Grid  x:Name="GridMenu"   Width="200" Margin="0,60,0,0" HorizontalAlignment="Left" Background="#F42A2B32" >
+        <Grid  x:Name="GridMenu"   Width="200" Margin="0,60,0,0" HorizontalAlignment="Left" Background="DarkRed" >
             <StackPanel>
-                <Grid Height="150" Background="#F42A2B32">
+                <Grid Height="150" Background="DarkRed">
                     <Button  x:Name="btnCloseMenu" Margin="6 3" Height="30" Width="30" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="btnCloseMenu_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="/Vistas;component/Images/menu.png" />
+                            <ImageBrush ImageSource="/Vistas;component/Images/588a6507d06f6719692a2d15.png" />
                         </Button.Background>
                     </Button>
-                    <Button  x:Name="btnOpenMenu" Margin="6 3" Height="30" Width="30" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btnOpenMenu_Click">
+                    <Button  x:Name="btnOpenMenu" Margin="0,3,6,0" Height="30" Width="30" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="btnOpenMenu_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="/Vistas;component/Images/menu.png" />
+                            <ImageBrush ImageSource="/Vistas;component/Images/588a6507d06f6719692a2d15.png" />
                         </Button.Background>
                     </Button>
                     <Label Visibility="Collapsed" x:Name="lblHora" Content="Label" Width="144" Height="40" HorizontalAlignment="Center" Margin="26,30,30,80" VerticalAlignment="Center"  FontSize="25" Foreground="#F9AFA9AD" ></Label>
