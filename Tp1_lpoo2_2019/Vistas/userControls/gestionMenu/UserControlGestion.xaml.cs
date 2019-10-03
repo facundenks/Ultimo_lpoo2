@@ -24,11 +24,11 @@ namespace Vistas.userControls.gestionMenu
             InitializeComponent();
         }
 
-        private void GridUsuario_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void GridAutobus_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridAdministracion.Children.Clear();
-            userControls.userControlABM.UserControlABMCliente usuarios = new userControls.userControlABM.UserControlABMCliente();
-            GridAdministracion.Children.Add(usuarios);
+            userControls.userControlABM.UserControlABMAutobus autobuses = new userControls.userControlABM.UserControlABMAutobus();
+            GridAdministracion.Children.Add(autobuses);
         }
     }
 }
