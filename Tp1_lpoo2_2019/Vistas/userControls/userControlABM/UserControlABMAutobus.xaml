@@ -11,7 +11,7 @@
         </Grid>
         <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD"/>
         <GroupBox Header="Datos de Autobus" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="582" Foreground="#F45BB0DD">
-            <Grid Background="White">
+            <Grid Background="White" Width="637">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28*" />
                     <ColumnDefinition Width="243*" />

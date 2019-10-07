@@ -13,5 +13,15 @@ namespace ClasesBase.DAO.Repositorio
                 context.SaveChanges();
             }
         }
+
+        public List<Autobus> getAutobus() {
+            using(BDpasajesEntities context = new BDpasajesEntities()) {
+                IQueryable<Autobus> Autobus = from q in context.Autobus
+                                              select q;
+                return Autobus.ToList();
+            }
+            
+        }
+
     }
 }
