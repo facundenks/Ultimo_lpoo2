@@ -283,7 +283,7 @@
       <Diagram Name="Modelo" ZoomLevel="94">
         <EntityTypeShape EntityType="BDpasajesModel.Autobus" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Ciudad" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Cliente" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Cliente" Width="1.5" PointX="0.75" PointY="3.75" Height="2.0002864583333331" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Pasaje" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Rol" Width="1.5" PointX="4.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Servicio" Width="1.5" PointX="4.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
