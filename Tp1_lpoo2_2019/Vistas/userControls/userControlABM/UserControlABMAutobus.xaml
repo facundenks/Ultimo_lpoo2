@@ -53,11 +53,10 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                
-                
+                     
             </Grid>
         </GroupBox>
-        <!---->
+        
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,332,0,0" Name="btnGuardarUsuario"  Cursor="Hand"   Width="167"  Click="btnGuardarUsuario_Click" TabIndex="4" Height="24" VerticalAlignment="Top"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,328,122,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,369,122,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />

@@ -10,8 +10,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Gridprincipal">
-                <EasingDoubleKeyFrame KeyTime="0" Value="865"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="865"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="864"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="864"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
@@ -20,8 +20,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="45"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Gridprincipal">
-                <EasingDoubleKeyFrame KeyTime="0" Value="865"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="865"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="864"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="864"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>

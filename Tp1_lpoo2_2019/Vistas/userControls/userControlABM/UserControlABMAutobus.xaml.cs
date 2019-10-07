@@ -49,6 +49,8 @@ namespace Vistas.userControls.userControlABM
 
                     _autobusRepositorio.AgrgarAutobus(oAutobus);
 
+                    Autobuses.ItemsSource = _autobusRepositorio.getAutobus();
+                    
                     limpiar();
 
                 }
