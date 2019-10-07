@@ -10,8 +10,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Gridprincipal">
-                <EasingDoubleKeyFrame KeyTime="0" Value="865"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="865"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="864"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="864"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
@@ -20,8 +20,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="45"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="Gridprincipal">
-                <EasingDoubleKeyFrame KeyTime="0" Value="865"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="865"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="864"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="864"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -53,7 +53,7 @@
                             <ImageBrush ImageSource="/Vistas;component/Images/588a6507d06f6719692a2d15.png" />
                         </Button.Background>
                     </Button>
-                    <Label Visibility="Collapsed" x:Name="lblHora" Content="Label" Width="144" Height="40" HorizontalAlignment="Center" Margin="26,30,30,80" VerticalAlignment="Center"  FontSize="25" Foreground="#F9AFA9AD" ></Label>
+                    <Label Visibility="Collapsed" x:Name="lblHora" Content="Label" Height="40" Margin="26,30,7,0" VerticalAlignment="Top"  FontSize="25" Foreground="#F9AFA9AD" ></Label>
                     <Label Visibility="Collapsed"  Content="{Binding Source={x:Static sys:DateTime.Now}}" ContentStringFormat="{}{0:dd MMMM yyyy}" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Name="lblFecha" Foreground="#F9AFA9AD" FontSize="15"  />
                     <Label Visibility="Collapsed" Content="User" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 70 0 0"  Name="lblUser" Foreground="#F9AFA9AD" FontSize="18"  />
 
