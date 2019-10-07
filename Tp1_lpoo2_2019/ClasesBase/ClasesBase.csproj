@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ClienteValidator.cs" />
     <Compile Include="DAO\Repositorio\AutobusRepositorio.cs" />
     <Compile Include="DAO\Repositorio\CiudadRepositorio.cs" />
     <Compile Include="DAO\Repositorio\ClienteRepositorio.cs" />
@@ -80,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TrabajarClienteValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

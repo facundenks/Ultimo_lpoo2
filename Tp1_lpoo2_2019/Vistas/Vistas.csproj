@@ -68,6 +68,7 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrabajarClienteValidator.cs" />
     <Compile Include="userControls\gestionMenu\UserControlGestion.xaml.cs">
       <DependentUpon>UserControlGestion.xaml</DependentUpon>
     </Compile>
