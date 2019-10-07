@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="ClienteValidator.cs" />
+    <Compile Include="Validadores\ClienteValidator.cs" />
     <Compile Include="DAO\Repositorio\AutobusRepositorio.cs" />
     <Compile Include="DAO\Repositorio\CiudadRepositorio.cs" />
     <Compile Include="DAO\Repositorio\ClienteRepositorio.cs" />
@@ -81,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Validadores\TrabajarClienteValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
@@ -137,6 +138,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

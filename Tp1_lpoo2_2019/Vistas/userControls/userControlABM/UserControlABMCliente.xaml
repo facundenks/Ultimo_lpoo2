@@ -3,10 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"            
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
-
-    <Grid>
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="DATA_CLIENT"
+                            ObjectType="{x:Type svc:TrabajarClienteValidator}"
+                            MethodName="TraerCliente">
+        </ObjectDataProvider>
+        
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="120,10" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0"/>
+                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+        
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <Setter Property="Margin" Value="20,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Background" Value="#FFFFFFDB"/>
+            <Setter Property="Height" Value="25"/>
+            
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </UserControl.Resources>
+        <Grid>
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Registro de Cliente" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
         </Grid>
@@ -28,7 +71,9 @@
                 <Label Content="Apellido" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,90,0,0" Name="lblApellido" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
                 <Label Content="Telefono" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,130,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
                 <Label Content="E-mail" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,170,0,0" Name="lblEmail" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtDNI" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtDNI_KeyDown" TabIndex="1"/>
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Background="#FFFFFFDB" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtDNI" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtDNI_KeyDown" TabIndex="1" Width="120" Height="26">
+                    <Binding Path="Cli_dni" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
                 <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="2"/>
                 <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,90,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3"/>
                 <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtTelefono" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" KeyDown="txtTelefono_KeyDown" IsEnabled="True" TabIndex="4"/>
