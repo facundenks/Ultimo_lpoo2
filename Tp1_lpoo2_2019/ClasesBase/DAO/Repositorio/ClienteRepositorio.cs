@@ -15,5 +15,16 @@ namespace ClasesBase.DAO.Repositorio
                 context.SaveChanges();
             }
         }
+
+        public List<Cliente> listarClientes()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Cliente> Clientes = from q in context.Cliente
+                                              select q;
+                return Clientes.ToList();
+            }
+
+        }
     }
 }

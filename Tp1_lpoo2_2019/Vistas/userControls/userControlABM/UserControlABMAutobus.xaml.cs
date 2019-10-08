@@ -44,7 +44,7 @@ namespace Vistas.userControls.userControlABM
                 if (MessageBox.Show("Mensaje", "Guardar Autobus", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
                 {
                     oAutobus.aut_capacidad = Convert.ToInt32(txtCapacidad.Text);
-                    oAutobus.aut_tiposervicio = Convert.ToString(((ComboBoxItem)cmbServicio.SelectedItem).Content);
+                    oAutobus.aut_tiposervicio = cmbServicio.SelectedValue.ToString();
                     oAutobus.aut_matricula = txtPatente.Text;
 
                     _autobusRepositorio.AgrgarAutobus(oAutobus);

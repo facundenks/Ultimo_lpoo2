@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="763">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="DATA_CLIENT"
                             ObjectType="{x:Type svc:TrabajarClienteValidator}"
@@ -53,9 +53,9 @@
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Registro de Cliente" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD"/>
-        <GroupBox Header="Datos de Cliente" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="582" Foreground="#F45BB0DD">
-            <Grid Background="White">
+        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-65,0" Loaded="Line_Loaded" />
+        <GroupBox Header="Datos de Cliente" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="745" Foreground="#F45BB0DD">
+            <Grid Background="White" Width="703">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28*" />
                     <ColumnDefinition Width="243*" />
@@ -71,15 +71,34 @@
                 <Label Content="Apellido" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,90,0,0" Name="lblApellido" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
                 <Label Content="Telefono" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,130,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
                 <Label Content="E-mail" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,170,0,0" Name="lblEmail" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Background="#FFFFFFDB" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtDNI" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtDNI_KeyDown" TabIndex="1" Width="120" Height="26">
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtDNI" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtDNI_KeyDown" TabIndex="1" Width="120" Height="26">
                     <Binding Path="Cli_dni" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="2"/>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,90,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3"/>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtTelefono" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" KeyDown="txtTelefono_KeyDown" IsEnabled="True" TabIndex="4"/>
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,170,0,0" Name="txtEmail" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="5"/>
-                
-                
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="2">
+                    <Binding Path="Cli_nombre" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,90,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3">
+                    <Binding Path="Cli_apellido" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtTelefono" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" KeyDown="txtTelefono_KeyDown" IsEnabled="True" TabIndex="4">
+                    <Binding Path="Cli_telefono" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
+                <TextBox DataContext="{StaticResource DATA_CLIENT}" Style="{StaticResource EstiloError}" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,170,0,0" Name="txtEmail" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="5">
+                    <Binding Path="Cli_email" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
+
+                <ListView Name="list_clientes" Grid.Column="1" Margin="225,16,6,88" Grid.RowSpan="3" SelectionChanged="list_clientes_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="DNI" DisplayMemberBinding="{Binding cli_dni}"/>
+                            <GridViewColumn Width="100" Header="Nombre" DisplayMemberBinding="{Binding cli_nombre}"/>
+                            <GridViewColumn Width="110" Header="Apellido" DisplayMemberBinding="{Binding cli_apellido}"/>
+                            <GridViewColumn Width="100" Header="Telefono" DisplayMemberBinding="{Binding cli_telefono}"/>
+                            <GridViewColumn Width="100" Header="Email" DisplayMemberBinding="{Binding cli_email}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
             </Grid>
         </GroupBox>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" Margin="123,328,0,0" Name="btnGuardarUsuario" Cursor="Hand"  Click="btnGuardarUsuario_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="167" Height="24" TabIndex="6"/>

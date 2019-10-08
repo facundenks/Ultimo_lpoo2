@@ -78,7 +78,7 @@ namespace ClasesBase
 
         private string validar_cliDni() { 
             if(String.IsNullOrEmpty(Cli_dni)){
-                return "El valor del campo es obligatorio";
+                return "El DNI es obligatorio";
             }
             return null;
         }
@@ -87,7 +87,7 @@ namespace ClasesBase
         {
             if (String.IsNullOrEmpty(Cli_nombre))
             {
-                return "El valor del campo es obligatorio";
+                return "El Nombre es obligatorio";
             }
             return null;
         }
@@ -96,7 +96,7 @@ namespace ClasesBase
         {
             if (String.IsNullOrEmpty(Cli_apellido))
             {
-                return "El valor del campo es obligatorio";
+                return "El Apellido es obligatorio";
             }
             return null;
         }
@@ -105,7 +105,7 @@ namespace ClasesBase
         {
             if (String.IsNullOrEmpty(Cli_telefono))
             {
-                return "El valor del campo es obligatorio";
+                return "El Telefono es obligatorio";
             }
             return null;
         }
@@ -114,7 +114,7 @@ namespace ClasesBase
         {
             if (String.IsNullOrEmpty(Cli_email))
             {
-                return "El valor del campo es obligatorio";
+                return "El Email es obligatorio";
             }
             return null;
         }

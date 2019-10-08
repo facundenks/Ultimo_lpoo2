@@ -79,6 +79,8 @@ namespace Vistas.userControls.userControlABM
 
                         _clienteRepositorio.AgrgarCliente(oCliente);
 
+                        list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
+
                         limpiar();
                     }
                 }
@@ -101,6 +103,20 @@ namespace Vistas.userControls.userControlABM
         private void btnLimpiarUsuario_Click_1(object sender, RoutedEventArgs e)
         {
             limpiar();
+        }
+
+        private void Line_Loaded(object sender, RoutedEventArgs e)
+        {
+            list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
+        }
+
+        private void list_clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var v = ((Cliente)list_clientes.SelectedItem);
+
+            txtNombre.Text = v.cli_nombre.ToString();
+
         }
     }
 }
