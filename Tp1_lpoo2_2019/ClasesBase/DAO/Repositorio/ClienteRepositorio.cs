@@ -26,5 +26,24 @@ namespace ClasesBase.DAO.Repositorio
             }
 
         }
+
+        public Cliente buscarCliente(String dni) {
+
+            using(BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Cliente> Clientes = from q in context.Cliente
+                                               where q.cli_dni == dni
+                                               select q;
+                List<Cliente> lista = Clientes.ToList();
+                if (lista.Count != 0)
+                {
+                    var clienteEncontrado = lista[0];
+                    return clienteEncontrado;
+                }
+                else {
+                    return null;
+                }
+            }
+        }
     }
 }

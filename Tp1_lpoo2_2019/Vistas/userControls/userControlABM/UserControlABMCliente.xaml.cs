@@ -115,8 +115,31 @@ namespace Vistas.userControls.userControlABM
 
             var v = ((Cliente)list_clientes.SelectedItem);
 
+            txtDNI.Text = v.cli_dni.ToString();
             txtNombre.Text = v.cli_nombre.ToString();
+            txtApellido.Text = v.cli_apellido.ToString();
+            txtTelefono.Text = v.cli_telefono.ToString();
+            txtEmail.Text = v.cli_email.ToString();
 
+        }
+
+        private void txtDNI_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtDNI.Text != "")
+            {
+                Cliente oCliente = new Cliente();
+                oCliente = _clienteRepositorio.buscarCliente(txtDNI.Text);
+                if (oCliente != null) {
+                    txtNombre.Text = oCliente.cli_nombre.ToString();
+                    txtApellido.Text = oCliente.cli_apellido.ToString();
+                    txtTelefono.Text = oCliente.cli_telefono.ToString();
+                    txtEmail.Text = oCliente.cli_email.ToString();
+                }
+            }
+            else
+            {
+                limpiar();
+            }
         }
     }
 }
