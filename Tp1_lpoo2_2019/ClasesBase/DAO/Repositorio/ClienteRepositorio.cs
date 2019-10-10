@@ -45,5 +45,17 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public void modificarCliente(Cliente unCliente) { 
+            using(BDpasajesEntities context = new BDpasajesEntities()){
+                Cliente oCliente = context.Cliente.SingleOrDefault(p => p.cli_dni == unCliente.cli_dni);
+                oCliente.cli_dni = unCliente.cli_dni;
+                oCliente.cli_nombre = unCliente.cli_nombre;
+                oCliente.cli_apellido = unCliente.cli_apellido;
+                oCliente.cli_telefono = unCliente.cli_telefono;
+                oCliente.cli_email = unCliente.cli_email;
+                context.SaveChanges();        
+            }
+        }
     }
 }

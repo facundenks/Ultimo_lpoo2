@@ -97,12 +97,13 @@
                             <GridViewColumn Width="100" Header="Email" DisplayMemberBinding="{Binding cli_email}"/>
                         </GridView>
                     </ListView.View>
+                    
                 </ListView>
 
             </Grid>
         </GroupBox>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" Margin="123,328,0,0" Name="btnGuardarUsuario" Cursor="Hand"  Click="btnGuardarUsuario_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="167" Height="24" TabIndex="6"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" Margin="0,328,137,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Right"  Width="167" Height="24"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" Margin="0,328,137,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Right"  Width="167" Height="24" Click="btnModificarUsuario_Click_1" />
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" Margin="0,364,137,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Right"  Width="167" Height="24"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="123,364,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Click="btnLimpiarUsuario_Click_1"  Width="167" Height="24" TabIndex="7"/>
     </Grid>

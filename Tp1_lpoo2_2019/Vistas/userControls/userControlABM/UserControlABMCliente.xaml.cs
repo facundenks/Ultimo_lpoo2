@@ -46,11 +46,6 @@ namespace Vistas.userControls.userControlABM
                 e.Handled = true;
         }
 
-        private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
         {
             if (txtEmail.Text.Length == 0)
@@ -107,20 +102,24 @@ namespace Vistas.userControls.userControlABM
 
         private void Line_Loaded(object sender, RoutedEventArgs e)
         {
+            limpiar();
             list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
+            
         }
 
         private void list_clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             var v = ((Cliente)list_clientes.SelectedItem);
-
-            txtDNI.Text = v.cli_dni.ToString();
-            txtNombre.Text = v.cli_nombre.ToString();
-            txtApellido.Text = v.cli_apellido.ToString();
-            txtTelefono.Text = v.cli_telefono.ToString();
-            txtEmail.Text = v.cli_email.ToString();
-
+            if (v != null)
+            {
+                txtDNI.IsEnabled = false;
+                txtDNI.Text = v.cli_dni.ToString();
+                txtNombre.Text = v.cli_nombre.ToString();
+                txtApellido.Text = v.cli_apellido.ToString();
+                txtTelefono.Text = v.cli_telefono.ToString();
+                txtEmail.Text = v.cli_email.ToString();
+            } 
         }
 
         private void txtDNI_TextChanged(object sender, TextChangedEventArgs e)
@@ -129,16 +128,42 @@ namespace Vistas.userControls.userControlABM
             {
                 Cliente oCliente = new Cliente();
                 oCliente = _clienteRepositorio.buscarCliente(txtDNI.Text);
-                if (oCliente != null) {
+                if (oCliente != null)
+                {
+                    txtDNI.IsEnabled = false;
                     txtNombre.Text = oCliente.cli_nombre.ToString();
                     txtApellido.Text = oCliente.cli_apellido.ToString();
                     txtTelefono.Text = oCliente.cli_telefono.ToString();
                     txtEmail.Text = oCliente.cli_email.ToString();
                 }
+                else {
+                    txtDNI.IsEnabled = true;
+                }
             }
             else
             {
+                txtDNI.IsEnabled = true;
                 limpiar();
+            }
+        }
+
+        private void btnModificarUsuario_Click_1(object sender, RoutedEventArgs e)
+        {
+            Cliente unCliente = new Cliente();
+
+            if (MessageBox.Show("Modificar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                unCliente.cli_dni = Convert.ToString(txtDNI.Text);
+                unCliente.cli_nombre = Convert.ToString(txtNombre.Text);
+                unCliente.cli_apellido = Convert.ToString(txtApellido.Text);
+                unCliente.cli_telefono = Convert.ToString(txtTelefono.Text);
+                unCliente.cli_email = Convert.ToString(txtEmail.Text);
+
+                _clienteRepositorio.modificarCliente(unCliente);
+
+                limpiar();
+
+                list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
             }
         }
     }

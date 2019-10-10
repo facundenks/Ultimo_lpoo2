@@ -78,7 +78,7 @@ namespace ClasesBase
 
         private string validar_cliDni() { 
             if(String.IsNullOrEmpty(Cli_dni)){
-                return "El DNI es obligatorio";
+                return "El DNI es obligatorio\nTambien puede ingresar DNI para mostrar datos";
             }
             return null;
         }
