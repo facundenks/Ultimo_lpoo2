@@ -41,7 +41,7 @@ namespace Vistas.userControls.gestionMenu
         private void GridUsuario_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridAdministracion.Children.Clear();
-            userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario 
+            userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario();
             GridAdministracion.Children.Add(usuarios);
         }
     }
