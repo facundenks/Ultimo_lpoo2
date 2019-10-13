@@ -27,7 +27,7 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/b54944f7322722034cfda55e601b4f8d-icono-de-viaje-de-autob-s-redondo-by-vexels.png" Grid.RowSpan="2" />
                     <Label Content=" Autobus " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridCiudad" Background="#F45BB0DD" MouseLeftButtonDown="GridCiudad_MouseLeftButtonDown"7>
+                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridCiudad" Background="#F45BB0DD" MouseLeftButtonDown="GridCiudad_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/f467c342671853ac3a9418e3f1ddcc9a.png" />
                     <Label Content=" Ciudad " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />

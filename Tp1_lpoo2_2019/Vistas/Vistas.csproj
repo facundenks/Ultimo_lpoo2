@@ -68,6 +68,7 @@
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrabajarClienteValidator.cs" />
     <Compile Include="userControls\gestionMenu\UserControlGestion.xaml.cs">
       <DependentUpon>UserControlGestion.xaml</DependentUpon>
     </Compile>
@@ -287,6 +288,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="userControls\userControlListados\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\588a6507d06f6719692a2d15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TipoServicio.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
