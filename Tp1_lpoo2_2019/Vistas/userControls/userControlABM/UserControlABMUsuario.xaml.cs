@@ -34,7 +34,7 @@ namespace Vistas.userControls.userControlABM
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USER"];
             listaUsuarios = odp.Data as ObservableCollection<Usuario>;
 
-            Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsusarios.DataContext);
+            Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsuarios.DataContext);
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)

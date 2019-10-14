@@ -7,15 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="668" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <ObjectDataProvider 
+        <!--<ObjectDataProvider 
             x:Key="LIST_USER" 
             ObjectType="{x:Type svc:TrabajarCliente}"
             MethodName="TraerUsuarios">
-        </ObjectDataProvider>
+        </ObjectDataProvider>-->
     </UserControl.Resources>
     
-    <Grid>
-        <Canvas Name="canvasUsusarios" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}">
+    <Grid Name="GridPrincipalUsuario">
+        <Canvas Name="canvasUsuarios" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}">
             <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
                 <Label Content="Datos Usuario" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
             </Grid>
@@ -53,11 +53,11 @@
                         </StackPanel>
                     </StackPanel>
                     
-                    <TextBox Text="{Binding Usu_id}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,1,0,0" Name="textBox1" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
-                    <TextBox Text="{Binding Usu_nombreUsuario}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,9,0,0" Name="textBox2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox Text="{Binding Usu_apellidoNombre}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,40,0,0" Name="textBox3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox Text="{Binding Usu_contraseña}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,71,0,0" Name="textBox4" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox Text="{Binding Usu_codigo}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,102,0,0" Name="textBox5" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_id}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,1,0,0" Name="textBox1" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+                    <TextBox Text="{Binding usu_nombreUsuario}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,9,0,0" Name="textBox2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_apellidoNombre}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,40,0,0" Name="textBox3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_contraseña}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,71,0,0" Name="textBox4" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_codigo}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,102,0,0" Name="textBox5" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                     
                 </Grid>
             </GroupBox>
