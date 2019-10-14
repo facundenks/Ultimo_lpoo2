@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="668" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="LIST_USER" 
             ObjectType="{x:Type svc:TrabajarCliente}"
             MethodName="TraerUsuarios">
-        </ObjectDataProvider>-->
+        </ObjectDataProvider>
     </UserControl.Resources>
     
     <Grid Name="GridPrincipalUsuario">

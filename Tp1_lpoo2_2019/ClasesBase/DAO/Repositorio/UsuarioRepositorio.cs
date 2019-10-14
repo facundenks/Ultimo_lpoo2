@@ -31,16 +31,16 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
-<<<<<<< HEAD
-
-        public List<Usuario> getUsersList() {
+        public List<Usuario> getUsersList()
+        {
             using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Usuario> Users = from u in context.Usuario
                                             select u;
                 return Users.ToList();
             }
-=======
+        }
+
         public ObservableCollection<Usuario> listaUsuarios()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
@@ -53,8 +53,6 @@ namespace ClasesBase.DAO.Repositorio
 
                 return oc;
             }
-
->>>>>>> 252e6bc756125269d11fdb5c1d5319463044575c
         }
     }
 }
