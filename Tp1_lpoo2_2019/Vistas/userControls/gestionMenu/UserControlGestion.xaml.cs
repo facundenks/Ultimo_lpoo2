@@ -37,5 +37,12 @@ namespace Vistas.userControls.gestionMenu
             userControls.userControlABM.userControlABMCiudad ciudades = new userControls.userControlABM.userControlABMCiudad();
             GridAdministracion.Children.Add(ciudades);
         }
+
+        private void GridUsuario_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridAdministracion.Children.Clear();
+            userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario();
+            GridAdministracion.Children.Add(usuarios);
+        }
     }
 }

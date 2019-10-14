@@ -81,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TrabajarCliente.cs" />
     <Compile Include="TrabajarClienteValidator.cs" />
   </ItemGroup>
   <ItemGroup>
