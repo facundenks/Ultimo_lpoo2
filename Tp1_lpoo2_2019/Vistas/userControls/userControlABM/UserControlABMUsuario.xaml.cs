@@ -62,8 +62,5 @@ namespace Vistas.userControls.userControlABM
                 Vista.MoveCurrentToLast();
             }
         }
-
-
-
     }
 }
