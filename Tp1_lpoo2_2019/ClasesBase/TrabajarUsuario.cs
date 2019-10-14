@@ -7,9 +7,10 @@ using ClasesBase.DAO.Repositorio;
 
 namespace ClasesBase
 {
-    public class TrabajarCliente
+    public class TrabajarUsuario
     {
-        public ObservableCollection<Usuario> TraerUsuarios() {
+        public ObservableCollection<Usuario> TraerUsuarios()
+        {
             UsuarioRepositorio _usuarioRepositorio = new UsuarioRepositorio();
             return _usuarioRepositorio.listaUsuarios();
         }

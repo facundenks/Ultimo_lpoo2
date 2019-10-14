@@ -54,5 +54,14 @@ namespace ClasesBase.DAO.Repositorio
                 return oc;
             }
         }
+
+        public void AgrgarUsuario(Usuario oUsuario)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                context.Usuario.AddObject(oUsuario);
+                context.SaveChanges();
+            }
+        }
     }
 }

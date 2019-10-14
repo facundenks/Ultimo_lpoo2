@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <ObjectDataProvider 
             x:Key="LIST_USER" 
-            ObjectType="{x:Type svc:TrabajarCliente}"
+            ObjectType="{x:Type svc:TrabajarUsuario}"
             MethodName="TraerUsuarios">
         </ObjectDataProvider>
     </UserControl.Resources>
@@ -31,7 +31,14 @@
                         <RowDefinition Height="18*" />
                         <RowDefinition Height="137*" />
                     </Grid.RowDefinitions>
-
+                    <StackPanel Grid.Column="1" Margin="2,6,265,0">
+                        <StackPanel Orientation="Horizontal" Width="252">
+                            <Button Content="Nuevo" Height="23" Name="btnGuardar2" Width="53" Background="Brown"/>
+                            <Button Content="Eliminar" Height="23" Name="btnEliminar" Width="58" Background="Brown"/>
+                            <Button Content="Cancelar" Height="23" Name="btnCancelar" Width="72" Background="Brown"/>
+                            <Button Content="Guardar" Height="23" Name="btnGuardar" Width="67" Background="Brown" Click="btnGuardar_Click" />
+                        </StackPanel>
+                    </StackPanel>
                     <Label Content="ID" Height="28" HorizontalAlignment="Left" Margin="3,1,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
                     <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="2,9,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
                     <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="1,40,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
@@ -41,8 +48,8 @@
                     <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="89,1,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Grid.Row="1" Width="119" Grid.RowSpan="2" />
                     <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,9,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
                     <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,40,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" />
-                    <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,71,0,0" Name="txtCo" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
-                    <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="88,102,0,0" Name="textCodigo" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,71,0,0" Name="txtContraseña" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
+                    <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="88,102,0,0" Name="txtCodigoRol" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                     
                     <StackPanel Grid.Column="1" Margin="322,5,70,0">
                         <StackPanel Orientation="Horizontal" Height="29" Width="133">
