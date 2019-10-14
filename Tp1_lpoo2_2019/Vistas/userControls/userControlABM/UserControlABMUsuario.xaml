@@ -2,43 +2,70 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="668" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ObjectDataProvider 
+            x:Key="LIST_USER" 
+            ObjectType="{x:Type svc:TrabajarCliente}"
+            MethodName="TraerUsuarios">
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    
     <Grid>
-        <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
-            <Label Content="Datos Usuario" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
-        </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD"/>
-        <GroupBox Header="Datos de Usuario" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="582" Foreground="#F45BB0DD">
-            <Grid Background="White">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="28*" />
-                    <ColumnDefinition Width="243*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="33*" />
-                    <RowDefinition Height="18*" />
-                    <RowDefinition Height="137*" />
-                </Grid.RowDefinitions>
-
-                <Label Content="ID" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,10,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <Label Content="Nombre" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,50,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <Label Content="Apellido" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,90,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <Label Content="Contraseña" Grid.RowSpan="3" Height="28" HorizontalAlignment="Left" Margin="0,130,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1"/>
-                <Label Content="Codigo" Height="28" HorizontalAlignment="Left" Margin="0,108,0,0" Name="lblCodigo" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
-                
-                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="87,10,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,50,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
-                <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="87,34,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" />
-                <TextBox x:Uid="FormTextBox" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" Margin="87,130,0,0" Name="txtCo" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
-                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="87,111,0,0" Name="textCodigo" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+        <Canvas Name="canvasUsusarios" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}">
+            <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
+                <Label Content="Datos Usuario" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
             </Grid>
-        </GroupBox>
-        <!---->
+            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,0,-26" />
+            <GroupBox Header="Datos de Usuario" Height="253" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="608" Foreground="#F45BB0DD">
+                <Grid Background="White" Height="221">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="28*" />
+                        <ColumnDefinition Width="243*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*" />
+                        <RowDefinition Height="18*" />
+                        <RowDefinition Height="137*" />
+                    </Grid.RowDefinitions>
+
+                    <Label Content="ID" Height="28" HorizontalAlignment="Left" Margin="3,1,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+                    <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="2,9,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
+                    <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="1,40,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
+                    <Label Content="Contraseña" Height="28" HorizontalAlignment="Left" Margin="0,71,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
+                    <Label Content="Codigo" Height="28" HorizontalAlignment="Left" Margin="0,102,0,0" Name="lblCodigo" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
+
+                    <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="89,1,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Grid.Row="1" Width="119" Grid.RowSpan="2" />
+                    <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,9,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
+                    <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,40,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" />
+                    <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,71,0,0" Name="txtCo" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
+                    <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="88,102,0,0" Name="textCodigo" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    
+                    <StackPanel Grid.Column="1" Margin="322,5,70,0">
+                        <StackPanel Orientation="Horizontal" Height="29" Width="133">
+                            <Button Content="|&lt;" Height="23" Name="btnFirst" Width="32" Background="Brown" Click="btnFirst_Click" />
+                            <Button Content="&lt;" Height="23" Name="btnPrevius" Width="32" Background="Brown" Click="btnPrevius_Click" />
+                            <Button Content="&gt;" Height="23" Name="btnNext" Width="32" Background="Brown" Click="btnNext_Click" />
+                            <Button Content="&gt;|" Height="23" Name="btnLast" Width="32" Background="Brown" Click="btnLast_Click" />
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <TextBox Text="{Binding Usu_id}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,1,0,0" Name="textBox1" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+                    <TextBox Text="{Binding Usu_nombreUsuario}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,9,0,0" Name="textBox2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding Usu_apellidoNombre}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,40,0,0" Name="textBox3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding Usu_contraseña}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,71,0,0" Name="textBox4" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding Usu_codigo}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,102,0,0" Name="textBox5" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    
+                </Grid>
+            </GroupBox>
+            <!---->
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,332,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,332,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
+        </Canvas>
     </Grid>
 </UserControl>

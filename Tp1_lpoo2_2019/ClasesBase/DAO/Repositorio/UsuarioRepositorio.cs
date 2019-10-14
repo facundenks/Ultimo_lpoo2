@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase.DAO.Repositorio
 {
@@ -28,6 +29,21 @@ namespace ClasesBase.DAO.Repositorio
                     return null;
                 }
             }
+        }
+
+        public ObservableCollection<Usuario> listaUsuarios()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Usuario> Usuarios = from q in context.Usuario
+                                              select q;
+                var oc = new ObservableCollection<Usuario>();
+                foreach (var item in Usuarios)
+                    oc.Add(item);
+
+                return oc;
+            }
+
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ClasesBase;
 
 namespace Vistas.userControls.userControlABM
 {
@@ -23,5 +25,45 @@ namespace Vistas.userControls.userControlABM
         {
             InitializeComponent();
         }
+
+        CollectionView Vista;
+        ObservableCollection<Usuario> listaUsuarios;
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USER"];
+            listaUsuarios = odp.Data as ObservableCollection<Usuario>;
+
+            Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsusarios.DataContext);
+        }
+
+        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        {
+            Vista.MoveCurrentToFirst();
+        }
+
+        private void btnLast_Click(object sender, RoutedEventArgs e)
+        {
+            Vista.MoveCurrentToLast();
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            Vista.MoveCurrentToNext();
+            if(Vista.IsCurrentAfterLast){
+                Vista.MoveCurrentToFirst();
+            }
+        }
+
+        private void btnPrevius_Click(object sender, RoutedEventArgs e)
+        {
+            Vista.MoveCurrentToNext();
+            if(Vista.IsCurrentBeforeFirst){
+                Vista.MoveCurrentToLast();
+            }
+        }
+
+
+
     }
 }
