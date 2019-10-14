@@ -96,6 +96,9 @@
     <Compile Include="userControls\userControlABM\UserControlABMUsuario.xaml.cs">
       <DependentUpon>UserControlABMUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userControls\userControlListados\userControlListadoUsuario.xaml.cs">
+      <DependentUpon>userControlListadoUsuario.xaml</DependentUpon>
+    </Compile>
     <Page Include="formLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlABM\UserControlABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlListados\userControlListadoUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,9 +293,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="userControls\userControlListados\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\588a6507d06f6719692a2d15.png" />
   </ItemGroup>

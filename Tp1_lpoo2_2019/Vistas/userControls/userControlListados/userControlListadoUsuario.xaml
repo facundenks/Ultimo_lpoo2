@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Vistas.userControls.userControlListados.userControlListadoUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
+             xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="404" d:DesignWidth="669">
+    
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="lista_usuarios" ObjectType="{x:Type svc:UsuarioRepositorio}" MethodName="getUsersList"/>
+        
+        <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_usuarios}" Filter="eventVistaUsuario_filter">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="usu_nombreUsuario" Direction="Ascending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+    
+    <Grid>
+        <GroupBox Header="Datos de Usuario" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="651" Foreground="#F45BB0DD">
+            <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="80" Header="Codigo" DisplayMemberBinding="{Binding rol_codigo}"/>
+                        <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding usu_nombreUsuario}"/>
+                        <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding usu_apellidoNombre}"/>
+                        <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding usu_contraseña}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>     
+        </GroupBox>
+        <Label Content="Buscar por Nombre de Usuario:" Height="28" HorizontalAlignment="Left" Margin="90,60,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="270,60,0,0" Name="textBox1" VerticalAlignment="Top" Width="175" TextChanged="textBox1_TextChanged" />
+   </Grid>
+
+</UserControl>

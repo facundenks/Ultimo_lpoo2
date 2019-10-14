@@ -63,6 +63,13 @@ namespace Vistas.userControls.userControlABM
             }
         }
 
+        private void btnListarUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            GridPrincipalUsuario.Children.Clear();
+            userControls.userControlListados.userControlListadoUsuario usuarios = new userControlListados.userControlListadoUsuario();
+            GridPrincipalUsuario.Children.Add(usuarios);
+        }
+
 
 
     }

@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using ClasesBase;
+
+namespace Vistas.userControls.userControlListados
+{
+    /// <summary>
+    /// Interaction logic for userControlListadoUsuario.xaml
+    /// </summary>
+    public partial class userControlListadoUsuario : UserControl
+    {
+        private CollectionViewSource vistaColeccionFiltrada;//vista de coleccion filtrada
+
+        public userControlListadoUsuario()
+        {
+            InitializeComponent();
+            //Se accede al Recurso CollectionViewSource
+            vistaColeccionFiltrada = Resources["Vista_User"] as CollectionViewSource;
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (vistaColeccionFiltrada != null)
+            {
+                //Se invoca al metodo eventVistaUser a medida que se escriba en el textBox
+                vistaColeccionFiltrada.Filter += eventVistaUsuario_filter;
+            }
+        }
+
+        private void eventVistaUsuario_filter(object sender, FilterEventArgs e)
+        {
+            Usuario usuario = e.Item as Usuario;
+
+            try
+            {
+                if (usuario.usu_nombreUsuario.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    e.Accepted = true;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error");
+            }
+        }
+
+    }
+}

@@ -5,7 +5,7 @@
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="668" Loaded="UserControl_Loaded">
+             d:DesignHeight="404" d:DesignWidth="669" Loaded="UserControl_Loaded" Height="454" Width="636">
     <UserControl.Resources>
         <ObjectDataProvider 
             x:Key="LIST_USER" 
@@ -66,6 +66,7 @@
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,332,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Listar Usuarios" HorizontalAlignment="Left" Margin="225,400,0,0" Name="btnListarUsuarios" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Click="btnListarUsuarios_Click"/>
         </Canvas>
     </Grid>
 </UserControl>
