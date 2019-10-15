@@ -39,16 +39,40 @@ namespace Vistas.userControls.userControlABM
             listaUsuarios = odp.Data as ObservableCollection<Usuario>;
 
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsuarios.DataContext);
+            codigoRol();
+        }
+
+        private void codigoRol() {
+            if (labelCodigo.Content.ToString().Equals("1"))
+            {
+                textBox5.Text = "Administrador";
+            }
+            else
+            {
+                textBox5.Text = "Operador";
+            }
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToFirst();
+            codigoRol();
         }
 
         private void btnLast_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToLast();
+            codigoRol();
+        }
+
+        private void btnPrevius_Click(object sender, RoutedEventArgs e)
+        {
+            Vista.MoveCurrentToPrevious();
+            if (Vista.IsCurrentBeforeFirst)
+            {
+                Vista.MoveCurrentToLast();
+            }
+            codigoRol();
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -57,14 +81,7 @@ namespace Vistas.userControls.userControlABM
             if(Vista.IsCurrentAfterLast){
                 Vista.MoveCurrentToFirst();
             }
-        }
-
-        private void btnPrevius_Click(object sender, RoutedEventArgs e)
-        {
-            Vista.MoveCurrentToNext();
-            if(Vista.IsCurrentBeforeFirst){
-                Vista.MoveCurrentToLast();
-            }
+            codigoRol();
         }
 
         private void btnListarUsuarios_Click(object sender, RoutedEventArgs e)
@@ -78,15 +95,36 @@ namespace Vistas.userControls.userControlABM
         {
             Usuario oUsuario = new Usuario();
             oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
-            oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre);
-            oUsuario.usu_contraseña = Convert.ToString(txtContraseña);
-            oUsuario.rol_codigo = Convert.ToInt32(txtCodigoRol.Text);
+            oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
+            oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
+            int codigoRol = 0;
+            if (cmbRol.SelectedValue.ToString() == "Administrador")
+            {
+                codigoRol = 1;
+            }
+            else {
+                codigoRol = 2;
+            }
+            oUsuario.rol_codigo = codigoRol;
 
             _usuarioRepositorio.AgrgarUsuario(oUsuario);
+
+            listaUsuarios.Add(oUsuario);
 
             MessageBox.Show("Usuario agregado correctamente");
             Vista.MoveCurrentToLast();
 
+        }
+
+        private void habilitar_Alta() { 
+            
+        }
+
+        private void deshabilitar_text() {
+            txtID.IsEnabled = false;
+            txtNombre.IsEnabled = false;
+            txtApellido.IsEnabled = false;
+            txtContraseña.IsEnabled = false;
 
         }
 
