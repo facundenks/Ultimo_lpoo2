@@ -20,8 +20,8 @@
                 <Label Content="Datos Usuario" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
             </Grid>
             <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,0,-26" />
-            <GroupBox Header="Datos de Usuario" Height="253" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="608" Foreground="#F45BB0DD">
-                <Grid Background="White" Height="221">
+            <GroupBox Header="Datos de Usuario" Height="278" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="608" Foreground="#F45BB0DD">
+                <Grid Background="White" Height="247">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="28*" />
                         <ColumnDefinition Width="243*" />
@@ -33,7 +33,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="1" Margin="2,6,265,0">
                         <StackPanel Orientation="Horizontal" Width="252">
-                            <Button Content="Nuevo" Height="23" Name="btnGuardar2" Width="53" Background="Brown"/>
+                            <Button Content="Nuevo" Height="23" Name="btnNuevo" Width="53" Background="Brown" Click="btnNuevo_Click" />
                             <Button Content="Eliminar" Height="23" Name="btnEliminar" Width="58" Background="Brown"/>
                             <Button Content="Cancelar" Height="23" Name="btnCancelar" Width="72" Background="Brown"/>
                             <Button Content="Guardar" Height="23" Name="btnGuardar" Width="67" Background="Brown" Click="btnGuardar_Click" />
@@ -46,7 +46,7 @@
                     <Label Content="Contraseña" Height="28" HorizontalAlignment="Left" Margin="0,71,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
                     <Label Content="Rol" Height="28" HorizontalAlignment="Left" Margin="0,102,0,0" Name="lblCodigo" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="2" />
 
-                    <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="88,0,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Grid.Row="1" Width="120" Grid.RowSpan="2" />
+                    <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="88,0,0,0" Name="txtID" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" IsEnabled="False" Grid.Row="1" Width="120" Grid.RowSpan="2" />
                     <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,9,0,0" Name="txtNombre" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
                     <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,40,0,0" Name="txtApellido" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" />
                     <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="88,71,0,0" Name="txtContraseña" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" />
@@ -60,24 +60,21 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBox Text="{Binding usu_id}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,1,0,0" Name="textBox1" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
-                    <TextBox Text="{Binding usu_nombreUsuario}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,9,0,0" Name="textBox2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox Text="{Binding usu_apellidoNombre}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,40,0,0" Name="textBox3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox Text="{Binding usu_contraseña}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="329,71,0,0" Name="textBox4" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                    <TextBox  HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,102,0,0" Name="textBox5" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_id}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,1,0,0" Name="txtId" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" />
+                    <TextBox Text="{Binding usu_nombreUsuario}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,9,0,0" Name="txtUsNom" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_apellidoNombre}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,40,0,0" Name="txtApyNom" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Text="{Binding usu_contraseña}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,71,0,0" Name="txtPass" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                    <TextBox  HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="329,102,0,0" Name="txtRolDes" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                     <ComboBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="88,102,0,0" Name="cmbRol" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem>Administrador</ComboBoxItem>
                         <ComboBoxItem>Operador</ComboBoxItem>
                     </ComboBox>
                     <Label Visibility="Hidden" Content="{Binding rol_codigo}" Grid.Column="1" Foreground="Black" FontWeight="Bold" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="309,102,0,0" Name="labelCodigo" VerticalAlignment="Top" />
+                    <Button Background="#FFD73C61" Content="Actualizar Item" Cursor="Hand" Height="24" Name="btnActualizar" Style="{StaticResource btn_plantilla_aceptar}" Width="167" Grid.Column="1" Margin="310,136,58,20" Grid.Row="2" Click="btnActualizar_Click" />
                 </Grid>
             </GroupBox>
-            <!---->
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="118,332,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar" HorizontalAlignment="Left" Margin="317,332,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Left" Margin="317,365,0,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Listar Usuarios" HorizontalAlignment="Left" Margin="225,400,0,0" Name="btnListarUsuarios" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Click="btnListarUsuarios_Click"/>
+
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Listar Usuarios" HorizontalAlignment="Left" Margin="225,400,0,0" Name="btnListarUsuarios" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Click="btnListarUsuarios_Click" Canvas.Left="1" Canvas.Top="-37"/>
         </Canvas>
     </Grid>
 </UserControl>

@@ -40,16 +40,19 @@ namespace Vistas.userControls.userControlABM
 
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsuarios.DataContext);
             codigoRol();
+            deshabilitar_text();
+            btnCancelar.IsEnabled = false;
+            btnGuardar.IsEnabled = false;
         }
 
         private void codigoRol() {
             if (labelCodigo.Content.ToString().Equals("1"))
             {
-                textBox5.Text = "Administrador";
+                txtRolDes.Text = "Administrador";
             }
             else
             {
-                textBox5.Text = "Operador";
+                txtRolDes.Text = "Operador";
             }
         }
 
@@ -116,17 +119,40 @@ namespace Vistas.userControls.userControlABM
 
         }
 
-        private void habilitar_Alta() { 
-            
+        private void habilitar_Alta() {
+           
+            txtNombre.IsEnabled = true;
+            txtApellido.IsEnabled = true;
+            txtContraseña.IsEnabled = true;
+            cmbRol.IsEnabled = true;
         }
 
         private void deshabilitar_text() {
-            txtID.IsEnabled = false;
+            
             txtNombre.IsEnabled = false;
             txtApellido.IsEnabled = false;
             txtContraseña.IsEnabled = false;
-
+            cmbRol.IsEnabled = false;
         }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            habilitar_Alta();
+            txtID.Text = txtId.Text;
+            txtNombre.Text = txtUsNom.Text;
+            txtApellido.Text = txtApyNom.Text;
+            txtContraseña.Text = txtPass.Text;
+            cmbRol.SelectedValue = txtRolDes.Text;
+        }
+
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+            habilitar_Alta();
+            btnCancelar.IsEnabled = true;
+            btnGuardar.IsEnabled = true;
+            btnEliminar.IsEnabled = false;
+        }
+
 
     }
 }
