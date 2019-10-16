@@ -24,7 +24,7 @@
             <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="80" Header="Codigo" DisplayMemberBinding="{Binding rol_codigo}"/>
+                        <GridViewColumn Width="80" Header="Rol" DisplayMemberBinding="{Binding rol_codigo}"/>
                         <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding usu_nombreUsuario}"/>
                         <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding usu_apellidoNombre}"/>
                         <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding usu_contraseña}"/>

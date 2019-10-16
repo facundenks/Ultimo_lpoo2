@@ -41,6 +41,7 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+
         public ObservableCollection<Usuario> listaUsuarios()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
@@ -87,9 +88,8 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
-        public bool nombreUsusarioExiste(Usuario oUsuario)
+        public bool nombreUsusarioExiste(String name)
         {
-            String name = oUsuario.usu_nombreUsuario;
             using (BDpasajesEntities db = new BDpasajesEntities())
             {
                 IQueryable<Usuario> Usuario = from q in db.Usuario

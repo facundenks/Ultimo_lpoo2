@@ -105,54 +105,58 @@ namespace Vistas.userControls.userControlABM
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text != "" && txtApellido.Text != "" && txtContraseña.Text != "" && cmbRol.SelectedIndex != 1)
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtContraseña.Text != "" && cmbRol.SelectedIndex != -1)
             {
-                Usuario oUsuario = new Usuario();
-                oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
-                oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
-                oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
+                if(!_usuarioRepositorio.nombreUsusarioExiste(txtNombre.Text)){
+                    Usuario oUsuario = new Usuario();
+                    oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
+                    oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
+                    oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
 
-                int codigoRol = cmbRol.SelectedIndex + 1;
+                    int codigoRol = cmbRol.SelectedIndex + 1;
 
-                oUsuario.rol_codigo = codigoRol;
+                    oUsuario.rol_codigo = codigoRol;
 
 
-                if (txtID.Text == "")
-                {
-                    _usuarioRepositorio.AgrgarUsuario(oUsuario);
+                    if (txtID.Text == "")
+                    {
+                        _usuarioRepositorio.AgrgarUsuario(oUsuario);
 
-                    listaUsuarios.Add(oUsuario);
+                        listaUsuarios.Add(oUsuario);
 
-                    MessageBox.Show("Usuario agregado correctamente");
+                        MessageBox.Show("Usuario agregado correctamente");
 
-                    Vista.MoveCurrentToLast();
+                        Vista.MoveCurrentToLast();
 
-                    codigoRolMet();
+                        codigoRolMet();
+                    }
+                    else
+                    {
+                        oUsuario.usu_id = Convert.ToInt32(txtID.Text);
+
+                        _usuarioRepositorio.ModificarUsuario(oUsuario);
+                        int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
+                        listaUsuarios[index] = oUsuario;
+                        codigoRolMet();
+
+                        MessageBox.Show("Usuario modificado correctamente");
+                        Vista.MoveCurrentToLast();
+                        Vista.MoveCurrentToPosition(index);
+
+                    }
+
+                    btnGuardar.IsEnabled = false;
+                    btnCancelar.IsEnabled = false;
+                    btnEliminar.IsEnabled = false;
+                    btnNuevo.IsEnabled = true;
+                    btnSeleccionar.IsEnabled = true;
+
+
+                    limpiar();
+                    deshabilitar_text();
+                }else{
+                    MessageBox.Show("Nombre de usuario no diponible", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else
-                {
-                    oUsuario.usu_id = Convert.ToInt32(txtID.Text);
-
-                    _usuarioRepositorio.ModificarUsuario(oUsuario);
-                    int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
-                    listaUsuarios[index] = oUsuario;
-                    codigoRolMet();
-
-                    MessageBox.Show("Usuario modificado correctamente");
-                    Vista.MoveCurrentToLast();
-                    Vista.MoveCurrentToPosition(index);
-
-                }
-
-                btnGuardar.IsEnabled = false;
-                btnCancelar.IsEnabled = false;
-                btnEliminar.IsEnabled = false;
-                btnNuevo.IsEnabled = true;
-                btnSeleccionar.IsEnabled = true;
-
-
-                limpiar();
-                deshabilitar_text();
             }
             else {
                 MessageBox.Show("Debe completar todos los campos", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -216,6 +220,17 @@ namespace Vistas.userControls.userControlABM
             btnCancelar.IsEnabled = false;
             btnEliminar.IsEnabled = false;
             btnGuardar.IsEnabled = false;
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNombre.Text != userName)
+            {
+
+            }
+            else {
+                MessageBox.Show("No puede eliminar usuario logeado", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
