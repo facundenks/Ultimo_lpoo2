@@ -88,7 +88,7 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
-        public bool nombreUsusarioExiste(String name)
+        public bool nombreUsuarioExiste(String name)
         {
             using (BDpasajesEntities db = new BDpasajesEntities())
             {
@@ -105,6 +105,37 @@ namespace ClasesBase.DAO.Repositorio
                 {
                     return false;
                 }
+            }
+        }
+
+        public bool ultimoOperador() {
+            using (BDpasajesEntities db = new BDpasajesEntities())
+            {
+                int id = 2;
+                IQueryable<Usuario> Usuario = from q in db.Usuario
+                                              where q.usu_id == id
+                                              select q;
+                List<Usuario> lista = Usuario.ToList();
+                if (lista.Count == 1)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public void eliminarUsuario(int id){
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Usuario UsuarioAc = (from q in context.Usuario
+                                     where q.usu_id == id
+                                     select q).First();
+                context.DeleteObject(UsuarioAc);
+                context.SaveChanges();
             }
         }
     }

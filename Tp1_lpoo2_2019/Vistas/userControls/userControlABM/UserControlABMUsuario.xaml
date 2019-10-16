@@ -34,7 +34,7 @@
                     <StackPanel Grid.Column="1" Margin="2,6,265,0">
                         <StackPanel Orientation="Horizontal" Width="252">
                             <Button Content="Nuevo" Height="23" Name="btnNuevo" Width="53" Background="Brown" Click="btnNuevo_Click" />
-                            <Button Content="Eliminar" Height="23" Name="btnEliminar" Width="58" Background="Brown"/>
+                            <Button Content="Eliminar" Height="23" Name="btnEliminar" Width="58" Background="Brown" Click="btnEliminar_Click"/>
                             <Button Content="Cancelar" Height="23" Name="btnCancelar" Width="72" Background="Brown" Click="btnCancelar_Click" />
                             <Button Content="Guardar" Height="23" Name="btnGuardar" Width="67" Background="Brown" Click="btnGuardar_Click" />
                         </StackPanel>

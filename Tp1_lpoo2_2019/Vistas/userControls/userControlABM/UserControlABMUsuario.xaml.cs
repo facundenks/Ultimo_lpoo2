@@ -107,7 +107,7 @@ namespace Vistas.userControls.userControlABM
         {
             if (txtNombre.Text != "" && txtApellido.Text != "" && txtContraseña.Text != "" && cmbRol.SelectedIndex != -1)
             {
-                if(!_usuarioRepositorio.nombreUsusarioExiste(txtNombre.Text)){
+                if(!_usuarioRepositorio.nombreUsuarioExiste(txtNombre.Text)){
                     Usuario oUsuario = new Usuario();
                     oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
                     oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
@@ -226,7 +226,18 @@ namespace Vistas.userControls.userControlABM
         {
             if (txtNombre.Text != userName)
             {
-
+                int index = _usuarioRepositorio.ObtenerPosicion(Convert.ToInt32(txtID.Text));
+                _usuarioRepositorio.eliminarUsuario(Convert.ToInt32(txtID.Text));
+                listaUsuarios.RemoveAt(index);
+                MessageBox.Show("Ususario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                Vista.MoveCurrentToFirst();
+                limpiar();
+                deshabilitar_text();
+                btnSeleccionar.IsEnabled = true;
+                btnNuevo.IsEnabled = true;
+                btnCancelar.IsEnabled = false;
+                btnEliminar.IsEnabled = false;
+                btnGuardar.IsEnabled = false;
             }
             else {
                 MessageBox.Show("No puede eliminar usuario logeado", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
