@@ -22,6 +22,14 @@ namespace Vistas.userControls.userControlABM
     /// </summary>
     public partial class UserControlABMUsuario : UserControl
     {
+        private String userName;
+
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+
         UsuarioRepositorio _usuarioRepositorio = new UsuarioRepositorio();
         
         public UserControlABMUsuario()
@@ -39,13 +47,14 @@ namespace Vistas.userControls.userControlABM
             listaUsuarios = odp.Data as ObservableCollection<Usuario>;
 
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(canvasUsuarios.DataContext);
-            codigoRol();
+            codigoRolMet();
             deshabilitar_text();
             btnCancelar.IsEnabled = false;
             btnGuardar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
         }
 
-        private void codigoRol() {
+        private void codigoRolMet() {
             if (labelCodigo.Content.ToString().Equals("1"))
             {
                 txtRolDes.Text = "Administrador";
@@ -59,13 +68,13 @@ namespace Vistas.userControls.userControlABM
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToFirst();
-            codigoRol();
+            codigoRolMet();
         }
 
         private void btnLast_Click(object sender, RoutedEventArgs e)
         {
             Vista.MoveCurrentToLast();
-            codigoRol();
+            codigoRolMet();
         }
 
         private void btnPrevius_Click(object sender, RoutedEventArgs e)
@@ -75,7 +84,7 @@ namespace Vistas.userControls.userControlABM
             {
                 Vista.MoveCurrentToLast();
             }
-            codigoRol();
+            codigoRolMet();
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -84,7 +93,7 @@ namespace Vistas.userControls.userControlABM
             if(Vista.IsCurrentAfterLast){
                 Vista.MoveCurrentToFirst();
             }
-            codigoRol();
+            codigoRolMet();
         }
 
         private void btnListarUsuarios_Click(object sender, RoutedEventArgs e)
@@ -96,27 +105,66 @@ namespace Vistas.userControls.userControlABM
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Usuario oUsuario = new Usuario();
-            oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
-            oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
-            oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
-            int codigoRol = 0;
-            if (cmbRol.SelectedValue.ToString() == "Administrador")
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtContraseña.Text != "" && cmbRol.SelectedIndex != 1)
             {
-                codigoRol = 1;
+                Usuario oUsuario = new Usuario();
+                oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
+                oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
+                oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
+
+                int codigoRol = cmbRol.SelectedIndex + 1;
+
+                oUsuario.rol_codigo = codigoRol;
+
+
+                if (txtID.Text == "")
+                {
+                    _usuarioRepositorio.AgrgarUsuario(oUsuario);
+
+                    listaUsuarios.Add(oUsuario);
+
+                    MessageBox.Show("Usuario agregado correctamente");
+
+                    Vista.MoveCurrentToLast();
+
+                    codigoRolMet();
+                }
+                else
+                {
+                    oUsuario.usu_id = Convert.ToInt32(txtID.Text);
+
+                    _usuarioRepositorio.ModificarUsuario(oUsuario);
+                    int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
+                    listaUsuarios[index] = oUsuario;
+                    codigoRolMet();
+
+                    MessageBox.Show("Usuario modificado correctamente");
+                    Vista.MoveCurrentToLast();
+                    Vista.MoveCurrentToPosition(index);
+
+                }
+
+                btnGuardar.IsEnabled = false;
+                btnCancelar.IsEnabled = false;
+                btnEliminar.IsEnabled = false;
+                btnNuevo.IsEnabled = true;
+                btnSeleccionar.IsEnabled = true;
+
+
+                limpiar();
+                deshabilitar_text();
             }
             else {
-                codigoRol = 2;
+                MessageBox.Show("Debe completar todos los campos", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            oUsuario.rol_codigo = codigoRol;
+        }
 
-            _usuarioRepositorio.AgrgarUsuario(oUsuario);
-
-            listaUsuarios.Add(oUsuario);
-
-            MessageBox.Show("Usuario agregado correctamente");
-            Vista.MoveCurrentToLast();
-
+        private void limpiar() {
+            txtID.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtContraseña.Clear();
+            cmbRol.SelectedIndex = -1;
         }
 
         private void habilitar_Alta() {
@@ -138,21 +186,36 @@ namespace Vistas.userControls.userControlABM
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             habilitar_Alta();
+            btnGuardar.IsEnabled = true;
+            btnCancelar.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
+            btnNuevo.IsEnabled = false;
+            btnSeleccionar.IsEnabled = false;
             txtID.Text = txtId.Text;
             txtNombre.Text = txtUsNom.Text;
             txtApellido.Text = txtApyNom.Text;
             txtContraseña.Text = txtPass.Text;
-            cmbRol.SelectedValue = txtRolDes.Text;
+            cmbRol.SelectedItem = cmbRol.Items.GetItemAt(Convert.ToInt32(labelCodigo.Content.ToString())-1);
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
             habilitar_Alta();
+            btnSeleccionar.IsEnabled = false;
             btnCancelar.IsEnabled = true;
             btnGuardar.IsEnabled = true;
             btnEliminar.IsEnabled = false;
         }
 
-
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            limpiar();
+            deshabilitar_text();
+            btnSeleccionar.IsEnabled = true;
+            btnNuevo.IsEnabled = true;
+            btnCancelar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnGuardar.IsEnabled = false;
+        }
     }
 }

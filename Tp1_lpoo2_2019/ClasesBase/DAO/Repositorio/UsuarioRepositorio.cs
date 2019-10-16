@@ -63,5 +63,49 @@ namespace ClasesBase.DAO.Repositorio
                 context.SaveChanges();
             }
         }
+
+        public void ModificarUsuario(Usuario oUsuario) { 
+            using(BDpasajesEntities context = new BDpasajesEntities()){
+                Usuario UsuarioAc = context.Usuario.SingleOrDefault(p => p.usu_id == oUsuario.usu_id);
+                UsuarioAc.usu_apellidoNombre = oUsuario.usu_apellidoNombre;
+                UsuarioAc.usu_nombreUsuario = oUsuario.usu_nombreUsuario;
+                UsuarioAc.usu_contraseña = oUsuario.usu_contraseña;
+                UsuarioAc.rol_codigo = oUsuario.rol_codigo;
+                
+                context.SaveChanges();
+            }
+        }
+
+        public int ObtenerPosicion(int id) {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Usuario> Users = from u in context.Usuario
+                                            select u;
+                List<Usuario> lista = Users.ToList();
+                int indice = lista.FindIndex(x => x.usu_id == id);
+                return indice;
+            }
+        }
+
+        public bool nombreUsusarioExiste(Usuario oUsuario)
+        {
+            String name = oUsuario.usu_nombreUsuario;
+            using (BDpasajesEntities db = new BDpasajesEntities())
+            {
+                IQueryable<Usuario> Usuario = from q in db.Usuario
+                                              where q.usu_nombreUsuario == name
+                                              select q;
+                List<Usuario> lista = Usuario.ToList();
+                if (lista.Count != 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

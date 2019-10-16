@@ -35,7 +35,7 @@
                         <StackPanel Orientation="Horizontal" Width="252">
                             <Button Content="Nuevo" Height="23" Name="btnNuevo" Width="53" Background="Brown" Click="btnNuevo_Click" />
                             <Button Content="Eliminar" Height="23" Name="btnEliminar" Width="58" Background="Brown"/>
-                            <Button Content="Cancelar" Height="23" Name="btnCancelar" Width="72" Background="Brown"/>
+                            <Button Content="Cancelar" Height="23" Name="btnCancelar" Width="72" Background="Brown" Click="btnCancelar_Click" />
                             <Button Content="Guardar" Height="23" Name="btnGuardar" Width="67" Background="Brown" Click="btnGuardar_Click" />
                         </StackPanel>
                     </StackPanel>
@@ -70,7 +70,7 @@
                         <ComboBoxItem>Operador</ComboBoxItem>
                     </ComboBox>
                     <Label Visibility="Hidden" Content="{Binding rol_codigo}" Grid.Column="1" Foreground="Black" FontWeight="Bold" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="309,102,0,0" Name="labelCodigo" VerticalAlignment="Top" />
-                    <Button Background="#FFD73C61" Content="Actualizar Item" Cursor="Hand" Height="24" Name="btnActualizar" Style="{StaticResource btn_plantilla_aceptar}" Width="167" Grid.Column="1" Margin="310,136,58,20" Grid.Row="2" Click="btnActualizar_Click" />
+                    <Button Background="#FFD73C61" Content="Seleccionar Item" Cursor="Hand" Height="24" Name="btnSeleccionar" Style="{StaticResource btn_plantilla_aceptar}" Width="167" Grid.Column="1" Margin="310,136,58,20" Grid.Row="2" Click="btnActualizar_Click" />
                 </Grid>
             </GroupBox>
 
