@@ -109,13 +109,13 @@ namespace Vistas.userControls.userControlABM
             {
                 
                     Usuario oUsuario = new Usuario();
-                    oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
-                    oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
-                    oUsuario.usu_contraseña = Convert.ToString(txtContraseña.Text);
+                    oUsuario.Usu_apellidoNombre = Convert.ToString(txtApellido.Text);
+                    oUsuario.Usu_nombreUsuario = Convert.ToString(txtNombre.Text);
+                    oUsuario.Usu_contraseña = Convert.ToString(txtContraseña.Text);
 
                     int codigoRol = cmbRol.SelectedIndex + 1;
 
-                    oUsuario.rol_codigo = codigoRol;
+                    oUsuario.Rol_codigo = codigoRol;
 
 
                     if (txtID.Text == "")
@@ -125,8 +125,7 @@ namespace Vistas.userControls.userControlABM
                             if (MessageBox.Show("Agregar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                             {
                                 _usuarioRepositorio.AgrgarUsuario(oUsuario);
-                                listaUsuarios.Add(oUsuario);
-
+                                                                                                                                                                                                                                                                listaUsuarios.Add(oUsuario);
                                 MessageBox.Show("Usuario agregado correctamente");
                                 Vista.MoveCurrentToLast();
                                 codigoRolMet();
@@ -143,7 +142,7 @@ namespace Vistas.userControls.userControlABM
 
                             _usuarioRepositorio.ModificarUsuario(oUsuario);
                             int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
-                            listaUsuarios[index] = oUsuario;
+                                                                                                                                                                                                                                                                listaUsuarios[index] = oUsuario;
                             codigoRolMet();
 
                             MessageBox.Show("Usuario modificado correctamente");
@@ -235,7 +234,7 @@ namespace Vistas.userControls.userControlABM
                 if (MessageBox.Show("Eliminar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question)== MessageBoxResult.Yes)
                 {
                     _usuarioRepositorio.eliminarUsuario(Convert.ToInt32(txtID.Text));
-                    listaUsuarios.RemoveAt(index);
+                                                                                                                                                                                                                                                                listaUsuarios.RemoveAt(index);
                     MessageBox.Show("Ususario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 }    
                 despuesEliminacion();

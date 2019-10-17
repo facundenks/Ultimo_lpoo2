@@ -14,13 +14,13 @@ namespace ClasesBase
         {
             get { return usu_id; }
             set { usu_id = value;
-            Notificador("usu_id");
+            Notificador("Usu_id");
             }
         }
 
         public String Usu_nombreUsuario
         {
-            get { return usu_nombreUsuario; }
+            get { return Usu_nombreUsuario; }
             set { usu_nombreUsuario = value;
             Notificador(usu_nombreUsuario);
             }
@@ -30,7 +30,7 @@ namespace ClasesBase
         {
             get { return usu_apellidoNombre; }
             set { usu_apellidoNombre = value;
-            Notificador(usu_apellidoNombre);
+            Notificador(Usu_apellidoNombre);
             }
         }
 
@@ -38,13 +38,14 @@ namespace ClasesBase
         {
             get { return usu_contraseña; }
             set { usu_contraseña = value;
-            Notificador(usu_contraseña);
+            Notificador(Usu_contraseña);
             }
         }
 
         public int Rol_codigo
         {
             set { rol_codigo = value;
+            Notificador("Rol_codigo");
             }
         }
 
