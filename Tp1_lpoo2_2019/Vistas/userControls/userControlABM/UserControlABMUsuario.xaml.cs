@@ -107,7 +107,7 @@ namespace Vistas.userControls.userControlABM
         {
             if (txtNombre.Text != "" && txtApellido.Text != "" && txtContraseña.Text != "" && cmbRol.SelectedIndex != -1)
             {
-                if(!_usuarioRepositorio.nombreUsuarioExiste(txtNombre.Text)){
+                
                     Usuario oUsuario = new Usuario();
                     oUsuario.usu_apellidoNombre = Convert.ToString(txtApellido.Text);
                     oUsuario.usu_nombreUsuario = Convert.ToString(txtNombre.Text);
@@ -120,29 +120,36 @@ namespace Vistas.userControls.userControlABM
 
                     if (txtID.Text == "")
                     {
-                        _usuarioRepositorio.AgrgarUsuario(oUsuario);
+                        if (!_usuarioRepositorio.nombreUsuarioExiste(txtNombre.Text))
+                        {
+                            if (MessageBox.Show("Agregar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                            {
+                                _usuarioRepositorio.AgrgarUsuario(oUsuario);
+                                listaUsuarios.Add(oUsuario);
 
-                        listaUsuarios.Add(oUsuario);
-
-                        MessageBox.Show("Usuario agregado correctamente");
-
-                        Vista.MoveCurrentToLast();
-
-                        codigoRolMet();
+                                MessageBox.Show("Usuario agregado correctamente");
+                                Vista.MoveCurrentToLast();
+                                codigoRolMet();
+                            }
+                        }else{
+                            MessageBox.Show("Nombre de usuario no diponible", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
                     }
                     else
                     {
-                        oUsuario.usu_id = Convert.ToInt32(txtID.Text);
+                        if (MessageBox.Show("Modificar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            oUsuario.usu_id = Convert.ToInt32(txtID.Text);
 
-                        _usuarioRepositorio.ModificarUsuario(oUsuario);
-                        int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
-                        listaUsuarios[index] = oUsuario;
-                        codigoRolMet();
+                            _usuarioRepositorio.ModificarUsuario(oUsuario);
+                            int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
+                            listaUsuarios[index] = oUsuario;
+                            codigoRolMet();
 
-                        MessageBox.Show("Usuario modificado correctamente");
-                        Vista.MoveCurrentToLast();
-                        Vista.MoveCurrentToPosition(index);
-
+                            MessageBox.Show("Usuario modificado correctamente");
+                            Vista.MoveCurrentToLast();
+                            Vista.MoveCurrentToPosition(index);
+                        }
                     }
 
                     btnGuardar.IsEnabled = false;
@@ -154,9 +161,6 @@ namespace Vistas.userControls.userControlABM
 
                     limpiar();
                     deshabilitar_text();
-                }else{
-                    MessageBox.Show("Nombre de usuario no diponible", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
             }
             else {
                 MessageBox.Show("Debe completar todos los campos", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -227,21 +231,29 @@ namespace Vistas.userControls.userControlABM
             if (txtNombre.Text != userName)
             {
                 int index = _usuarioRepositorio.ObtenerPosicion(Convert.ToInt32(txtID.Text));
-                _usuarioRepositorio.eliminarUsuario(Convert.ToInt32(txtID.Text));
-                listaUsuarios.RemoveAt(index);
-                MessageBox.Show("Ususario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
-                Vista.MoveCurrentToFirst();
-                limpiar();
-                deshabilitar_text();
-                btnSeleccionar.IsEnabled = true;
-                btnNuevo.IsEnabled = true;
-                btnCancelar.IsEnabled = false;
-                btnEliminar.IsEnabled = false;
-                btnGuardar.IsEnabled = false;
+                
+                if (MessageBox.Show("Eliminar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question)== MessageBoxResult.Yes)
+                {
+                    _usuarioRepositorio.eliminarUsuario(Convert.ToInt32(txtID.Text));
+                    listaUsuarios.RemoveAt(index);
+                    MessageBox.Show("Ususario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                }    
+                despuesEliminacion();
             }
             else {
                 MessageBox.Show("No puede eliminar usuario logeado", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void despuesEliminacion() {
+            Vista.MoveCurrentToFirst();
+            limpiar();
+            deshabilitar_text();
+            btnSeleccionar.IsEnabled = true;
+            btnNuevo.IsEnabled = true;
+            btnCancelar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+            btnGuardar.IsEnabled = false;
         }
     }
 }
