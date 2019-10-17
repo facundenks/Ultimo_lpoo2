@@ -8,8 +8,8 @@
              d:DesignHeight="434" d:DesignWidth="830" Width="828">
 
     <UserControl.Resources>
-        <!--<ObjectDataProvider x:Key="lista_Autobuses" ObjectType="{x:Type svc:AutobusRepositorio}" MethodName="getAutobus"/>
-    --></UserControl.Resources>
+        <ObjectDataProvider x:Key="lista_Autobuses" ObjectType="{x:Type svc:AutobusRepositorio}" MethodName="getAutobus"/>
+    </UserControl.Resources>
     
     <Grid>
         <Grid.Resources>
