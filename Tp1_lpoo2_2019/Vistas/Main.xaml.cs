@@ -101,6 +101,7 @@ namespace Vistas
         {
             Gridprincipal.Children.Clear();
             userControls.gestionMenu.UserControl1 menuGestion = new userControls.gestionMenu.UserControl1();
+            menuGestion.UserName = usuario.usu_nombreUsuario;
             Gridprincipal.Children.Add(menuGestion);
         }
 
