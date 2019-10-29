@@ -314,7 +314,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Customers1.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\588a6507d06f6719692a2d15.png" />
   </ItemGroup>
