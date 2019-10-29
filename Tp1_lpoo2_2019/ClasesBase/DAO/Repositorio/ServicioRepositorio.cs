@@ -16,14 +16,24 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
-        public Servicio ultimoServicio() {
+        public Servicio buscarServicio(int codigo) {
             using (BDpasajesEntities context = new BDpasajesEntities())
             {
-                var registroMasActualizado = context.Servicio
-                                             .OrderByDescending(x => x.ser_codigo)
-                                             .First();
-                
-                return registroMasActualizado;
+                IQueryable<Servicio> servicioEncontrado = from q in context.Servicio
+                                                          where q.ser_codigo == codigo
+                                                          select q;
+
+                List<Servicio> lista = servicioEncontrado.ToList();
+                if (lista.Count != 0)
+                {
+                    var servicio = lista[0];
+
+                    return servicio;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 

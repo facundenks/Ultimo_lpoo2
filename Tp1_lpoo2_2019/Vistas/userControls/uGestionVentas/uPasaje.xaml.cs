@@ -71,8 +71,6 @@ namespace Vistas.userControls.uGestionVentas
             {
                 foreach (Pasaje item in pasajes)
                 {
-                    Button btn = new Button();
-
                     if (item.pas_asiento == i)
                     {
                         asiento(i);

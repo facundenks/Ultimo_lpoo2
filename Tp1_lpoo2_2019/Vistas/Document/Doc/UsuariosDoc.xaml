@@ -4,7 +4,7 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         
-        Title="UsuariosDoc" Height="569" Width="392" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="UsuariosDoc" Height="574" Width="459" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Window.Resources>
         <!--<ObjectDataProvider

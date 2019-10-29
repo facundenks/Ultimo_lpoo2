@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClasesBase;
+using ClasesBase.DAO.Repositorio;
 
 namespace Vistas.Document.FixedDoc
 {
@@ -18,9 +20,76 @@ namespace Vistas.Document.FixedDoc
     /// </summary>
     public partial class DetallePasaje : Window
     {
+        ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
+        TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
+        AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
+
+        private int codigoServicio;
+
+        public int CodigoServicio
+        {
+            get { return codigoServicio; }
+            set { codigoServicio = value; }
+        }
+
+        private String fechaOperacion;
+
+        public String FechaOperacion
+        {
+            get { return fechaOperacion; }
+            set { fechaOperacion = value; }
+        }
+
+        private String codigoPasaje;
+
+        public String CodigoPasaje
+        {
+            get { return codigoPasaje; }
+            set { codigoPasaje = value; }
+        }
+
+        private Double precio;
+
+        public Double Precio
+        {
+            get { return precio; }
+            set { precio = value; }
+        }
+
+        private int numeroAsiento;
+
+        public int NumeroAsiento
+        {
+            get { return numeroAsiento; }
+            set { numeroAsiento = value; }
+        }
+
         public DetallePasaje()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            Servicio oServicio = _servicioRepositorio.buscarServicio(codigoServicio);
+            Terminal oDestino = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_destino);
+            Terminal oOrigen = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_origen);
+            Autobus oAutobus = _autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo);
+
+
+            txtEmplesa.Text = "Cotaj Norte";
+            txtDireccion.Text = "Avenida El Exodo N°883";
+            txtTelefono.Text = "0388-4281235";
+            txtEmail.Text = "cotaj_norte@gmail.com";
+            txtFechaOperacion.Text = Convert.ToString(fechaOperacion);
+            //txtNumeroPasaje.Text = Convert.ToString(codigoPasaje);
+            txtfechaHoraSalida.Text = Convert.ToString(oServicio.ser_fecha);
+            txtOrigen.Text = oOrigen.ter_nombre;
+            txtDestino.Text = oDestino.ter_nombre;
+            txtTipoServicio.Text = oAutobus.aut_tiposervicio;
+            txtPrecio.Text = Convert.ToString(precio);
+            txtButaca.Text = Convert.ToString(numeroAsiento);
         }
     }
 }

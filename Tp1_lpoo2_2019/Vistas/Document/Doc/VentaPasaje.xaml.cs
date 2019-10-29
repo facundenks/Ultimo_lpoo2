@@ -63,11 +63,21 @@ namespace Vistas.Document.Doc
 
             pasaje.AgrgarPasaje(oPasaje);
             MessageBox.Show("Pasaje agregado");
+            
+
+            Document.FixedDoc.DetallePasaje detalle = new Document.FixedDoc.DetallePasaje();
+            detalle.CodigoServicio = servicioCodigo;
+            detalle.FechaOperacion = txtFecha.Text;
+            detalle.Precio = Convert.ToDouble(txtPrecio.Text);
+            detalle.NumeroAsiento = Convert.ToInt32(txtAsiento.Text);
+            detalle.Show();
+            Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             txtAsiento.Text = Convert.ToString(NumeroAsietnto);
+            txtFecha.Text = Convert.ToString(new DateTime());
         }
     }
 }
