@@ -20,9 +20,9 @@ namespace Vistas.userControls.uGestionVentas
     /// </summary>
     public partial class uPasaje : UserControl
     {
-        private String codigoAutobus;
+        private int codigoAutobus;
 
-        public String CodigoAutobus
+        public int CodigoAutobus
         {
             get { return codigoAutobus; }
             set { codigoAutobus = value; }
@@ -35,17 +35,22 @@ namespace Vistas.userControls.uGestionVentas
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            btn18.Background = Brushes.Red;
+        
         }
 
         private void vender_Click(object sender, RoutedEventArgs e)
         {
             Button bt = (sender as Button);
 
+            MessageBox.Show(""+bt.Content);
 
             if (bt.Background == Brushes.Green)
             {
+                
                 MessageBox.Show("Asiento Disponible, para la reserva de pasaje");
+                Document.Doc.VentaPasaje venta = new Document.Doc.VentaPasaje();
+                venta.CodigoAutobus = codigoAutobus;
+                venta.Show();
             }
             else
             {

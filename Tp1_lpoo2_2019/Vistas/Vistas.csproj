@@ -65,6 +65,9 @@
     <Compile Include="Document\Doc\UsuariosDoc.xaml.cs">
       <DependentUpon>UsuariosDoc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Document\Doc\VentaPasaje.xaml.cs">
+      <DependentUpon>VentaPasaje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Document\FixedDoc\DetallePasaje.xaml.cs">
       <DependentUpon>DetallePasaje.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <DependentUpon>userControlListadoUsuario.xaml</DependentUpon>
     </Compile>
     <Page Include="Document\Doc\UsuariosDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Document\Doc\VentaPasaje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
