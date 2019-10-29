@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDpasajesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="BDpasajesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="BDpasajesModelStoreContainer">
           <EntitySet Name="Autobus" EntityType="BDpasajesModel.Store.Autobus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Ciudad" EntityType="BDpasajesModel.Store.Ciudad" store:Type="Tables" Schema="dbo" />
@@ -87,8 +87,7 @@
           <Property Name="usu_contraseña" Type="varchar" MaxLength="50" />
           <Property Name="rol_codigo" Type="int" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDpasajesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -280,15 +279,15 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Modelo" ZoomLevel="94">
-        <EntityTypeShape EntityType="BDpasajesModel.Autobus" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+      <Diagram Name="Modelo" ZoomLevel="52">
+        <EntityTypeShape EntityType="BDpasajesModel.Autobus" Width="1.5" PointX="0.75" PointY="0.75" Height="1.807985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Ciudad" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Cliente" Width="1.5" PointX="0.75" PointY="3.75" Height="2.0002864583333331" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Pasaje" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Rol" Width="1.5" PointX="4.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Servicio" Width="1.5" PointX="4.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Servicio" Width="1.5" PointX="4.75" PointY="3.75" Height="2.192587890625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Terminal" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Usuario" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Usuario" Width="1.5" PointX="0.75" PointY="6.75" Height="2.0002864583333331" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

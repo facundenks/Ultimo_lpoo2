@@ -19,8 +19,7 @@ namespace ClasesBase.DAO.Repositorio
                 IQueryable<Autobus> Autobus = from q in context.Autobus
                                               select q;
                 return Autobus.ToList();
-            }
-            
+            }   
         }
 
     }

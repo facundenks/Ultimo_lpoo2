@@ -19,6 +19,14 @@ namespace Vistas.userControls.gestionMenu
     /// </summary>
     public partial class UserControl1 : UserControl
     {
+        private String userName;
+
+        public String UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+
         public UserControl1()
         {
             InitializeComponent();
@@ -36,6 +44,14 @@ namespace Vistas.userControls.gestionMenu
             GridAdministracion.Children.Clear();
             userControls.userControlABM.userControlABMCiudad ciudades = new userControls.userControlABM.userControlABMCiudad();
             GridAdministracion.Children.Add(ciudades);
+        }
+
+        private void GridUsuario_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridAdministracion.Children.Clear();
+            userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario();
+            usuarios.UserName = userName;
+            GridAdministracion.Children.Add(usuarios);
         }
     }
 }
