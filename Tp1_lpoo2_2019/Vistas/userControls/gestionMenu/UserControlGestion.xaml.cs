@@ -58,7 +58,7 @@ namespace Vistas.userControls.gestionMenu
         {
             GridAdministracion.Children.Clear();
             //userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario();
-            userControls.userControlListados.userControlListadoUsuario usuarios = new userControlListados.userControlListadoUsuario();
+            userControls.userControlListados.userControlListadoUsuario usuarios = new userControls.userControlListados.userControlListadoUsuario();
             //usuarios.UserName = userName;
             GridAdministracion.Children.Add(usuarios);
         }
