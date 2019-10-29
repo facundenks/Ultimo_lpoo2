@@ -41,7 +41,15 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
-
+        public List<Usuario> getUsersRol()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Usuario> Users = from u in context.Usuario
+                                            select u;
+                return Users.ToList();
+            }
+        }
         public ObservableCollection<Usuario> listaUsuarios()
         {
             using (BDpasajesEntities1 context = new BDpasajesEntities1())
