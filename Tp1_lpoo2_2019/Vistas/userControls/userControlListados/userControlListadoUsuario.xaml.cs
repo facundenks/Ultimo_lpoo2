@@ -70,6 +70,5 @@ namespace Vistas.userControls.userControlListados
             usuDoc.Usuarios = users;
             usuDoc.Show();
         }
-
     }
 }
