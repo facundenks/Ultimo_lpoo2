@@ -7,19 +7,14 @@
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="414" d:DesignWidth="669" Height="405" Background="#FFFDFDFD">
+             d:DesignHeight="414" d:DesignWidth="678" Height="405" Background="#FFFDFDFD" Width="816">
     
     <UserControl.Resources>
-<<<<<<< HEAD
-        <!--ObjectDataProvider x:Key="lista_usuarios" 
-                            ObjectType="{x:Type svc:UsuarioRepositorio}" 
-                            MethodName="getUsersList"/-->
-=======
+        
         <ObjectDataProvider x:Key="lista_usuarios" 
                             ObjectType="{x:Type svc:ClassTrabajarUsuarioString}" 
                             MethodName="UsuarioStringList"/>
-        
->>>>>>> b3a2f2880baaf5bfd7e98b2188738764a9b2275a
+   
         <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_usuarios}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="NombreUsuario1" Direction="Ascending"/>
@@ -28,8 +23,8 @@
         
     </UserControl.Resources>
     
-    <Grid>
-        <GroupBox Header="Datos de Usuario" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="651" Foreground="#F45BB0DD" Background="White">
+    <Grid Width="824">
+        <GroupBox Header="Datos de Usuario" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="806" Foreground="#F45BB0DD" Background="White">
             <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
                 <ListView.View>
                     <GridView>
