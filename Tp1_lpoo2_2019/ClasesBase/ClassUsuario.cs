@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ClasesBase
 {
-    class ClassUsuario
+    public class ClassUsuario
     {
         String UsuarioId;
 

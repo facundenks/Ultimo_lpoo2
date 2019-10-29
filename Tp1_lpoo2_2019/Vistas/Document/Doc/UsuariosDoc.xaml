@@ -30,8 +30,8 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Usuario" DisplayMemberBinding="{Binding Path=usu_nombreUsuario}" Width="140"/>
-                                        <GridViewColumn Header="Contraseña" DisplayMemberBinding="{Binding Path=usu_contraseña}"/>
+                                    <GridViewColumn Header="Usuario" DisplayMemberBinding="{Binding Path=NombreUsuario1}" Width="140"/>
+                                    <GridViewColumn Header="Contraseña" DisplayMemberBinding="{Binding Path=PassUsuario1}"/>
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>

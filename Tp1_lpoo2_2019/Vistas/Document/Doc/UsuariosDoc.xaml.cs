@@ -19,9 +19,9 @@ namespace Vistas.Document.Doc
     /// </summary>
     public partial class UsuariosDoc : Window
     {
-        private List<Usuario> usuarios;
+        private List<ClassUsuario> usuarios;
 
-        public List<Usuario> Usuarios
+        public List<ClassUsuario> Usuarios
         {
             get { return usuarios; }
             set { usuarios = value; }

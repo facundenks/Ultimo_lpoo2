@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
+using ClasesBase.DAO.Repositorio;
 
 namespace ClasesBase
 {
-    class ClassTrabajarUsuarioString
+    public class ClassTrabajarUsuarioString
     {
         public List<ClassUsuario> UsuarioStringList(){
-            DAO.Repositorio.UsuarioRepositorio listUsu = new DAO.Repositorio.UsuarioRepositorio();
+            UsuarioRepositorio listUsu = new UsuarioRepositorio();
             List<Usuario> lista = listUsu.getUsersList();
             List<ClassUsuario> listaString = new List<ClassUsuario>();
             foreach (Usuario item in lista) {

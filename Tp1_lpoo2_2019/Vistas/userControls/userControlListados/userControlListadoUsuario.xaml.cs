@@ -40,11 +40,11 @@ namespace Vistas.userControls.userControlListados
 
         private void eventVistaUsuario_filter(object sender, FilterEventArgs e)
         {
-            Usuario usuario = e.Item as Usuario;
+            ClassUsuario usuario = e.Item as ClassUsuario;
 
             try
             {
-                if (usuario.usu_nombreUsuario.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                if (usuario.NombreUsuario1.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     e.Accepted = true;
                 }
@@ -62,10 +62,10 @@ namespace Vistas.userControls.userControlListados
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Document.Doc.UsuariosDoc usuDoc = new Document.Doc.UsuariosDoc();
-            List<Usuario> users = new List<Usuario>();
+            List<ClassUsuario> users = new List<ClassUsuario>();
             for (int i = 0; i < Usuarios.Items.Count; i++)
             {
-                users.Add((Usuario)Usuarios.Items[i]);
+                users.Add((ClassUsuario)Usuarios.Items[i]);
             }
             usuDoc.Usuarios = users;
             usuDoc.Show();

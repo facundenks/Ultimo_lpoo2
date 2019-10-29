@@ -16,9 +16,10 @@
         
         <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_usuarios}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="NombreUsuario" Direction="Ascending"/>
+                <componentModel:SortDescription PropertyName="NombreUsuario1" Direction="Ascending"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
+        
     </UserControl.Resources>
     
     <Grid>
@@ -26,10 +27,10 @@
             <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="80" Header="Rol" DisplayMemberBinding="{Binding CodigoUsuario}"/>
-                        <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding NombreUsuario}"/>
-                        <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding ApellidoUsuario}"/>
-                        <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding PassUsuario}"/>
+                        <GridViewColumn Width="200" Header="Rol" DisplayMemberBinding="{Binding CodigoUsuario1}"/>
+                        <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding NombreUsuario1}"/>
+                        <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding ApellidoUsuario1}"/>
+                        <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding PassUsuario1}"/>
                     </GridView>
                 </ListView.View>
             </ListView>     
