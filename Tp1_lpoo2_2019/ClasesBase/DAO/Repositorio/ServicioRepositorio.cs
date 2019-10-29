@@ -26,5 +26,27 @@ namespace ClasesBase.DAO.Repositorio
                 return registroMasActualizado;
             }
         }
+
+        public Servicio servicioCoche(int numAutobus)
+        {
+            using (BDpasajesEntities db = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> servicio = from q in db.Servicio
+                                              where q.aut_codigo == numAutobus &&
+                                              q.ser_estado == "Abierto"
+                                              select q;
+                List<Servicio> lista = servicio.ToList();
+                if (lista.Count != 0)
+                {
+                    var servicioCoche = lista[0];
+
+                    return servicioCoche;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

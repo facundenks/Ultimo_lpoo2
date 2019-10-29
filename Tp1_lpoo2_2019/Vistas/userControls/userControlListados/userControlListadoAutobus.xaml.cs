@@ -27,8 +27,15 @@ namespace Vistas.userControls.userControlListados
 
         private void Autobuses_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Autobus auto = Autobuses.SelectedItem as Autobus;
+
+            if(auto == null){
+                return;
+            }
+
             GridAutobusesMain.Children.Clear();
             userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
+            pasajes.CodigoAutobus = auto.aut_codigo;
             GridAutobusesMain.Children.Add(pasajes);
         }
     }

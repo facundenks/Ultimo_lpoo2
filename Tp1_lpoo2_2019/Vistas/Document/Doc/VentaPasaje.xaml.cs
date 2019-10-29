@@ -28,6 +28,22 @@ namespace Vistas.Document.Doc
             set { codigoAutobus = value; }
         }
 
+        private int numeroAsietnto;
+
+        public int NumeroAsietnto
+        {
+            get { return numeroAsietnto; }
+            set { numeroAsietnto = value; }
+        }
+
+        private int servicioCodigo;
+
+        public int ServicioCodigo
+        {
+            get { return servicioCodigo; }
+            set { servicioCodigo = value; }
+        }
+
         public VentaPasaje()
         {
             InitializeComponent();
@@ -35,18 +51,7 @@ namespace Vistas.Document.Doc
 
         private void btnVender_Click(object sender, RoutedEventArgs e)
         {
-            ServicioRepositorio servicio = new ServicioRepositorio();
             PasajeRepositorio pasaje = new PasajeRepositorio();
-
-            Servicio oServicio = new Servicio();
-
-            oServicio.aut_codigo = CodigoAutobus;
-            oServicio.ser_estado = "Pagado";
-            oServicio.ser_fecha = new DateTime();
-            oServicio.ter_codigo_destino = 1;
-            oServicio.ter_codigo_origen = 2;
-
-            servicio.AgrgarServicio(oServicio);
 
             Pasaje oPasaje = new Pasaje();
 
@@ -54,8 +59,15 @@ namespace Vistas.Document.Doc
             oPasaje.pas_asiento = Convert.ToInt32(txtAsiento.Text);
             oPasaje.pas_precio = Convert.ToDecimal(txtPrecio.Text);
             oPasaje.pas_fechaHora = new DateTime();
-            oPasaje.ser_codigo = servicio.ultimoServicio().ser_codigo;
+            oPasaje.ser_codigo = servicioCodigo;
 
+            pasaje.AgrgarPasaje(oPasaje);
+            MessageBox.Show("Pasaje agregado");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtAsiento.Text = Convert.ToString(NumeroAsietnto);
         }
     }
 }
