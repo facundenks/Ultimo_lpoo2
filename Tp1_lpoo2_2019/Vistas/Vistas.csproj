@@ -62,6 +62,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Document\Doc\UsuariosDoc.xaml.cs">
+      <DependentUpon>UsuariosDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Document\FixedDoc\DetallePasaje.xaml.cs">
+      <DependentUpon>DetallePasaje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.xaml.cs">
       <DependentUpon>formLogin.xaml</DependentUpon>
     </Compile>
@@ -96,9 +102,20 @@
     <Compile Include="userControls\userControlABM\UserControlABMUsuario.xaml.cs">
       <DependentUpon>UserControlABMUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userControls\userControlListados\userControlListadoAutobus.xaml.cs">
+      <DependentUpon>userControlListadoAutobus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoUsuario.xaml.cs">
       <DependentUpon>userControlListadoUsuario.xaml</DependentUpon>
     </Compile>
+    <Page Include="Document\Doc\UsuariosDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Document\FixedDoc\DetallePasaje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="formLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlABM\UserControlABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlListados\userControlListadoAutobus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

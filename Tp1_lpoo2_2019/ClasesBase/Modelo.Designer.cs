@@ -24,32 +24,32 @@ namespace ClasesBase
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
-    public partial class BDpasajesEntities : ObjectContext
+    public partial class BDpasajesEntities1 : ObjectContext
     {
         #region Constructores
     
         /// <summary>
-        /// Inicializa un nuevo objeto BDpasajesEntities usando la cadena de conexión encontrada en la sección 'BDpasajesEntities' del archivo de configuración de la aplicación.
+        /// Inicializa un nuevo objeto BDpasajesEntities1 usando la cadena de conexión encontrada en la sección 'BDpasajesEntities1' del archivo de configuración de la aplicación.
         /// </summary>
-        public BDpasajesEntities() : base("name=BDpasajesEntities", "BDpasajesEntities")
+        public BDpasajesEntities1() : base("name=BDpasajesEntities1", "BDpasajesEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Inicializar un nuevo objeto BDpasajesEntities.
+        /// Inicializar un nuevo objeto BDpasajesEntities1.
         /// </summary>
-        public BDpasajesEntities(string connectionString) : base(connectionString, "BDpasajesEntities")
+        public BDpasajesEntities1(string connectionString) : base(connectionString, "BDpasajesEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Inicializar un nuevo objeto BDpasajesEntities.
+        /// Inicializar un nuevo objeto BDpasajesEntities1.
         /// </summary>
-        public BDpasajesEntities(EntityConnection connection) : base(connection, "BDpasajesEntities")
+        public BDpasajesEntities1(EntityConnection connection) : base(connection, "BDpasajesEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -779,6 +779,30 @@ namespace ClasesBase
         private Nullable<global::System.Decimal> _pas_precio;
         partial void Onpas_precioChanging(Nullable<global::System.Decimal> value);
         partial void Onpas_precioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pas_fechaHora
+        {
+            get
+            {
+                return _pas_fechaHora;
+            }
+            set
+            {
+                Onpas_fechaHoraChanging(value);
+                ReportPropertyChanging("pas_fechaHora");
+                _pas_fechaHora = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pas_fechaHora");
+                Onpas_fechaHoraChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pas_fechaHora;
+        partial void Onpas_fechaHoraChanging(Nullable<global::System.DateTime> value);
+        partial void Onpas_fechaHoraChanged();
 
         #endregion
 

@@ -235,7 +235,7 @@ namespace Vistas.userControls.userControlABM
                 {
                     _usuarioRepositorio.eliminarUsuario(Convert.ToInt32(txtID.Text));
                                                                                                                                                                                                                                                                 listaUsuarios.RemoveAt(index);
-                    MessageBox.Show("Ususario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                    MessageBox.Show("Usuario eliminado correctamente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 }    
                 despuesEliminacion();
             }

@@ -59,5 +59,17 @@ namespace Vistas.userControls.userControlListados
             }
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Document.Doc.UsuariosDoc usuDoc = new Document.Doc.UsuariosDoc();
+            List<Usuario> users = new List<Usuario>();
+            for (int i = 0; i < Usuarios.Items.Count; i++)
+            {
+                users.Add((Usuario)Usuarios.Items[i]);
+            }
+            usuDoc.Usuarios = users;
+            usuDoc.Show();
+        }
+
     }
 }

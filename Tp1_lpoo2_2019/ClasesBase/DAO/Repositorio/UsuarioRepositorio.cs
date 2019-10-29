@@ -12,7 +12,7 @@ namespace ClasesBase.DAO.Repositorio
         {
             String name = oUsuario.usu_nombreUsuario;
             String pass = oUsuario.usu_contraseña;
-            using (BDpasajesEntities db = new BDpasajesEntities())
+            using (BDpasajesEntities1 db = new BDpasajesEntities1())
             {
                 IQueryable<Usuario> Usuario = from q in db.Usuario
                                               where q.usu_nombreUsuario == name &&
@@ -33,7 +33,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public List<Usuario> getUsersList()
         {
-            using (BDpasajesEntities context = new BDpasajesEntities())
+            using (BDpasajesEntities1 context = new BDpasajesEntities1())
             {
                 IQueryable<Usuario> Users = from u in context.Usuario
                                             select u;
@@ -44,7 +44,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public ObservableCollection<Usuario> listaUsuarios()
         {
-            using (BDpasajesEntities context = new BDpasajesEntities())
+            using (BDpasajesEntities1 context = new BDpasajesEntities1())
             {
                 IQueryable<Usuario> Usuarios = from q in context.Usuario
                                               select q;
@@ -58,7 +58,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public void AgrgarUsuario(Usuario oUsuario)
         {
-            using (BDpasajesEntities context = new BDpasajesEntities())
+            using (BDpasajesEntities1 context = new BDpasajesEntities1())
             {
                 context.Usuario.AddObject(oUsuario);
                 context.SaveChanges();
@@ -66,7 +66,7 @@ namespace ClasesBase.DAO.Repositorio
         }
 
         public void ModificarUsuario(Usuario oUsuario) { 
-            using(BDpasajesEntities context = new BDpasajesEntities()){
+            using(BDpasajesEntities1 context = new BDpasajesEntities1()){
                 Usuario UsuarioAc = context.Usuario.SingleOrDefault(p => p.usu_id == oUsuario.usu_id);
                 UsuarioAc.usu_apellidoNombre = oUsuario.usu_apellidoNombre;
                 UsuarioAc.usu_nombreUsuario = oUsuario.usu_nombreUsuario;
@@ -78,7 +78,7 @@ namespace ClasesBase.DAO.Repositorio
         }
 
         public int ObtenerPosicion(int id) {
-            using (BDpasajesEntities context = new BDpasajesEntities())
+            using (BDpasajesEntities1 context = new BDpasajesEntities1())
             {
                 IQueryable<Usuario> Users = from u in context.Usuario
                                             select u;
@@ -90,7 +90,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public bool nombreUsuarioExiste(String name)
         {
-            using (BDpasajesEntities db = new BDpasajesEntities())
+            using (BDpasajesEntities1 db = new BDpasajesEntities1())
             {
                 IQueryable<Usuario> Usuario = from q in db.Usuario
                                               where q.usu_nombreUsuario == name
@@ -109,7 +109,7 @@ namespace ClasesBase.DAO.Repositorio
         }
 
         public bool ultimoOperador() {
-            using (BDpasajesEntities db = new BDpasajesEntities())
+            using (BDpasajesEntities1 db = new BDpasajesEntities1())
             {
                 int id = 2;
                 IQueryable<Usuario> Usuario = from q in db.Usuario
@@ -129,7 +129,7 @@ namespace ClasesBase.DAO.Repositorio
         }
 
         public void eliminarUsuario(int id){
-            using (BDpasajesEntities context = new BDpasajesEntities())
+            using (BDpasajesEntities1 context = new BDpasajesEntities1())
             {
                 Usuario UsuarioAc = (from q in context.Usuario
                                      where q.usu_id == id
