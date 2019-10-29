@@ -42,7 +42,5 @@ namespace ClasesBase
             get { return CodigoUsuario; }
             set { CodigoUsuario = value; }
         }
-
-
     }
 }

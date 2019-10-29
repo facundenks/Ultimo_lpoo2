@@ -72,6 +72,7 @@
     <Compile Include="DAO\Repositorio\ClienteRepositorio.cs" />
     <Compile Include="DAO\Repositorio\PasajeRepositorio.cs" />
     <Compile Include="DAO\Repositorio\ServicioRepositorio.cs" />
+    <Compile Include="DAO\Repositorio\TerminalRepositorio.cs" />
     <Compile Include="DAO\Repositorio\UsuarioRepositorio.cs" />
     <Compile Include="Modelo.Designer.cs">
       <AutoGen>True</AutoGen>
