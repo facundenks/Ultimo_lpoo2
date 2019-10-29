@@ -33,9 +33,6 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/f467c342671853ac3a9418e3f1ddcc9a.png" />
                     <Label Content=" Ciudad " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
-                
-                
-
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -53,7 +50,11 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-28.png" />
                     <Label Content=" Terminal " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
-                
+                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridUsuarios" Background="#F45BB0DD">
+                    <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
+                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-28.png" />
+                    <Label Content=" Usuarios " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
+                </Grid>
             </StackPanel>
         </StackPanel>
     </Grid>
