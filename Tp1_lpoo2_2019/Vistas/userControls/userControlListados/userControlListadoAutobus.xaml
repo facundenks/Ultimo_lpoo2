@@ -5,19 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="417" d:DesignWidth="425" Width="502">
     <UserControl.Resources>
-        <ObjectDataProvider x:Key="lista_Autobuses" ObjectType="{x:Type svc:AutobusRepositorio}" MethodName="getAutobus"/>
+        <!--<ObjectDataProvider 
+            x:Key="lista_Autobuses" 
+            ObjectType="{x:Type svc:AutobusRepositorio}" 
+            MethodName="getAutobus"/>-->
     </UserControl.Resources>
     
-    <Grid>
+    <Grid Name="GridAutobusesMain">
 
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Autobuses" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-124,0" />
-        <GroupBox Header="Listado" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="807" Foreground="#F45BB0DD">
-            <Grid Background="White" Width="761">
+        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-124,-63" />
+        <GroupBox Header="Listado" Height="323" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="807" Foreground="#F45BB0DD">
+            <Grid Background="White" Width="761" Height="269">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28*" />
                     <ColumnDefinition Width="243*" />
@@ -28,8 +31,8 @@
                     <RowDefinition Height="137*" />
                 </Grid.RowDefinitions>
 
-                <ListView Name="Autobuses" Grid.Column="1" Margin="253,16,6,88" Grid.RowSpan="3"
-                          ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}">
+                <ListView Name="Autobuses" Margin="15,5,330,5" Grid.RowSpan="3"
+                          ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}" Grid.ColumnSpan="2" MouseDoubleClick="Autobuses_MouseDoubleClick">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding aut_codigo}"/>

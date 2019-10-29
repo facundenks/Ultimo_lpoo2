@@ -53,5 +53,14 @@ namespace Vistas.userControls.gestionMenu
             usuarios.UserName = userName;
             GridAdministracion.Children.Add(usuarios);
         }
+
+        private void GridUsuarios_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridAdministracion.Children.Clear();
+            //userControls.userControlABM.UserControlABMUsuario usuarios = new userControls.userControlABM.UserControlABMUsuario();
+            userControls.userControlListados.userControlListadoUsuario usuarios = new userControlListados.userControlListadoUsuario();
+            //usuarios.UserName = userName;
+            GridAdministracion.Children.Add(usuarios);
+        }
     }
 }
