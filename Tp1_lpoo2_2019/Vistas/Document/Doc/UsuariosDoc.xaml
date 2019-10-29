@@ -4,7 +4,7 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         
-        Title="UsuariosDoc" Height="574" Width="459" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="UsuariosDoc" Height="734" Width="654" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Window.Resources>
         <!--<ObjectDataProvider
@@ -21,8 +21,8 @@
         
     </Window.Resources>
 
-        <StackPanel Width="349">
-            <FlowDocumentReader Canvas.Left="12" Canvas.Top="28">
+        <StackPanel Width="603" Height="642">
+            <FlowDocumentReader Canvas.Left="12" Canvas.Top="28" Height="593" Width="570">
                 <FlowDocument Name="DocMain">
                     <Paragraph>Lista de Usuarios</Paragraph>
                     <BlockUIContainer>
@@ -30,9 +30,12 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
+                                    <GridViewColumn Header="Codigo" DisplayMemberBinding="{Binding Path=CodigoUsuario1}" Width="140"/>
+                                    <GridViewColumn Header="Apellido y Nombre" DisplayMemberBinding="{Binding Path=ApellidoUsuario1}" Width="140"/>
+
                                     <GridViewColumn Header="Usuario" DisplayMemberBinding="{Binding Path=NombreUsuario1}" Width="140"/>
-                                    <GridViewColumn Header="Contraseña" DisplayMemberBinding="{Binding Path=PassUsuario1}"/>
-                                    </GridView.Columns>
+                                    <GridViewColumn Header="Rol" DisplayMemberBinding="{Binding Path=CodigoUsuario1}" Width="140"/>
+                                </GridView.Columns>
                                 </GridView>
                             </ListView.View>
                         </ListView>
