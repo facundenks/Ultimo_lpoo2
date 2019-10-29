@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas.userControls.uGestionVentas
 {
@@ -19,6 +20,14 @@ namespace Vistas.userControls.uGestionVentas
     /// </summary>
     public partial class uPasaje : UserControl
     {
+        private String codigoAutobus;
+
+        public String CodigoAutobus
+        {
+            get { return codigoAutobus; }
+            set { codigoAutobus = value; }
+        }
+
         public uPasaje()
         {
             InitializeComponent();

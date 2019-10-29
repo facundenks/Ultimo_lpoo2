@@ -3,19 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="414" d:DesignWidth="669" Height="405" Background="#FFFDFDFD">
     
     <UserControl.Resources>
+<<<<<<< HEAD
         <!--ObjectDataProvider x:Key="lista_usuarios" 
                             ObjectType="{x:Type svc:UsuarioRepositorio}" 
                             MethodName="getUsersList"/-->
+=======
+        <ObjectDataProvider x:Key="lista_usuarios" 
+                            ObjectType="{x:Type svc:ClassTrabajarUsuarioString}" 
+                            MethodName="UsuarioStringList"/>
+        
+>>>>>>> b3a2f2880baaf5bfd7e98b2188738764a9b2275a
         <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_usuarios}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>
-                <componentModel:SortDescription PropertyName="usu_nombreUsuario" Direction="Ascending"/>
+                <componentModel:SortDescription PropertyName="NombreUsuario" Direction="Ascending"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
@@ -25,10 +32,10 @@
             <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="80" Header="Rol" DisplayMemberBinding="{Binding rol_codigo}"/>
-                        <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding usu_nombreUsuario}"/>
-                        <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding usu_apellidoNombre}"/>
-                        <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding usu_contraseña}"/>
+                        <GridViewColumn Width="80" Header="Rol" DisplayMemberBinding="{Binding CodigoUsuario}"/>
+                        <GridViewColumn Width="200" Header="Nombre de Usuario" DisplayMemberBinding="{Binding NombreUsuario}"/>
+                        <GridViewColumn Width="200" Header="Apellido y Nombre" DisplayMemberBinding="{Binding ApellidoUsuario}"/>
+                        <GridViewColumn Width="150" Header="Contraseña" DisplayMemberBinding="{Binding PassUsuario}"/>
                     </GridView>
                 </ListView.View>
             </ListView>     

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas.userControls.userControlListados
 {
@@ -22,6 +23,13 @@ namespace Vistas.userControls.userControlListados
         public userControlListadoAutobus()
         {
             InitializeComponent();
+        }
+
+        private void Autobuses_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            GridAutobusesMain.Children.Clear();
+            userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
+            GridAutobusesMain.Children.Add(pasajes);
         }
     }
 }

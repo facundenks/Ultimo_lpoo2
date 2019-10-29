@@ -40,7 +40,6 @@ namespace Vistas.userControls.userControlABM
         CollectionView Vista;
         ObservableCollection<Usuario> listaUsuarios;
 
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USER"];
