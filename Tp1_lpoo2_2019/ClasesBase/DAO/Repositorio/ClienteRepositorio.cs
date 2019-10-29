@@ -9,7 +9,7 @@ namespace ClasesBase.DAO.Repositorio
     {
         public void AgrgarCliente(Cliente oCliene)
         {
-            using (BDpasajesEntities1 context = new BDpasajesEntities1())
+            using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 context.Cliente.AddObject(oCliene);
                 context.SaveChanges();
@@ -18,7 +18,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public List<Cliente> listarClientes()
         {
-            using (BDpasajesEntities1 context = new BDpasajesEntities1())
+            using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Cliente> Clientes = from q in context.Cliente
                                               select q;
@@ -29,7 +29,7 @@ namespace ClasesBase.DAO.Repositorio
 
         public Cliente buscarCliente(String dni) {
 
-            using(BDpasajesEntities1 context = new BDpasajesEntities1())
+            using(BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Cliente> Clientes = from q in context.Cliente
                                                where q.cli_dni == dni
@@ -47,7 +47,7 @@ namespace ClasesBase.DAO.Repositorio
         }
 
         public void modificarCliente(Cliente unCliente) { 
-            using(BDpasajesEntities1 context = new BDpasajesEntities1()){
+            using(BDpasajesEntities context = new BDpasajesEntities()){
                 Cliente oCliente = context.Cliente.SingleOrDefault(p => p.cli_dni == unCliente.cli_dni);
                 oCliente.cli_dni = unCliente.cli_dni;
                 oCliente.cli_nombre = unCliente.cli_nombre;

@@ -9,7 +9,7 @@ namespace ClasesBase.DAO.Repositorio
     {
         public void AgregarCiudad(Ciudad oCiudad) 
         {
-            using(BDpasajesEntities1 context = new BDpasajesEntities1())
+            using(BDpasajesEntities context = new BDpasajesEntities())
             {
                 context.Ciudad.AddObject(oCiudad);
                 context.SaveChanges();

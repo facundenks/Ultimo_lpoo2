@@ -24,44 +24,32 @@ namespace ClasesBase
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class BDpasajesEntities1 : ObjectContext
+    public partial class BDpasajesEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-<<<<<<< HEAD
-        /// Inicializa un nuevo objeto BDpasajesEntities1 usando la cadena de conexión encontrada en la sección 'BDpasajesEntities1' del archivo de configuración de la aplicación.
-=======
         /// Initializes a new BDpasajesEntities object using the connection string found in the 'BDpasajesEntities' section of the application configuration file.
->>>>>>> ef0853f9f1d0bf35a8c78a2374e436919bb811a6
         /// </summary>
-        public BDpasajesEntities1() : base("name=BDpasajesEntities1", "BDpasajesEntities1")
+        public BDpasajesEntities() : base("name=BDpasajesEntities", "BDpasajesEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-<<<<<<< HEAD
-        /// Inicializar un nuevo objeto BDpasajesEntities1.
-=======
         /// Initialize a new BDpasajesEntities object.
->>>>>>> ef0853f9f1d0bf35a8c78a2374e436919bb811a6
         /// </summary>
-        public BDpasajesEntities1(string connectionString) : base(connectionString, "BDpasajesEntities1")
+        public BDpasajesEntities(string connectionString) : base(connectionString, "BDpasajesEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-<<<<<<< HEAD
-        /// Inicializar un nuevo objeto BDpasajesEntities1.
-=======
         /// Initialize a new BDpasajesEntities object.
->>>>>>> ef0853f9f1d0bf35a8c78a2374e436919bb811a6
         /// </summary>
-        public BDpasajesEntities1(EntityConnection connection) : base(connection, "BDpasajesEntities1")
+        public BDpasajesEntities(EntityConnection connection) : base(connection, "BDpasajesEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -793,7 +781,7 @@ namespace ClasesBase
         partial void Onpas_precioChanged();
     
         /// <summary>
-        /// No hay documentación de metadatos disponible.
+        /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
