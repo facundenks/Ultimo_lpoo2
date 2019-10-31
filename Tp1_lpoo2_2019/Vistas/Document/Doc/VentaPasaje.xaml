@@ -1,0 +1,46 @@
+﻿<Window x:Class="Vistas.Document.Doc.VentaPasaje"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="VentaPasaje" Height="394" Width="630" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
+            <Label Content="Datos Autobus" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+        </Grid>
+        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,12,0" />
+        <GroupBox Header="Datos de Autobus" Height="476" HorizontalAlignment="Left" Margin="26,76,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="720" Foreground="#F45BB0DD">
+            <Grid Background="White" Height="457" Width="708">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*" />
+                    <ColumnDefinition Width="697*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33*" />
+                    <RowDefinition Height="18*" />
+                    <RowDefinition Height="137*" />
+                </Grid.RowDefinitions>
+
+                <Label Content="Datos cliente" Height="28" HorizontalAlignment="Left" Margin="11,34,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
+                <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="11,74,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                <Label Content="Precio            $" Height="28" HorizontalAlignment="Left" Margin="11,34,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                <Label Content="Fecha" Height="28" HorizontalAlignment="Left" Margin="11,31,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" />
+                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="89,74,0,0" Name="txtAsiento" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" IsEnabled="True" TabIndex="1" Grid.RowSpan="2" />
+                <TextBox x:Uid="FormTextBox" Grid.Row="1" HorizontalAlignment="Left" Margin="89,34,0,0" Name="txtPrecio" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3" Grid.RowSpan="2" KeyDown="txtPrecio_KeyDown" />
+                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,31,0,0" Name="txtFecha" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Vender" Grid.Column="1" Grid.Row="2" Height="23" Margin="41,78,0,0" Name="btnVender" VerticalAlignment="Top" Click="btnVender_Click" HorizontalAlignment="Left" Width="168" />
+                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,37,0,0" Name="txtDniCliente" TabIndex="1" VerticalAlignment="Top" Grid.Column="1" />
+              
+            </Grid>
+        </GroupBox>
+        <ListView Name="list_clientes" Margin="287,99,12,17" MouseDoubleClick="list_clientes_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="DNI" DisplayMemberBinding="{Binding cli_dni}"/>
+                    <GridViewColumn Width="100" Header="Nombre" DisplayMemberBinding="{Binding cli_nombre}"/>
+                    <GridViewColumn Width="110" Header="Apellido" DisplayMemberBinding="{Binding cli_apellido}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="417" d:DesignWidth="425" Width="502">
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_Autobuses" 
             ObjectType="{x:Type svc:AutobusRepositorio}" 
-            MethodName="getAutobus"/>-->
+            MethodName="getAutobus"/>
     </UserControl.Resources>
     
     <Grid Name="GridAutobusesMain">

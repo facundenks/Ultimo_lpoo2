@@ -24,10 +24,19 @@ namespace Vistas.userControls.gestionMenu
             InitializeComponent();
         }
 
+        private String nombreUsuario;
+
+        public String NombreUsuario
+        {
+            get { return nombreUsuario; }
+            set { nombreUsuario = value; }
+        }
+
         private void GridPasaje_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridGestionVentas.Children.Clear();
             userControls.userControlListados.userControlListadoAutobus autobuses = new userControls.userControlListados.userControlListadoAutobus();
+            autobuses.NombreUsuario = nombreUsuario;
             GridGestionVentas.Children.Add(autobuses);
         }
 

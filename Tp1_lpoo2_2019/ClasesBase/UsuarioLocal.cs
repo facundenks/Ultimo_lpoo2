@@ -58,6 +58,5 @@ namespace ClasesBase
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
-
     }
 }
