@@ -64,7 +64,7 @@ namespace Vistas.userControls.userControlABM
                 if (txtApellido.Text != "" && txtDNI.Text != "" && txtEmail.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
                 {
 
-                    if (MessageBox.Show("Mensaje", "Guardar Cliente", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    if (MessageBox.Show("Guardar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
                     {
                         oCliente.cli_dni = txtDNI.Text;
                         oCliente.cli_nombre = txtNombre.Text;
@@ -74,7 +74,7 @@ namespace Vistas.userControls.userControlABM
 
                         _clienteRepositorio.AgrgarCliente(oCliente);
 
-                        list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
+                        list_clientes.ItemsSource =_clienteRepositorio.listarClientes();
 
                         limpiar();
                     }

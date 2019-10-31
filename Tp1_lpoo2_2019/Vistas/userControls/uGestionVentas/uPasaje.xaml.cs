@@ -25,6 +25,14 @@ namespace Vistas.userControls.uGestionVentas
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
         Servicio oServicio = new Servicio();
 
+        private String nombreUsuario;
+
+        public String NombreUsuario
+        {
+            get { return nombreUsuario; }
+            set { nombreUsuario = value; }
+        }
+
         private int codigoAutobus;
 
         public int CodigoAutobus
@@ -51,6 +59,7 @@ namespace Vistas.userControls.uGestionVentas
                 venta.CodigoAutobus = codigoAutobus;
                 venta.NumeroAsietnto = Convert.ToInt32(bt.Content);
                 venta.ServicioCodigo = oServicio.ser_codigo;
+                venta.NombreUsuario = nombreUsuario;
                 venta.Show();
             }
             else
@@ -61,19 +70,23 @@ namespace Vistas.userControls.uGestionVentas
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Pasaje> pasajes = new List<Pasaje>();
-
             oServicio = _servicioRepositorio.servicioCoche(codigoAutobus);
 
-            pasajes = _pasajeRepositorio.ListaPasajes(oServicio.ser_codigo);
+            if(_servicioRepositorio.servicioConVentas(oServicio.ser_codigo)==true){
 
-            for (int i = 1; i <= 40;i++ )
-            {
-                foreach (Pasaje item in pasajes)
+                List<Pasaje> pasajes = new List<Pasaje>();
+
+                pasajes = _pasajeRepositorio.ListaPasajes(oServicio.ser_codigo);
+
+               
+                for (int i = 1; i <= 40; i++)
                 {
-                    if (item.pas_asiento == i)
+                    foreach (Pasaje item in pasajes)
                     {
-                        asiento(i);
+                        if (item.pas_asiento == i)
+                        {
+                            asiento(i);
+                        }
                     }
                 }
             }
@@ -91,7 +104,9 @@ namespace Vistas.userControls.uGestionVentas
                     break;
                 case 5: btn5.Background = Brushes.Red;
                     break;
-                case 7: btn6.Background = Brushes.Red;
+                case 6: btn6.Background = Brushes.Red;
+                    break;
+                case 7: btn7.Background = Brushes.Red;
                     break;
                 case 8: btn8.Background = Brushes.Red;
                     break;

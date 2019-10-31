@@ -23,6 +23,23 @@ namespace Vistas.Document.FixedDoc
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
+        ClienteRepositorio _clienteRepositorio = new ClienteRepositorio();
+
+        private String nombreUsuario;
+
+        public String NombreUsuario
+        {
+            get { return nombreUsuario; }
+            set { nombreUsuario = value; }
+        }
+
+        private String dniCliente;
+
+        public String DniCliente
+        {
+            get { return dniCliente; }
+            set { dniCliente = value; }
+        }
 
         private int codigoServicio;
 
@@ -40,9 +57,9 @@ namespace Vistas.Document.FixedDoc
             set { fechaOperacion = value; }
         }
 
-        private String codigoPasaje;
+        private int codigoPasaje;
 
-        public String CodigoPasaje
+        public int CodigoPasaje
         {
             get { return codigoPasaje; }
             set { codigoPasaje = value; }
@@ -77,19 +94,21 @@ namespace Vistas.Document.FixedDoc
             Terminal oOrigen = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_origen);
             Autobus oAutobus = _autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo);
 
-
             txtEmplesa.Text = "Cotaj Norte";
             txtDireccion.Text = "Avenida El Exodo N°883";
             txtTelefono.Text = "0388-4281235";
             txtEmail.Text = "cotaj_norte@gmail.com";
             txtFechaOperacion.Text = Convert.ToString(fechaOperacion);
-            //txtNumeroPasaje.Text = Convert.ToString(codigoPasaje);
+            txtNumeroPasaje.Text = Convert.ToString(codigoPasaje);
             txtfechaHoraSalida.Text = Convert.ToString(oServicio.ser_fecha);
             txtOrigen.Text = oOrigen.ter_nombre;
             txtDestino.Text = oDestino.ter_nombre;
             txtTipoServicio.Text = oAutobus.aut_tiposervicio;
             txtPrecio.Text = Convert.ToString(precio);
             txtButaca.Text = Convert.ToString(numeroAsiento);
+            txtCliente.Text = _clienteRepositorio.buscarCliente(dniCliente).cli_nombre +" "+
+                              _clienteRepositorio.buscarCliente(dniCliente).cli_apellido;
+            txtUsuario.Text = nombreUsuario;
         }
     }
 }

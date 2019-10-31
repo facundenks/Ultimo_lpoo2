@@ -47,10 +47,13 @@ namespace Vistas.userControls.uLogin
                 else {
                     Main main = new Main();
                     main.Usuario = _userRepositorio.login(user);
+
+                    Window parentwin = Window.GetWindow(this);
+                    parentwin.Close();
+
                     main.ShowDialog();
                 }
             }
         }
-
     }
 }

@@ -37,6 +37,26 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public bool servicioConVentas(int codigo)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Pasaje> servicioConPasajes = from q in context.Pasaje
+                                                          where q.ser_codigo == codigo
+                                                          select q;
+
+                List<Pasaje> lista = servicioConPasajes.ToList();
+                if (lista.Count != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public Servicio servicioCoche(int numAutobus)
         {
             using (BDpasajesEntities db = new BDpasajesEntities())

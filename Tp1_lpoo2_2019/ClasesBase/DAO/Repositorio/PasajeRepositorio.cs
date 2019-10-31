@@ -34,5 +34,14 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public Pasaje ultimoPasaje() { 
+            using(BDpasajesEntities context = new BDpasajesEntities()){
+                var registroMasActualizado = context.Pasaje
+                                             .OrderByDescending(x => x.pas_codigo)
+                                             .FirstOrDefault();
+                return registroMasActualizado;
+            }
+        }
     }
 }

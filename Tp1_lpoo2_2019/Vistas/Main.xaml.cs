@@ -21,7 +21,9 @@ namespace Vistas
     public partial class Main : Window
     {
         private Usuario usuario;
-        
+
+        String nombreUsuario;
+
         public Usuario Usuario
         {
             get { return usuario; }
@@ -87,6 +89,7 @@ namespace Vistas
             disp.Tick += ponerHora;
             disp.Start();
             lblUser.Content = Usuario.usu_nombreUsuario;
+            nombreUsuario = Usuario.usu_nombreUsuario;
             btnOpenMenu_Click(null, null);
         }
 
@@ -94,6 +97,7 @@ namespace Vistas
         {
             Gridprincipal.Children.Clear();
             userControls.gestionMenu.UserControlVentas menuVentas = new userControls.gestionMenu.UserControlVentas();
+            menuVentas.NombreUsuario = nombreUsuario;
             Gridprincipal.Children.Add(menuVentas);
         }
 
@@ -101,7 +105,7 @@ namespace Vistas
         {
             Gridprincipal.Children.Clear();
             userControls.gestionMenu.UserControl1 menuGestion = new userControls.gestionMenu.UserControl1();
-            menuGestion.UserName = usuario.usu_nombreUsuario;
+            menuGestion.UserName = nombreUsuario;
             Gridprincipal.Children.Add(menuGestion);
         }
 
