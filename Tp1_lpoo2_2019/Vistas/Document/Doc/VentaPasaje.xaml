@@ -20,6 +20,7 @@
                     <RowDefinition Height="18*" />
                     <RowDefinition Height="137*" />
                 </Grid.RowDefinitions>
+
                 <Label Content="Datos cliente" Height="28" HorizontalAlignment="Left" Margin="11,34,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
                 <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="11,74,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.RowSpan="2" Grid.ColumnSpan="2" />
                 <Label Content="Precio            $" Height="28" HorizontalAlignment="Left" Margin="11,34,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" />
@@ -29,6 +30,7 @@
                 <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,31,0,0" Name="txtFecha" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                 <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Vender" Grid.Column="1" Grid.Row="2" Height="23" Margin="41,78,0,0" Name="btnVender" VerticalAlignment="Top" Click="btnVender_Click" HorizontalAlignment="Left" Width="168" />
                 <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,37,0,0" Name="txtDniCliente" TabIndex="1" VerticalAlignment="Top" Grid.Column="1" />
+              
             </Grid>
         </GroupBox>
         <ListView Name="list_clientes" Margin="287,99,12,17" MouseDoubleClick="list_clientes_MouseDoubleClick">
