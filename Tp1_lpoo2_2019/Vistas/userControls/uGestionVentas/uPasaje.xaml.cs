@@ -86,6 +86,7 @@ namespace Vistas.userControls.uGestionVentas
                         if (item.pas_asiento == i)
                         {
                             asiento(i);
+                           
                         }
                     }
                 }

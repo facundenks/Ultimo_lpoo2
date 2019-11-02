@@ -124,7 +124,7 @@ namespace Vistas.userControls.userControlABM
                             if (MessageBox.Show("Agregar usuario", "Confirmacion", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                             {
                                 _usuarioRepositorio.AgrgarUsuario(oUsuario);
-                                                                                                                                                                                                                                                                listaUsuarios.Add(oUsuario);
+                                listaUsuarios.Add(oUsuario);
                                 MessageBox.Show("Usuario agregado correctamente");
                                 Vista.MoveCurrentToLast();
                                 codigoRolMet();
@@ -141,7 +141,7 @@ namespace Vistas.userControls.userControlABM
 
                             _usuarioRepositorio.ModificarUsuario(oUsuario);
                             int index = _usuarioRepositorio.ObtenerPosicion(oUsuario.usu_id);
-                                                                                                                                                                                                                                                                listaUsuarios[index] = oUsuario;
+                            listaUsuarios[index] = oUsuario;
                             codigoRolMet();
 
                             MessageBox.Show("Usuario modificado correctamente");
