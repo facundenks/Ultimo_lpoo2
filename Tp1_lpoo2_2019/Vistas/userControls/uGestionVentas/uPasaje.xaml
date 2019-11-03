@@ -6,50 +6,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="578" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid Height="552" Width="279">
-        <Grid Height="464" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top" Width="128">
-            <Button Content="1" Margin="14,10,74,414" x:Name="btn1" Background="Green" Click="vender_Click" />
-            <Button Content="2" Margin="69,10,19,414" x:Name="btn2" Background="Green" Click="vender_Click" />
-            <Button Content="5" Margin="14,56,74,368" x:Name="btn5" Background="Green" Click="vender_Click" />
-            <Button Content="6" Margin="69,56,19,368" x:Name="btn6" Background="Green" Click="vender_Click" />
-            <Button Content="9" Margin="14,102,74,322" x:Name="btn9" Background="Green" Click="vender_Click" />
-            <Button Content="10" Margin="69,102,19,322" x:Name="btn10" Background="Green" Click="vender_Click" />
-            <Button Content="13" Margin="14,148,74,276" x:Name="btn13" Background="Green" Click="vender_Click" />
-            <Button Content="14" Margin="69,148,19,276" x:Name="btn14" Background="Green" Click="vender_Click" />
-            <Button Content="17" Margin="14,194,0,230" x:Name="btn17" HorizontalAlignment="Left" Width="40" Background="Green" Click="vender_Click" />
-            <Button Content="18" Margin="69,194,19,230" x:Name="btn18" Background="Green" Click="vender_Click" />
-            <Button Content="21" Margin="14,240,74,184" x:Name="btn21" Background="Green" Click="vender_Click" />
-            <Button Content="22" Margin="69,240,19,184" x:Name="btn22" Background="Green" Click="vender_Click" />
-            <Button Content="25" Margin="14,286,74,138" x:Name="btn25" Background="Green" Click="vender_Click" />
-            <Button Content="26" Margin="69,286,19,138" x:Name="btn26" Background="Green" Click="vender_Click" />
-            <Button Content="29" Margin="14,332,74,92" x:Name="btn29" Background="Green" Click="vender_Click" />
-            <Button Content="30" Margin="69,332,19,92" x:Name="btn30" Background="Green" Click="vender_Click" />
-            <Button Content="33" Margin="14,378,74,46" x:Name="btn33" Background="Green" Click="vender_Click" />
-            <Button Content="34" Margin="69,0,19,46" x:Name="btn34" Height="40" VerticalAlignment="Bottom" Background="Green" Click="vender_Click" />
-            <Button Content="38" Margin="0,424,19,0" x:Name="btn38" Background="Green" Click="vender_Click" HorizontalAlignment="Right" Width="40" />
-            <Button Background="Green" Content="37" Margin="14,0,74,0" x:Name="btn37" Click="vender_Click" Height="40" VerticalAlignment="Bottom" />
-        </Grid>
-        <Grid Height="464" HorizontalAlignment="Left" Margin="138,12,0,0" Name="grid2" VerticalAlignment="Top" Width="128">
-            <Button Content="3" Margin="14,10,74,414" x:Name="btn3" Background="Green" Click="vender_Click" />
-            <Button Content="4" Margin="69,10,19,414" x:Name="btn4" Background="Green" Click="vender_Click" />
-            <Button Content="7" Margin="14,56,74,368" x:Name="btn7" Background="Green" Click="vender_Click" />
-            <Button Content="8" Margin="69,56,19,368" x:Name="btn8" Background="Green" Click="vender_Click" />
-            <Button Content="11" Margin="14,102,74,322" x:Name="btn11" Background="Green" Click="vender_Click" />
-            <Button Content="12" Margin="69,102,19,322" x:Name="btn12" Background="Green" Click="vender_Click" />
-            <Button Content="15" Margin="14,148,74,276" x:Name="btn15" Background="Green" Click="vender_Click" />
-            <Button Content="16" Margin="69,148,19,276" x:Name="btn16" Background="Green" Click="vender_Click" />
-            <Button Content="19" Margin="14,194,74,230" x:Name="btn19" Background="Green" Click="vender_Click" />
-            <Button Content="20" Margin="69,194,19,230" x:Name="btn20" Background="Green" Click="vender_Click" />
-            <Button Content="23" Margin="14,240,74,184" x:Name="btn23" Background="Green" Click="vender_Click" />
-            <Button Content="24" Margin="69,240,19,184" x:Name="btn24" Background="Green" Click="vender_Click" />
-            <Button Content="27" Margin="14,286,74,138" x:Name="btn27" Background="Green" Click="vender_Click" />
-            <Button Content="28" Margin="69,286,19,138" x:Name="btn28" Background="Green" Click="vender_Click" />
-            <Button Content="31" Margin="14,332,74,92" x:Name="btn31" Background="Green" Click="vender_Click" />
-            <Button Content="32" Margin="69,332,19,92" x:Name="btn32" Background="Green" Click="vender_Click" />
-            <Button Content="35" Margin="14,378,74,46" x:Name="btn35" Background="Green" Click="vender_Click" />
-            <Button Content="36" Height="40" Margin="69,0,19,46" x:Name="btn36" VerticalAlignment="Bottom" Background="Green" Click="vender_Click" />
-            <Button Content="39" Margin="14,424,74,0" x:Name="btn39" Background="Green" Click="vender_Click" />
-            <Button Content="40" Margin="68,424,20,0" x:Name="btn40" Background="Green" Click="vender_Click" />
-        </Grid>
+        <StackPanel Name="grdColumna1" Margin="157,0,0,0"></StackPanel>
+        <StackPanel Name="grdColumna2" Margin="0,0,156,0"></StackPanel>
         <Label Content="Libre:" Margin="31,482,209,43" Name="label1" />
         <Label Content="Ocupado:" Margin="9,513,207,12" Name="label2" />
         <Rectangle Height="25" HorizontalAlignment="Left" Margin="91,0,0,43" Name="rectangle1" Stroke="#FF001900" VerticalAlignment="Bottom" Width="30" AllowDrop="False" Fill="Green" />
