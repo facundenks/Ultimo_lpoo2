@@ -108,6 +108,9 @@
     <Compile Include="userControls\userControlListados\userControlListadoAutobus.xaml.cs">
       <DependentUpon>userControlListadoAutobus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userControls\userControlListados\UserControlListadoPasajes.xaml.cs">
+      <DependentUpon>UserControlListadoPasajes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoUsuario.xaml.cs">
       <DependentUpon>userControlListadoUsuario.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlListados\userControlListadoAutobus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlListados\UserControlListadoPasajes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
