@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDpasajesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BDpasajesModelStoreContainer">
+    <EntitySet Name="Autobus" EntityType="BDpasajesModel.Store.Autobus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ciudad" EntityType="BDpasajesModel.Store.Ciudad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cliente" EntityType="BDpasajesModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pasaje" EntityType="BDpasajesModel.Store.Pasaje" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rol" EntityType="BDpasajesModel.Store.Rol" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Servicio" EntityType="BDpasajesModel.Store.Servicio" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Terminal" EntityType="BDpasajesModel.Store.Terminal" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="BDpasajesModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Autobus">
+    <Key>
+      <PropertyRef Name="aut_codigo" />
+    </Key>
+    <Property Name="aut_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="aut_capacidad" Type="int" />
+    <Property Name="aut_tiposervicio" Type="varchar" MaxLength="50" />
+    <Property Name="aut_matricula" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="ciu_codigo" />
+    </Key>
+    <Property Name="ciu_codigo" Type="int" Nullable="false" />
+    <Property Name="ciu_nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cli_dni" />
+    </Key>
+    <Property Name="cli_dni" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="cli_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="cli_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="cli_telefono" Type="varchar" MaxLength="50" />
+    <Property Name="cli_email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pasaje">
+    <Key>
+      <PropertyRef Name="pas_codigo" />
+    </Key>
+    <Property Name="pas_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cli_dni" Type="varchar" MaxLength="50" />
+    <Property Name="ser_codigo" Type="int" />
+    <Property Name="pas_asiento" Type="int" />
+    <Property Name="pas_precio" Type="decimal" />
+    <Property Name="pas_fechaHora" Type="date" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="rol_codigo" />
+    </Key>
+    <Property Name="rol_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="rol_descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="ser_codigo" />
+    </Key>
+    <Property Name="ser_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="aut_codigo" Type="int" />
+    <Property Name="ser_fecha" Type="datetime" />
+    <Property Name="ter_codigo_origen" Type="int" />
+    <Property Name="ter_codigo_destino" Type="int" />
+    <Property Name="ser_estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="ter_codigo" />
+    </Key>
+    <Property Name="ter_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ciu_codigo" Type="int" />
+    <Property Name="ter_nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="usu_id" />
+    </Key>
+    <Property Name="usu_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="usu_nombreUsuario" Type="varchar" MaxLength="50" />
+    <Property Name="usu_apellidoNombre" Type="varchar" MaxLength="50" />
+    <Property Name="usu_contraseña" Type="varchar" MaxLength="50" />
+    <Property Name="rol_codigo" Type="int" />
+  </EntityType>
+</Schema>
