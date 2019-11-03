@@ -1,8 +1,0 @@
-﻿<Window x:Class="Vistas.formLogin"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Login" Height="351" Width="405" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <StackPanel HorizontalAlignment="Right" Name="stackLogin" Width="369" Margin="0,12,12,28" />
-    </Grid>
-</Window>
