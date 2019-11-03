@@ -26,6 +26,7 @@ namespace Vistas.userControls.uGestionVentas
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio(); 
         Servicio oServicio = new Servicio();
         Autobus oAutobus = new Autobus();
+
         int capacidad = 0;
         int codigoAutobus = 0;
 
@@ -53,15 +54,14 @@ namespace Vistas.userControls.uGestionVentas
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             oServicio = _servicioRepositorio.buscarServicio(codigoServicio);
-            oAutobus = _autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo);
+            oAutobus = _autobusRepositorio.buscarAutobus(Convert.ToInt32(oServicio.aut_codigo));
             codigoAutobus = oAutobus.aut_codigo;
             capacidad = (int)oAutobus.aut_capacidad;
             cargarAsientos(capacidad);
         }
 
         private void cargarAsientos(int cantAsientos)
-        {
-            
+        { 
             int cantidadAsientos = cantAsientos;
 
             int contadorAsientos = 1;
@@ -74,6 +74,7 @@ namespace Vistas.userControls.uGestionVentas
                     grdColumna1.Children.Add(generarDosAsientos(contadorAsientos));
 
                 bandera = !bandera;
+                
                 contadorAsientos += 2;
             }
             if (cantidadAsientos % 2 == 1)
@@ -117,24 +118,28 @@ namespace Vistas.userControls.uGestionVentas
                 BorderBrush = Brushes.Transparent,
                 Name = "btnAsiento_" + numeroAsiento
             };
+
             botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
 
             if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true) {
 
-                List<Pasaje> pasajes = new List<Pasaje>();
+                //List<Pasaje> pasajes = new List<Pasaje>();
 
-                pasajes = _pasajeRepositorio.ListaPasajes(oServicio.ser_codigo);
+                //pasajes = _pasajeRepositorio.ListaPasajes(oServicio.ser_codigo);
 
-                for (int i = 1; i <= capacidad; i++)
-                {
-                    foreach (Pasaje item in pasajes)
-                    {
-                        if (item.pas_asiento == i)
-                        {
-                            botonAsiento.Background = Brushes.Red;
-                        }
-                    }
+                Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento,oServicio.ser_codigo);
+
+                if(oPasaje != null){
+                    botonAsiento.Background = Brushes.Red;
                 }
+                /*foreach (Pasaje item in pasajes)
+                {
+                    if (item.pas_asiento == Convert.ToInt32(botonAsiento.Content))
+                    {
+                        botonAsiento.Background = Brushes.Red;
+                    }
+                }*/
+                
             }
             return botonAsiento;
         }

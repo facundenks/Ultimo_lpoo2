@@ -17,9 +17,9 @@ using ClasesBase.DAO.Repositorio;
 namespace Vistas.userControls.userControlListados
 {
     /// <summary>
-    /// Lógica de interacción para userControlListadoAutobus.xaml
+    /// Lógica de interacción para userControlListadoServicio.xaml
     /// </summary>
-    public partial class userControlListadoAutobus : UserControl
+    public partial class userControlListadoServicio : UserControl
     {
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
 
@@ -31,31 +31,32 @@ namespace Vistas.userControls.userControlListados
             set { nombreUsuario = value; }
         }
 
-        public userControlListadoAutobus()
+        public userControlListadoServicio()
         {
             InitializeComponent();
         }
 
-        private void Autobuses_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Servicios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Autobus auto = Autobuses.SelectedItem as Autobus;
+            ClassServicioString servicio = Servicios.SelectedItem as ClassServicioString;
 
-            if(auto == null){
+            if (servicio == null)
+            {
                 return;
             }
 
-            if (_servicioRepositorio.servicioCoche(auto.aut_codigo) != null)
+            if (_servicioRepositorio.buscarServicio(servicio.Ser_codigo) != null)
             {
                 GridAutobusesMain.Children.Clear();
                 userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
-                //pasajes.CodigoAutobus = auto.aut_codigo;
+                pasajes.CodigoServicio = servicio.Ser_codigo;
                 pasajes.NombreUsuario = nombreUsuario;
                 GridAutobusesMain.Children.Add(pasajes);
             }
-            else {
-                MessageBox.Show("Coche sin servicio asignado!!!!!");
+            else
+            {
+                MessageBox.Show("Servicio no Disponible");
             }
-                
         }
     }
 }

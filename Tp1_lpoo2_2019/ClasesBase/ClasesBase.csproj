@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassServicioString.cs" />
+    <Compile Include="ClassTrabajarServicioFormat.cs" />
     <Compile Include="ClassTrabajarUsuarioString.cs" />
     <Compile Include="ClassTrabajarVentaString.cs" />
     <Compile Include="ClassUsuario.cs" />

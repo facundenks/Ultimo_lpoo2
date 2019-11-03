@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="578" d:DesignWidth="300" Loaded="UserControl_Loaded">
-    <Grid Height="552" Width="279">
-        <StackPanel Name="grdColumna1" Margin="157,0,0,0"></StackPanel>
-        <StackPanel Name="grdColumna2" Margin="0,0,156,0"></StackPanel>
-        <Label Content="Libre:" Margin="31,482,209,43" Name="label1" />
-        <Label Content="Ocupado:" Margin="9,513,207,12" Name="label2" />
-        <Rectangle Height="25" HorizontalAlignment="Left" Margin="91,0,0,43" Name="rectangle1" Stroke="#FF001900" VerticalAlignment="Bottom" Width="30" AllowDrop="False" Fill="Green" />
-        <Rectangle Height="25" HorizontalAlignment="Left" Margin="91,516,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Red" />
+             d:DesignHeight="690" d:DesignWidth="319" Loaded="UserControl_Loaded">
+    <Grid Height="667" Width="279">
+        <StackPanel Name="grdColumna1" Margin="145,12,12,107"></StackPanel>
+        <StackPanel Name="grdColumna2" Margin="12,12,144,107"></StackPanel>
+            <Label Content="Libre:" Name="label1" Margin="65,0,0,70" Height="37" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="42" />
+            <Label Content="Ocupado:" Name="label2" Margin="65,0,0,44" HorizontalAlignment="Left" Width="69" Height="35" VerticalAlignment="Bottom" />
+            <Rectangle Height="25" HorizontalAlignment="Left" Name="rectangle1" Stroke="#FF001900" VerticalAlignment="Bottom" Width="32" AllowDrop="False" Fill="Green" Margin="157,0,0,78" />
+            <Rectangle Height="25" HorizontalAlignment="Left" Name="rectangle2" Stroke="#FF001900" VerticalAlignment="Bottom" Width="32" AllowDrop="False" Fill="Red" Margin="157,0,0,50" />
     </Grid>
 </UserControl>
