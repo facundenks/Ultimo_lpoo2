@@ -1,0 +1,47 @@
+﻿<Window x:Class="Vistas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Venta de Pasajes" Height="364" Width="575" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="/Vistas;component/Images/TerminalOmnibusLaPlata.jpg" />
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="382*" />
+            <ColumnDefinition Width="171*" />
+        </Grid.ColumnDefinitions>
+        <Menu Margin="12,9,284,294" Name="menu1" Background="#00FF0000">
+            <MenuItem Header = "Sistema" Name="sistem" Background="Red" BorderBrush="Red">
+                <MenuItem.Icon>
+                    <Image Source="/Vistas;component/Images/69398.png" />
+                </MenuItem.Icon>
+                <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "140"  Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Menu Margin="112,9,182,284" Name="menu2" Background="#0001FFFF">
+            <MenuItem Header = "Gestion" Name="ges" Background="Aqua">
+                <MenuItem.Icon>
+                    <Image Source="/Vistas;component/Images/1099.png" />
+                </MenuItem.Icon>
+                <MenuItem Header = "Usuario" HorizontalAlignment = "Left" Width = "140" />
+                <MenuItem Header = "Autobus" HorizontalAlignment = "Left" Width = "140" Click="MenuItem_Autobus"/>
+                <MenuItem Header = "Ciudad" HorizontalAlignment = "Left" Width = "140"/>
+                <MenuItem Header = "Terminal" HorizontalAlignment = "Left" Width = "140"/>
+            </MenuItem>
+        </Menu>
+        <Menu Margin="206,9,87,294" Name="menu3" Background="#00FF7F50">
+            <MenuItem Header = "Ventas" Name="vent" Background="Coral" BorderBrush="Coral">
+                <MenuItem.Icon>
+                    <Image Source="/Vistas;component/Images/70016.png" />
+                </MenuItem.Icon>
+                <MenuItem Header = "Cliente" HorizontalAlignment = "Left" Width = "140" Click="MenuItem_Cliente"/>
+                <MenuItem Header = "Viaje" HorizontalAlignment = "Left" Width = "140"/>
+                <MenuItem Header = "Pasaje" HorizontalAlignment = "Left" Width = "140" Click="MenuItem_Pasaje">
+                    <MenuItem.Icon>
+                        <Image Source="/Vistas;component/Images/70016.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
