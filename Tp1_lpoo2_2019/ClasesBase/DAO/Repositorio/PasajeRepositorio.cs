@@ -43,5 +43,16 @@ namespace ClasesBase.DAO.Repositorio
                 return registroMasActualizado;
             }
         }
+
+        public List<Pasaje> listarPasajes()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Pasaje> Pasajes = from q in context.Pasaje
+                                               select q;
+                return Pasajes.ToList();
+            }
+
+        }
     }
 }

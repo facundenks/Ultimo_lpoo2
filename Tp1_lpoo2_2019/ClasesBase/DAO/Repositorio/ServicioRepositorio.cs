@@ -78,5 +78,16 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public List<Servicio> listarServicios()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> Servicios = from q in context.Servicio
+                                                 select q;
+                return Servicios.ToList();
+            }
+
+        }
     }
 }
