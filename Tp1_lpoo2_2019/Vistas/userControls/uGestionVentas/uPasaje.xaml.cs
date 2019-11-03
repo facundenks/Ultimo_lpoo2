@@ -52,7 +52,6 @@ namespace Vistas.userControls.uGestionVentas
 
             if (bt.Background == Brushes.Green)
             {
-                
                 MessageBox.Show("Asiento Disponible, para la reserva de pasaje");
                 Document.Doc.VentaPasaje venta = new Document.Doc.VentaPasaje();
                 bt.Background = Brushes.Red;
@@ -77,8 +76,7 @@ namespace Vistas.userControls.uGestionVentas
                 List<Pasaje> pasajes = new List<Pasaje>();
 
                 pasajes = _pasajeRepositorio.ListaPasajes(oServicio.ser_codigo);
-
-               
+       
                 for (int i = 1; i <= 40; i++)
                 {
                     foreach (Pasaje item in pasajes)
