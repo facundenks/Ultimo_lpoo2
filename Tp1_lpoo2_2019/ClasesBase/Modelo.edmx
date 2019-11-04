@@ -9,6 +9,15 @@
           <EntitySet Name="Autobus" EntityType="BDpasajesModel.Store.Autobus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Ciudad" EntityType="BDpasajesModel.Store.Ciudad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Cliente" EntityType="BDpasajesModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empresa" EntityType="BDpasajesModel.Store.Empresa" store:Type="Tables" store:Schema="dbo" store:Name="Empresa">
+            <DefiningQuery>SELECT 
+      [Empresa].[emp_codigo] AS [emp_codigo], 
+      [Empresa].[emp_nombre] AS [emp_nombre], 
+      [Empresa].[emp_direccion] AS [emp_direccion], 
+      [Empresa].[emp_telefono] AS [emp_telefono], 
+      [Empresa].[emp_email] AS [emp_email]
+      FROM [dbo].[Empresa] AS [Empresa]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Pasaje" EntityType="BDpasajesModel.Store.Pasaje" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Rol" EntityType="BDpasajesModel.Store.Rol" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Servicio" EntityType="BDpasajesModel.Store.Servicio" store:Type="Tables" Schema="dbo" />
@@ -23,6 +32,9 @@
           <Property Name="aut_capacidad" Type="int" />
           <Property Name="aut_tiposervicio" Type="varchar" MaxLength="50" />
           <Property Name="aut_matricula" Type="varchar" MaxLength="50" />
+          <Property Name="emp_codigo" Type="int" />
+          <Property Name="aut_cantidadPisos" Type="int" />
+          <Property Name="aut_imagen" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Ciudad">
           <Key>
@@ -40,6 +52,19 @@
           <Property Name="cli_apellido" Type="varchar" MaxLength="50" />
           <Property Name="cli_telefono" Type="varchar" MaxLength="50" />
           <Property Name="cli_email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'C:\USERS\FACU\DOCUMENTS\REPOSITORIO\BDPASAJES.MDF.dbo.Empresa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="emp_codigo" />
+          </Key>
+          <Property Name="emp_codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="emp_nombre" Type="varchar" MaxLength="50" />
+          <Property Name="emp_direccion" Type="varchar" MaxLength="50" />
+          <Property Name="emp_telefono" Type="varchar" MaxLength="50" />
+          <Property Name="emp_email" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Pasaje">
           <Key>
@@ -97,6 +122,7 @@
           <EntitySet Name="Autobus" EntityType="BDpasajesModel.Autobus" />
           <EntitySet Name="Ciudad" EntityType="BDpasajesModel.Ciudad" />
           <EntitySet Name="Cliente" EntityType="BDpasajesModel.Cliente" />
+          <EntitySet Name="Empresa" EntityType="BDpasajesModel.Empresa" />
           <EntitySet Name="Pasaje" EntityType="BDpasajesModel.Pasaje" />
           <EntitySet Name="Rol" EntityType="BDpasajesModel.Rol" />
           <EntitySet Name="Servicio" EntityType="BDpasajesModel.Servicio" />
@@ -111,6 +137,9 @@
           <Property Name="aut_capacidad" Type="Int32" />
           <Property Name="aut_tiposervicio" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="aut_matricula" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emp_codigo" Type="Int32" />
+          <Property Name="aut_cantidadPisos" Type="Int32" />
+          <Property Name="aut_imagen" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Ciudad">
           <Key>
@@ -128,6 +157,16 @@
           <Property Name="cli_apellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="cli_telefono" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="cli_email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="emp_codigo" />
+          </Key>
+          <Property Name="emp_codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emp_direccion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emp_telefono" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emp_email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Pasaje">
           <Key>
@@ -189,6 +228,9 @@
                 <ScalarProperty Name="aut_capacidad" ColumnName="aut_capacidad" />
                 <ScalarProperty Name="aut_tiposervicio" ColumnName="aut_tiposervicio" />
                 <ScalarProperty Name="aut_matricula" ColumnName="aut_matricula" />
+                <ScalarProperty Name="emp_codigo" ColumnName="emp_codigo" />
+                <ScalarProperty Name="aut_cantidadPisos" ColumnName="aut_cantidadPisos" />
+                <ScalarProperty Name="aut_imagen" ColumnName="aut_imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -208,6 +250,17 @@
                 <ScalarProperty Name="cli_apellido" ColumnName="cli_apellido" />
                 <ScalarProperty Name="cli_telefono" ColumnName="cli_telefono" />
                 <ScalarProperty Name="cli_email" ColumnName="cli_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="BDpasajesModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="emp_codigo" ColumnName="emp_codigo" />
+                <ScalarProperty Name="emp_nombre" ColumnName="emp_nombre" />
+                <ScalarProperty Name="emp_direccion" ColumnName="emp_direccion" />
+                <ScalarProperty Name="emp_telefono" ColumnName="emp_telefono" />
+                <ScalarProperty Name="emp_email" ColumnName="emp_email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -284,14 +337,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Modelo">
-        <EntityTypeShape EntityType="BDpasajesModel.Autobus" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Autobus" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
         <EntityTypeShape EntityType="BDpasajesModel.Ciudad" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Cliente" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Pasaje" Width="1.5" PointX="2.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Rol" Width="1.5" PointX="4.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Servicio" Width="1.5" PointX="4.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Terminal" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDpasajesModel.Usuario" Width="1.5" PointX="0.75" PointY="6.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Cliente" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Empresa" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Pasaje" Width="1.5" PointX="4.75" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Rol" Width="1.5" PointX="6.75" PointY="0.75" Height="1.4033821614583326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Servicio" Width="1.5" PointX="0.75" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Terminal" Width="1.5" PointX="2.75" PointY="6.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDpasajesModel.Usuario" Width="1.5" PointX="6.75" PointY="3.75" Height="1.9802864583333317" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>
