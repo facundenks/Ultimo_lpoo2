@@ -24,6 +24,7 @@ namespace Vistas.Document.FixedDoc
         TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
         ClienteRepositorio _clienteRepositorio = new ClienteRepositorio();
+        EmpresaRepositorio _empresaRepositorio = new EmpresaRepositorio();
 
         private String nombreUsuario;
 
@@ -81,6 +82,14 @@ namespace Vistas.Document.FixedDoc
             set { numeroAsiento = value; }
         }
 
+        private int codigoEmpresa;
+
+        public int CodigoEmpresa
+        {
+            get { return codigoEmpresa; }
+            set { codigoEmpresa = value; }
+        }
+
         public DetallePasaje()
         {
             InitializeComponent();
@@ -93,11 +102,12 @@ namespace Vistas.Document.FixedDoc
             Terminal oDestino = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_destino);
             Terminal oOrigen = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_origen);
             Autobus oAutobus = _autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo);
+            Empresa oEmpresa = _empresaRepositorio.buscarEmpresa((int)codigoEmpresa);
 
-            txtEmplesa.Text = "Cotaj Norte";
-            txtDireccion.Text = "Avenida El Exodo N°883";
-            txtTelefono.Text = "0388-4281235";
-            txtEmail.Text = "cotaj_norte@gmail.com";
+            txtEmplesa.Text = oEmpresa.emp_nombre;
+            txtDireccion.Text = oEmpresa.emp_direccion;
+            txtTelefono.Text = oEmpresa.emp_telefono;
+            txtEmail.Text = oEmpresa.emp_email;
             txtFechaOperacion.Text = Convert.ToString(fechaOperacion);
             txtNumeroPasaje.Text = Convert.ToString(codigoPasaje);
             txtfechaHoraSalida.Text = Convert.ToString(oServicio.ser_fecha);

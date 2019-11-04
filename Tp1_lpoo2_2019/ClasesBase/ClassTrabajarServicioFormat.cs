@@ -11,6 +11,7 @@ namespace ClasesBase
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
+        EmpresaRepositorio _empresaRepositorio = new EmpresaRepositorio();
 
         public List<ClassServicioString> listarServicios() {
 
@@ -31,6 +32,9 @@ namespace ClasesBase
 
                 oServicio.Ter_origen = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_origen).ter_nombre;
                 oServicio.Ter_destino = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_destino).ter_nombre;
+
+                oServicio.Emp_codigo = (int)oAutobus.emp_codigo;
+                oServicio.Emp_nombre = _empresaRepositorio.buscarEmpresa(oServicio.Emp_codigo).emp_nombre;
 
                 serviciosFormat.Add(oServicio);
             }

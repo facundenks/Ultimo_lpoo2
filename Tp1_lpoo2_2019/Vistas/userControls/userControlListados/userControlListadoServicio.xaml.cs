@@ -51,6 +51,7 @@ namespace Vistas.userControls.userControlListados
                 userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
                 pasajes.CodigoServicio = servicio.Ser_codigo;
                 pasajes.NombreUsuario = nombreUsuario;
+                pasajes.CodigoEmpresa = servicio.Emp_codigo;
                 GridAutobusesMain.Children.Add(pasajes);
             }
             else

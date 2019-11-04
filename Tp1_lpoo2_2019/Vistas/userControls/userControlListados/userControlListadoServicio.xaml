@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
-             d:DesignHeight="398" d:DesignWidth="853">
+             d:DesignHeight="398" d:DesignWidth="853" Width="1008">
     <UserControl.Resources>
         <ObjectDataProvider 
             x:Key="lista_servicios" 
@@ -16,14 +16,14 @@
     <Grid Name="GridAutobusesMain">
 
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
-            <Label Content="Autobuses" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+            <Label Content="Servicios" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-161,-63" />
-        <GroupBox Header="Listado" Height="323" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="847" Foreground="#F45BB0DD">
-            <Grid Background="White" Width="818" Height="278">
+        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-161,-63"/>
+        <GroupBox Header="Listado" Height="323" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1002" Foreground="#F45BB0DD">
+            <Grid Background="White" Width="992" Height="279">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="28*" />
-                    <ColumnDefinition Width="243*" />
+                    <ColumnDefinition Width="85*" />
+                    <ColumnDefinition Width="733*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="33*" />
@@ -31,18 +31,27 @@
                     <RowDefinition Height="137*" />
                 </Grid.RowDefinitions>
 
-                <ListView Name="Servicios" Margin="-10,-10,-15,-26" Grid.RowSpan="3"
+                <ListView Name="Servicios" Margin="-1,0,13,-51" Grid.RowSpan="3"
                           ItemsSource="{Binding Source= {StaticResource lista_servicios}}" Grid.ColumnSpan="2" MouseDoubleClick="Servicios_MouseDoubleClick">
+                    <ListView.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="hiddenStyle" TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </ListView.Resources>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="100" Header="Codigo Ser" DisplayMemberBinding="{Binding Ser_codigo}"/>
-                            <GridViewColumn Width="100" Header="Estado Ser" DisplayMemberBinding="{Binding Ser_estado}"/>
-                            <GridViewColumn Width="110" Header="Fecha Ser" DisplayMemberBinding="{Binding Ser_fecha}"/>
-                            <GridViewColumn Width="100" Header="Matricula Aut" DisplayMemberBinding="{Binding Aut_matricula}"/>
-                            <GridViewColumn Width="100" Header="Tipo Ser" DisplayMemberBinding="{Binding Aut_tiposervicio}"/>
-                            <GridViewColumn Width="100" Header="Codigo Aut" DisplayMemberBinding="{Binding Aut_codigo}"/>
-                            <GridViewColumn Width="110" Header="Ter Origen" DisplayMemberBinding="{Binding Ter_origen}"/>
-                            <GridViewColumn Width="100" Header="Ter Destino" DisplayMemberBinding="{Binding Ter_destino}"/>
+                            <GridViewColumn Width="0" Header="Codigo Servicio" DisplayMemberBinding="{Binding Ser_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="100" Header="Estado Servicio" DisplayMemberBinding="{Binding Ser_estado}"/>
+                            <GridViewColumn Width="100" Header="Nombre Empresa" DisplayMemberBinding="{Binding Emp_nombre}"/>
+                            <GridViewColumn Width="0" Header="Codigo Emp" DisplayMemberBinding="{Binding Emp_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="180" Header="Fecha Servicio" DisplayMemberBinding="{Binding Ser_fecha}"/>
+                            <GridViewColumn Width="110" Header="Matricula Autobus" DisplayMemberBinding="{Binding Aut_matricula}"/>
+                            <GridViewColumn Width="100" Header="Tipo Servicio" DisplayMemberBinding="{Binding Aut_tiposervicio}"/>
+                            <GridViewColumn Width="0" Header="Codigo Aut" DisplayMemberBinding="{Binding Aut_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="110" Header="Terminal Origen" DisplayMemberBinding="{Binding Ter_origen}"/>
+                            <GridViewColumn Width="100" Header="Terminal Destino" DisplayMemberBinding="{Binding Ter_destino}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -70,5 +70,21 @@ namespace ClasesBase
             get { return aut_tiposervicio; }
             set { aut_tiposervicio = value; }
         }
+
+        private int emp_codigo;
+
+        public int Emp_codigo
+        {
+            get { return emp_codigo; }
+            set { emp_codigo = value; }
+        }
+
+        private String emp_nombre;
+
+        public String Emp_nombre
+        {
+            get { return emp_nombre; }
+            set { emp_nombre = value; }
+        }
     }
 }

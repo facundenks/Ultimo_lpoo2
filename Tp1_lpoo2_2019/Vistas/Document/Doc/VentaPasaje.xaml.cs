@@ -56,6 +56,14 @@ namespace Vistas.Document.Doc
             set { servicioCodigo = value; }
         }
 
+        private int codigoEmpresa;
+
+        public int CodigoEmpresa
+        {
+            get { return codigoEmpresa; }
+            set { codigoEmpresa = value; }
+        }
+
         public VentaPasaje()
         {
             InitializeComponent();
@@ -87,6 +95,7 @@ namespace Vistas.Document.Doc
                     detalle.CodigoPasaje = _pasajeRepositorio.ultimoPasaje().pas_codigo;
                     detalle.DniCliente = txtDniCliente.Text;
                     detalle.NombreUsuario = nombreUsuario;
+                    detalle.CodigoEmpresa = codigoEmpresa;
                     detalle.Show();
                     Close();
                 }

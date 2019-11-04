@@ -48,6 +48,14 @@ namespace Vistas.userControls.uGestionVentas
             InitializeComponent();
         }
 
+        private int codigoEmpresa;
+
+        public int CodigoEmpresa
+        {
+            get { return codigoEmpresa; }
+            set { codigoEmpresa = value; }
+        }
+
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             oServicio = _servicioRepositorio.buscarServicio(codigoServicio);
@@ -146,6 +154,7 @@ namespace Vistas.userControls.uGestionVentas
                 venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
                 venta.ServicioCodigo = oServicio.ser_codigo;
                 venta.NombreUsuario = nombreUsuario;
+                venta.CodigoEmpresa = codigoEmpresa;
                 venta.Show();
             }
         }
