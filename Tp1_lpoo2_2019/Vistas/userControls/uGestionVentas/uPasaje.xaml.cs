@@ -18,12 +18,13 @@ namespace Vistas.userControls.uGestionVentas
 {
     public partial class uPasaje : UserControl
     {
+        
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio(); 
         Servicio oServicio = new Servicio();
         Autobus oAutobus = new Autobus();
-
+        int asientoLibre = 0, asientoOcupado = 0;
         int capacidad = 0;
         int codigoAutobus = 0;
 
@@ -63,6 +64,7 @@ namespace Vistas.userControls.uGestionVentas
             codigoAutobus = oAutobus.aut_codigo;
             capacidad = (int)oAutobus.aut_capacidad;
             cargarAsientos(capacidad);
+            contadorDeAsientos();
         }
 
         private void cargarAsientos(int cantAsientos)
@@ -122,16 +124,26 @@ namespace Vistas.userControls.uGestionVentas
                 FontSize = 15,
                 BorderBrush = Brushes.Transparent,
                 Name = "btnAsiento_" + numeroAsiento
+                
             };
 
             botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
-
+            /*ClienteValidator cv = new ClienteValidator();
+            Binding binding = new Binding() { 
+              Source = cv,                        
+              Path = new PropertyPath("Cli_dni"),
+              Mode = BindingMode.TwoWay,
+              UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+            }; 
+            botonAsiento.SetBinding(Button., binding);
+            */
             if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true) {
 
                 Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento,oServicio.ser_codigo);
 
                 if(oPasaje != null){
                     botonAsiento.Background = Brushes.Red;
+                    asientoOcupado++;
                 }
                 
             }
@@ -157,6 +169,14 @@ namespace Vistas.userControls.uGestionVentas
                 venta.CodigoEmpresa = codigoEmpresa;
                 venta.Show();
             }
+        }
+
+        //metodo que obtiene la cantidad de asientos libres
+        private void contadorDeAsientos()
+        {
+            asientoLibre = capacidad - asientoOcupado;
+            label1.Content =  asientoLibre+" Asientos Libres";
+            label2.Content = asientoOcupado + " Asientos Ocupados";
         }
     }
 }
