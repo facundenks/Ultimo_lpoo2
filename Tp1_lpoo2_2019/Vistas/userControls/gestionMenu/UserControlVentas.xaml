@@ -39,7 +39,7 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="30,0,30,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/dollar-3717534_960_720.png" Grid.ColumnSpan="2" />
                     <Label Content=" Ventas " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" Grid.ColumnSpan="2" />
                 </Grid>
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridZonas" Background="#F45BB0DD">
+                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridTermi" MouseLeftButtonDown="GridTermi_MouseLeftButtonDown" Background="#F45BB0DD">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-28.png" />
                     <Label Content=" Terminal " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />

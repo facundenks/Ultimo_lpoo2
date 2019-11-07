@@ -14,7 +14,7 @@
                             ObjectType="{x:Type svc:ClassTrabajarVentaString}" 
                             MethodName="ventaStringList"/>
 
-        <CollectionViewSource x:Key="Vista_Ventas" Source="{StaticResource ResourceKey=lista_ventas_por_fecha}" Filter="eventVistaUsuario_filter">
+        <CollectionViewSource x:Key="Vista_Ventas" Source="{StaticResource ResourceKey=lista_ventas_por_fecha}" Filter="eventVistaVenta_filter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="NombreUsuario1" Direction="Ascending"/>
             </CollectionViewSource.SortDescriptions>

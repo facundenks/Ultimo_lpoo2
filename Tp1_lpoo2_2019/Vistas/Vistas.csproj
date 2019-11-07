@@ -68,9 +68,6 @@
     <Compile Include="Document\Doc\VentaPasaje.xaml.cs">
       <DependentUpon>VentaPasaje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Document\Doc\VentasDoc.xaml.cs">
-      <DependentUpon>VentasDoc.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Document\FixedDoc\DetallePasaje.xaml.cs">
       <DependentUpon>DetallePasaje.xaml</DependentUpon>
     </Compile>
@@ -117,9 +114,6 @@
     <Compile Include="userControls\userControlListados\userControlListadoUsuario.xaml.cs">
       <DependentUpon>userControlListadoUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="userControls\userControlListados\UserControlListadoVenta.xaml.cs">
-      <DependentUpon>UserControlListadoVenta.xaml</DependentUpon>
-    </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoVentaPorFecha.xaml.cs">
       <DependentUpon>userControlListadoVentaPorFecha.xaml</DependentUpon>
     </Compile>
@@ -128,10 +122,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Document\Doc\VentaPasaje.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Document\Doc\VentasDoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlListados\userControlListadoUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="userControls\userControlListados\UserControlListadoVenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
