@@ -58,14 +58,14 @@ namespace Vistas.userControls.userControlListados
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
+            /*Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
             List<ClasesBase.ClassVentas> ventas = new List<ClasesBase.ClassVentas>();
             for (int i = 0; i < Ventas.Items.Count; i++)
             {
                 ventas.Add((ClasesBase.ClassVentas.Items[i]);
             }
             venDoc.Usuario = ventas;
-            venDoc.Show();
+            venDoc.Show();*/
         }
     }
 }
