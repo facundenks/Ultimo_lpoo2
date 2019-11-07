@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassServicioString.cs" />
+    <Compile Include="ClassTrabajarServicioFormat.cs" />
     <Compile Include="ClassTrabajarUsuarioString.cs" />
     <Compile Include="ClassTrabajarVentaString.cs" />
     <Compile Include="ClassUsuario.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="DAO\Repositorio\AutobusRepositorio.cs" />
     <Compile Include="DAO\Repositorio\CiudadRepositorio.cs" />
     <Compile Include="DAO\Repositorio\ClienteRepositorio.cs" />
+    <Compile Include="DAO\Repositorio\EmpresaRepositorio.cs" />
     <Compile Include="DAO\Repositorio\PasajeRepositorio.cs" />
     <Compile Include="DAO\Repositorio\ServicioRepositorio.cs" />
     <Compile Include="DAO\Repositorio\TerminalRepositorio.cs" />

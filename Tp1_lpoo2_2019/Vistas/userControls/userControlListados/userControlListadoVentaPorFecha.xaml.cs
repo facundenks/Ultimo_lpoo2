@@ -19,9 +19,53 @@ namespace Vistas.userControls.userControlListados
     /// </summary>
     public partial class userControlListadoVentaPorFecha : UserControl
     {
+        private CollectionViewSource vistaColeccionFiltradaPorFecha;
         public userControlListadoVentaPorFecha()
         {
             InitializeComponent();
+            vistaColeccionFiltradaPorFecha = Resources["Vista_User"] as CollectionViewSource;
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (vistaColeccionFiltradaPorFecha != null)
+            {
+                //Se invoca al metodo eventVistaUser a medida que se escriba en el textBox
+                vistaColeccionFiltradaPorFecha.Filter += eventVistaVenta_filter;
+            }
+        }
+
+        private void eventVistaVenta_filter(object sender, FilterEventArgs e)
+        {
+            ClasesBase.ClassVentas ventas = e.Item as ClasesBase.ClassVentas;
+
+            try
+            {
+                if (ventas.PasajeFec.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    e.Accepted = true;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error");
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
+            List<ClasesBase.ClassVentas> ventas = new List<ClasesBase.ClassVentas>();
+            for (int i = 0; i < Ventas.Items.Count; i++)
+            {
+                ventas.Add((ClasesBase.ClassVentas.Items[i]);
+            }
+            venDoc.Usuario = ventas;
+            venDoc.Show();
         }
     }
 }

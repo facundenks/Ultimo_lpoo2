@@ -35,9 +35,9 @@ namespace Vistas.userControls.gestionMenu
         private void GridPasaje_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridGestionVentas.Children.Clear();
-            userControls.userControlListados.userControlListadoAutobus autobuses = new userControls.userControlListados.userControlListadoAutobus();
-            autobuses.NombreUsuario = nombreUsuario;
-            GridGestionVentas.Children.Add(autobuses);
+            userControls.userControlListados.userControlListadoServicio servicios = new userControls.userControlListados.userControlListadoServicio();
+            servicios.NombreUsuario = nombreUsuario;
+            GridGestionVentas.Children.Add(servicios);
         }
 
         private void GridCliente_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

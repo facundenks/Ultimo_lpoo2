@@ -44,6 +44,28 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public Pasaje traerAsiento(int asiento, int servicio)
+        {
+            using (BDpasajesEntities db = new BDpasajesEntities())
+            {
+                IQueryable<Pasaje> Asiento = from q in db.Pasaje
+                                              where q.pas_asiento == asiento &&
+                                              q.ser_codigo == servicio
+                                              select q;
+                List<Pasaje> lista = Asiento.ToList();
+                if (lista.Count != 0)
+                {
+                    var pasaje = lista[0];
+
+                    return pasaje;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public List<Pasaje> listarPasajes()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())

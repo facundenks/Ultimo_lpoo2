@@ -16,11 +16,22 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public List<Servicio> listarServicios()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> listaServicios = from q in context.Servicio
+                                              select q;
+                return listaServicios.ToList();
+            }
+        }
+
         public Servicio buscarServicio(int codigo) {
             using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Servicio> servicioEncontrado = from q in context.Servicio
-                                                          where q.ser_codigo == codigo
+                                                          where q.ser_codigo == codigo && 
+                                                          q.ser_estado == "Abierto"
                                                           select q;
 
                 List<Servicio> lista = servicioEncontrado.ToList();

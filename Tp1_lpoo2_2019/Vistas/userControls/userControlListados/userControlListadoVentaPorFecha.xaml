@@ -14,17 +14,17 @@
                             ObjectType="{x:Type svc:ClassTrabajarVentaString}" 
                             MethodName="ventaStringList"/>-->
 
-        <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_ventas_por_fecha}" Filter="eventVistaUsuario_filter">
+        <!--<CollectionViewSource x:Key="Vista_Ventas" Source="{StaticResource ResourceKey=lista_ventas_por_fecha}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="NombreUsuario1" Direction="Ascending"/>
             </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
+        </CollectionViewSource>-->
 
     </UserControl.Resources>
 
     <Grid Width="1181">
         <GroupBox Header="Datos de Ventas" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1180" Foreground="#F45BB0DD" Background="White">
-            <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}">
+            <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="80" Header="Codigo Pasaje" DisplayMemberBinding="{Binding CodigoUsuario1}"/>
@@ -45,8 +45,8 @@
                 </ListView.View>
             </ListView>
         </GroupBox>
-        <Label Content="Buscar por Fecha:" Height="28" HorizontalAlignment="Left" Margin="90,60,0,0" Name="label1" VerticalAlignment="Top" />
+        <!--<Label Content="Buscar por Fecha:" Height="28" HorizontalAlignment="Left" Margin="90,60,0,0" Name="label1" VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="270,60,0,0" Name="textBox1" VerticalAlignment="Top" Width="175" TextChanged="textBox1_TextChanged" />
-        <Button Content="Vista Previa" Margin="509,60,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Click="button1_Click" Background="#FFC84D45" />
+        <Button Content="Vista Previa" Margin="509,60,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Click="button1_Click" Background="#FFC84D45" />-->
     </Grid>
 </UserControl>

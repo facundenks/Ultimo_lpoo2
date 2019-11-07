@@ -73,5 +73,10 @@ namespace Vistas.userControls.userControlABM
         {
             limpiar();
         }
+
+        private void guardarImagen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
