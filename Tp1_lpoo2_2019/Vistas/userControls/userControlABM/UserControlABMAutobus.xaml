@@ -8,10 +8,10 @@
              d:DesignHeight="434" d:DesignWidth="830" Width="828">
 
     <UserControl.Resources>
-        <ObjectDataProvider 
+        <!--<ObjectDataProvider 
             x:Key="lista_Autobuses" 
             ObjectType="{x:Type svc:AutobusRepositorio}" 
-            MethodName="getAutobus"/>
+            MethodName="getAutobus"/>-->
     </UserControl.Resources>
     
     <Grid>
@@ -24,7 +24,7 @@
         </Grid>
         <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-124,0" />
         <GroupBox Header="Datos de Autobus" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="807" Foreground="#F45BB0DD">
-            <Grid Background="White" Width="761">
+            <Grid Background="White" Width="761" Height="198">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28*" />
                     <ColumnDefinition Width="243*" />
@@ -56,7 +56,8 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                     
+                <Button Content="Imagen" Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="100,116,0,0" Name="button1" VerticalAlignment="Top" Width="88" Background="Coral"/>
+                <Label Content="Cargar Imagen:" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="1,115,0,0" Name="label1" Target="{Binding}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
             </Grid>
         </GroupBox>
         
