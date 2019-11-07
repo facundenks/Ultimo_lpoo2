@@ -23,7 +23,7 @@ namespace Vistas.userControls.userControlListados
         public userControlListadoVentaPorFecha()
         {
             InitializeComponent();
-            vistaColeccionFiltradaPorFecha = Resources["Vista_User"] as CollectionViewSource;
+            vistaColeccionFiltradaPorFecha = Resources["Vista_Ventas"] as CollectionViewSource;
         }
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
