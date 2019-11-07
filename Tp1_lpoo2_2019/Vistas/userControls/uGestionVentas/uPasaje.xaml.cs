@@ -21,7 +21,8 @@ namespace Vistas.userControls.uGestionVentas
         
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
-        AutobusRepositorio _autobusRepositorio = new AutobusRepositorio(); 
+        AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
+        ClienteRepositorio _clienteRepositorio = new ClienteRepositorio();
         Servicio oServicio = new Servicio();
         Autobus oAutobus = new Autobus();
         int asientoLibre = 0, asientoOcupado = 0;
@@ -124,26 +125,28 @@ namespace Vistas.userControls.uGestionVentas
                 FontSize = 15,
                 BorderBrush = Brushes.Transparent,
                 Name = "btnAsiento_" + numeroAsiento
-                
             };
 
-            botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
-            /*ClienteValidator cv = new ClienteValidator();
-            Binding binding = new Binding() { 
-              Source = cv,                        
-              Path = new PropertyPath("Cli_dni"),
-              Mode = BindingMode.TwoWay,
-              UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-            }; 
-            botonAsiento.SetBinding(Button., binding);
-            */
             if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true) {
 
                 Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento,oServicio.ser_codigo);
 
-                if(oPasaje != null){
+                if (oPasaje != null)
+                {
+                    Cliente oCliente = _clienteRepositorio.buscarCliente(oPasaje.cli_dni);
                     botonAsiento.Background = Brushes.Red;
+                    ToolTip tt = new ToolTip();
+                    tt.Content = "Cliente: " + oCliente.cli_nombre + " " + oCliente.cli_apellido 
+                        +"\nDNI: " + oCliente.cli_dni
+                        +"\nTelefono: "+ oCliente.cli_telefono
+                        +"\nEmail: "+ oCliente.cli_email;
+                    botonAsiento.ToolTip = tt;
                     asientoOcupado++;
+                }
+                else
+                {
+                    botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
+                    botonAsiento.Cursor = Cursors.Hand;
                 }
                 
             }
