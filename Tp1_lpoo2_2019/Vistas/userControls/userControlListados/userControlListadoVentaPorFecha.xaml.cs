@@ -65,13 +65,9 @@ namespace Vistas.userControls.userControlListados
             {
                 ventas.Add((ClasesBase.ClassVentas.Items[i]));
             }
-<<<<<<< HEAD
+
             venDoc.Usuario = ventas;*/
-            venDoc.Show();
-=======
-            venDoc.Usuario = ventas;
-            venDoc.Show();*/
->>>>>>> 0fa3ba2f4cb8b8542de356b1ddf3b80fb97ad8af
+
         }
     }
 }

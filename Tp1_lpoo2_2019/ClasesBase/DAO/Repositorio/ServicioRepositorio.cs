@@ -16,6 +16,17 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public List<Servicio> listarServiciosDestino(int codigoDestino)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> listaServicios = from q in context.Servicio
+                                                      where q.ter_codigo_destino == codigoDestino
+                                                      select q;
+                return listaServicios.ToList();
+            }
+        }
+
         public List<Servicio> listarServicios()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
@@ -82,6 +93,24 @@ namespace ClasesBase.DAO.Repositorio
                     var servicioCoche = lista[0];
 
                     return servicioCoche;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<Servicio> serviciosPorFecha(DateTime inicio, DateTime fin) { 
+            using(BDpasajesEntities context = new BDpasajesEntities()){
+                IQueryable<Servicio> servicio = from q in context.Servicio
+                                        where
+                                        (q.ser_fecha >= inicio.Date && q.ser_fecha <= fin)
+                                        select q;
+                List<Servicio> lista = servicio.ToList();
+                if (lista.Count != 0)
+                {
+                    return lista;
                 }
                 else
                 {

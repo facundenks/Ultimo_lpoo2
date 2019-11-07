@@ -22,6 +22,9 @@ namespace Vistas.userControls.userControlListados
     public partial class userControlListadoServicio : UserControl
     {
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
+        ClassTrabajarServicioFormat _classTrabajarServicioFormat = new ClassTrabajarServicioFormat();
+
+        private CollectionViewSource vistaColeccionFiltrada;//vista de coleccion filtrada
 
         private String nombreUsuario;
 
@@ -34,6 +37,38 @@ namespace Vistas.userControls.userControlListados
         public userControlListadoServicio()
         {
             InitializeComponent();
+            //Se accede al Recurso CollectionViewSource
+            vistaColeccionFiltrada = Resources["Vista_Services"] as CollectionViewSource;
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (vistaColeccionFiltrada != null)
+            {
+                //Se invoca al metodo eventVistaUser a medida que se escriba en el textBox
+                vistaColeccionFiltrada.Filter += eventVistaUsuario_filter;
+            }
+        }
+
+        private void eventVistaUsuario_filter(object sender, FilterEventArgs e)
+        {
+            ClassServicioString servicio = e.Item as ClassServicioString;
+
+            try
+            {
+                if (servicio.Ter_origen.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    e.Accepted = true;
+                }
+                else
+                {
+                    e.Accepted = false;
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error");
+            }
         }
 
         private void Servicios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -57,6 +92,37 @@ namespace Vistas.userControls.userControlListados
             else
             {
                 MessageBox.Show("Servicio no Disponible");
+            }
+        }
+
+        private void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime inicio = Convert.ToDateTime(dateFechaInicio.ToString());
+            DateTime fin = Convert.ToDateTime(dateFechaFin.ToString());
+
+            if (inicio <= fin)
+            {
+                Servicios.ItemsSource = _classTrabajarServicioFormat.listarServiciosPorFecha(inicio,fin);
+            }
+            else {
+                MessageBox.Show("Inicio no puede ser mayor que Fin");
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if(textBox2.Text != ""){
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServiciosDestino(textBox2.Text.ToString());
+                }else{
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServicios();
+                }
+                    
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Error");
             }
         }
     }
