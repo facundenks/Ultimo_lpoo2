@@ -23,7 +23,7 @@ namespace Vistas.userControls.userControlListados
         public userControlListadoVentaPorFecha()
         {
             InitializeComponent();
-            vistaColeccionFiltradaPorFecha = Resources["Vista_User"] as CollectionViewSource;
+            vistaColeccionFiltradaPorFecha = Resources["Vista_Ventas"] as CollectionViewSource;
         }
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
@@ -59,14 +59,19 @@ namespace Vistas.userControls.userControlListados
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
+            /*Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
             List<ClasesBase.ClassVentas> ventas = new List<ClasesBase.ClassVentas>();
             /*for (int i = 0; i < Ventas.Items.Count; i++)
             {
                 ventas.Add((ClasesBase.ClassVentas.Items[i]));
             }
+<<<<<<< HEAD
             venDoc.Usuario = ventas;*/
             venDoc.Show();
+=======
+            venDoc.Usuario = ventas;
+            venDoc.Show();*/
+>>>>>>> 0fa3ba2f4cb8b8542de356b1ddf3b80fb97ad8af
         }
     }
 }
