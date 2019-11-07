@@ -41,14 +41,15 @@ namespace Vistas.userControls.userControlListados
 
             try
             {
-                if (ventas.PasajeFec.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+
+                /*if (ventas.PasajeFec.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     e.Accepted = true;
                 }
                 else
                 {
                     e.Accepted = false;
-                }
+                }*/
             }
             catch (Exception exception)
             {
@@ -60,12 +61,13 @@ namespace Vistas.userControls.userControlListados
         {
             /*Document.Doc.VentasDoc venDoc = new Document.Doc.VentasDoc();
             List<ClasesBase.ClassVentas> ventas = new List<ClasesBase.ClassVentas>();
-            for (int i = 0; i < Ventas.Items.Count; i++)
+            /*for (int i = 0; i < Ventas.Items.Count; i++)
             {
-                ventas.Add((ClasesBase.ClassVentas.Items[i]);
+                ventas.Add((ClasesBase.ClassVentas.Items[i]));
             }
-            venDoc.Usuario = ventas;
-            venDoc.Show();*/
+
+            venDoc.Usuario = ventas;*/
+
         }
     }
 }

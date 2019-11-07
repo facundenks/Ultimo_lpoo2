@@ -105,6 +105,12 @@
     <Compile Include="userControls\userControlABM\UserControlABMUsuario.xaml.cs">
       <DependentUpon>UserControlABMUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userControls\userControlABM\UserControlAMBUsuarioSinTabla.xaml.cs">
+      <DependentUpon>UserControlAMBUsuarioSinTabla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\userControlABM\UserControlAVenta.xaml.cs">
+      <DependentUpon>UserControlAVenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoAutobus.xaml.cs">
       <DependentUpon>userControlListadoAutobus.xaml</DependentUpon>
     </Compile>
@@ -211,6 +217,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlABM\UserControlABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlABM\UserControlAMBUsuarioSinTabla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlABM\UserControlAVenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

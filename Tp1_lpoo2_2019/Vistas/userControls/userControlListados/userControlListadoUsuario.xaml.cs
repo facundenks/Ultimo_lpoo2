@@ -44,7 +44,7 @@ namespace Vistas.userControls.userControlListados
 
             try
             {
-                if (usuario.NombreUsuario1.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                if (usuario.NombreUsuario1.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase) || usuario.ApellidoUsuario1.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     e.Accepted = true;
                 }

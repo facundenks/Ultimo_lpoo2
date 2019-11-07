@@ -40,5 +40,68 @@ namespace ClasesBase
             }
             return serviciosFormat;
         }
+
+        public List<ClassServicioString> listarServiciosPorFecha(DateTime inicio, DateTime fin)
+        {
+
+            List<Servicio> lista = _servicioRepositorio.serviciosPorFecha(inicio,fin);
+            List<ClassServicioString> serviciosFormat = new List<ClassServicioString>();
+
+            foreach (Servicio item in lista)
+            {
+                ClassServicioString oServicio = new ClassServicioString();
+                Autobus oAutobus = _autobusRepositorio.buscarAutobus((int)item.aut_codigo);
+
+                oServicio.Aut_codigo = oAutobus.aut_codigo;
+                oServicio.Aut_matricula = oAutobus.aut_matricula;
+                oServicio.Aut_tiposervicio = oAutobus.aut_tiposervicio;
+
+                oServicio.Ser_codigo = item.ser_codigo;
+                oServicio.Ser_estado = item.ser_estado;
+                oServicio.Ser_fecha = (DateTime)item.ser_fecha;
+
+                oServicio.Ter_origen = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_origen).ter_nombre;
+                oServicio.Ter_destino = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_destino).ter_nombre;
+
+                oServicio.Emp_codigo = (int)oAutobus.emp_codigo;
+                oServicio.Emp_nombre = _empresaRepositorio.buscarEmpresa(oServicio.Emp_codigo).emp_nombre;
+
+                serviciosFormat.Add(oServicio);
+            }
+            return serviciosFormat;
+        }
+
+        public List<ClassServicioString> listarServiciosDestino(String destino)
+        {
+            Terminal oTerminal = _terminalRepositorio.buscarTerminalNombre(destino);
+            if(oTerminal != null ){
+                List<Servicio> lista = _servicioRepositorio.listarServiciosDestino(oTerminal.ter_codigo);
+                List<ClassServicioString> serviciosFormat = new List<ClassServicioString>();
+
+                foreach (Servicio item in lista)
+                {
+                    ClassServicioString oServicio = new ClassServicioString();
+                    Autobus oAutobus = _autobusRepositorio.buscarAutobus((int)item.aut_codigo);
+
+                    oServicio.Aut_codigo = oAutobus.aut_codigo;
+                    oServicio.Aut_matricula = oAutobus.aut_matricula;
+                    oServicio.Aut_tiposervicio = oAutobus.aut_tiposervicio;
+
+                    oServicio.Ser_codigo = item.ser_codigo;
+                    oServicio.Ser_estado = item.ser_estado;
+                    oServicio.Ser_fecha = (DateTime)item.ser_fecha;
+
+                    oServicio.Ter_origen = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_origen).ter_nombre;
+                    oServicio.Ter_destino = _terminalRepositorio.buscarTerminal((int)item.ter_codigo_destino).ter_nombre;
+
+                    oServicio.Emp_codigo = (int)oAutobus.emp_codigo;
+                    oServicio.Emp_nombre = _empresaRepositorio.buscarEmpresa(oServicio.Emp_codigo).emp_nombre;
+
+                    serviciosFormat.Add(oServicio);
+                }
+                return serviciosFormat;
+            }
+            return null;
+        }
     }
 }

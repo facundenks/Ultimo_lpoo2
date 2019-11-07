@@ -12,7 +12,29 @@ namespace ClasesBase.DAO.Repositorio
             using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Terminal> terminalEncontrada = from q in context.Terminal
-                                                          where q.ter_codigo == codigo
+                                                          where q.ter_codigo == @codigo
+                                                          select q;
+
+                List<Terminal> lista = terminalEncontrada.ToList();
+                if (lista.Count != 0)
+                {
+                    var terminal = lista[0];
+
+                    return terminal;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public Terminal buscarTerminalNombre(String nombre)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Terminal> terminalEncontrada = from q in context.Terminal
+                                                          where q.ter_nombre == nombre
                                                           select q;
 
                 List<Terminal> lista = terminalEncontrada.ToList();
