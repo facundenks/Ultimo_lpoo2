@@ -22,8 +22,8 @@
 
     </UserControl.Resources>
 
-    <Grid Width="1181">
-        <GroupBox Header="Datos de Ventas" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1180" Foreground="#F45BB0DD" Background="White">
+    <Grid Width="1181" Background="White">
+        <GroupBox Header="Datos de Ventas" Height="355" HorizontalAlignment="Left" Margin="6,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1180" Foreground="#F45BB0DD" Background="#FFFAFAFA">
             <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}">
                 <ListView.View>
                     <GridView>
