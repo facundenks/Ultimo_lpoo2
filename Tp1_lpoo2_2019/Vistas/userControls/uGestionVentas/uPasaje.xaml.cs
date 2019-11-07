@@ -127,13 +127,17 @@ namespace Vistas.userControls.uGestionVentas
                 Name = "btnAsiento_" + numeroAsiento
             };
 
+            botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
+
             if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true) {
 
                 Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento,oServicio.ser_codigo);
 
                 if (oPasaje != null)
                 {
-                    Cliente oCliente = _clienteRepositorio.buscarCliente(oPasaje.cli_dni);
+                    Cliente oCliente = new Cliente(); 
+                    oCliente = _clienteRepositorio.buscarCliente(oPasaje.cli_dni);
+
                     botonAsiento.Background = Brushes.Red;
                     ToolTip tt = new ToolTip();
                     tt.Content = "Cliente: " + oCliente.cli_nombre + " " + oCliente.cli_apellido 
@@ -145,7 +149,6 @@ namespace Vistas.userControls.uGestionVentas
                 }
                 else
                 {
-                    botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
                     botonAsiento.Cursor = Cursors.Hand;
                 }
                 
@@ -163,14 +166,16 @@ namespace Vistas.userControls.uGestionVentas
             else
             {
                 MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                Document.Doc.VentaPasaje venta = new Document.Doc.VentaPasaje();
+                
                 asiento.Background = Brushes.Red;
+                gridPrincipalPasajes.Children.Clear();
+                userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
                 venta.CodigoAutobus = codigoAutobus;
                 venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
                 venta.ServicioCodigo = oServicio.ser_codigo;
                 venta.NombreUsuario = nombreUsuario;
                 venta.CodigoEmpresa = codigoEmpresa;
-                venta.Show();
+                gridPrincipalPasajes.Children.Add(venta);
             }
         }
 

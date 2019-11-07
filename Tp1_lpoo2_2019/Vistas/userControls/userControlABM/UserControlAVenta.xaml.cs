@@ -9,16 +9,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClasesBase;
 using ClasesBase.DAO.Repositorio;
 
-namespace Vistas.Document.Doc
+namespace Vistas.userControls.userControlABM
 {
     /// <summary>
-    /// Interaction logic for VentaPasaje.xaml
+    /// Lógica de interacción para UserControlAVenta.xaml
     /// </summary>
-    public partial class VentaPasaje : Window
+    public partial class UserControlAVenta : UserControl
     {
         DateTime day = DateTime.Today;
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
@@ -64,7 +65,15 @@ namespace Vistas.Document.Doc
             set { codigoEmpresa = value; }
         }
 
-        public VentaPasaje()
+        private String dniCliente = "";
+
+        public String DniCliente
+        {
+            get { return dniCliente; }
+            set { dniCliente = value; }
+        }
+
+        public UserControlAVenta()
         {
             InitializeComponent();
         }
@@ -97,18 +106,24 @@ namespace Vistas.Document.Doc
                     detalle.NombreUsuario = nombreUsuario;
                     detalle.CodigoEmpresa = codigoEmpresa;
                     detalle.Show();
-                    Close();
+
+                    griVentaPrincipal.Children.Clear();
+                    userControls.uGestionVentas.uPasaje pasajev = new userControls.uGestionVentas.uPasaje();
+                    pasajev.CodigoServicio = servicioCodigo;
+                    pasajev.CodigoEmpresa = codigoEmpresa;
+                    griVentaPrincipal.Children.Add(pasajev);
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("Completar todos los campos", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            
+
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Line_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            txtDniCliente.Text = dniCliente;
             txtAsiento.Text = Convert.ToString(NumeroAsietnto);
             txtFecha.Text = day.ToString("d");
             list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
@@ -118,7 +133,7 @@ namespace Vistas.Document.Doc
         {
             Cliente cliente = list_clientes.SelectedItem as Cliente;
 
-            txtDniCliente.Text = cliente.cli_dni; 
+            txtDniCliente.Text = cliente.cli_dni;
         }
 
         private void txtPrecio_KeyDown(object sender, KeyEventArgs e)
@@ -133,6 +148,12 @@ namespace Vistas.Document.Doc
         {
             griVentaPrincipal.Children.Clear();
             userControls.userControlABM.UserControlAMBUsuarioSinTabla usuario = new userControls.userControlABM.UserControlAMBUsuarioSinTabla();
+            usuario.CodigoAutobus = codigoAutobus;
+            usuario.CodigoEmpresa = codigoEmpresa;
+            usuario.ServicioCodigo = servicioCodigo;
+            usuario.NumeroAsietnto = numeroAsietnto;
+            usuario.NombreUsuario = nombreUsuario;
+
             griVentaPrincipal.Children.Add(usuario);
         }
     }

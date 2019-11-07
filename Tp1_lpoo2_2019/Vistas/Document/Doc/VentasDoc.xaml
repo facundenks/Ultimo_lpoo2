@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        Title="VentasDoc" Height="734" Width="716" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="VentasDoc" Height="734" Width="716" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <!--<ObjectDataProvider
@@ -39,7 +39,7 @@
                     </BlockUIContainer>
                 </FlowDocument>
             </FlowDocumentReader>
-            <Button Name="btnImprimir" Content="Imprimir" Click="btnImprimir_Click" Width="330" Foreground="White"></Button>
+            <Button Name="btnImprimir" Content="Imprimir" Width="330" Foreground="White"></Button>
         </StackPanel>
     </Grid>
 </Window>
