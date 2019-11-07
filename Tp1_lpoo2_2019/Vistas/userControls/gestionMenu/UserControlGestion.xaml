@@ -33,7 +33,6 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/f467c342671853ac3a9418e3f1ddcc9a.png" />
                     <Label Content=" Ciudad " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
-
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridPasaje" Background="#F45BB0DD">
