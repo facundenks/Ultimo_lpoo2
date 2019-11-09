@@ -76,5 +76,25 @@ namespace ClasesBase.DAO.Repositorio
             }
 
         }
+
+        public List<Pasaje> pasajesPorFecha(DateTime inicio, DateTime fin)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Pasaje> pasaje = from q in context.Pasaje
+                                                where
+                                                (q.pas_fechaHora >= inicio.Date && q.pas_fechaHora <= fin)
+                                                select q;
+                List<Pasaje> lista = pasaje.ToList();
+                if (lista.Count != 0)
+                {
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
