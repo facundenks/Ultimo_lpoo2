@@ -35,7 +35,7 @@ namespace Vistas.userControls.gestionMenu
         private void GridAutobus_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridAdministracion.Children.Clear();
-            userControls.userControlABM.UserControlABMAutobus autobuses = new userControls.userControlABM.UserControlABMAutobus();
+            userControls.userControlABM.UserControlABMAutobus autobuses = new userControlABM.UserControlABMAutobus();
             GridAdministracion.Children.Add(autobuses);
         }
 

@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClasesBase;
 using ClasesBase.DAO.Repositorio;
+using Microsoft.Win32;
 
 namespace Vistas.userControls.userControlABM
 {
@@ -76,7 +77,19 @@ namespace Vistas.userControls.userControlABM
 
         private void guardarImagen_Click(object sender, RoutedEventArgs e)
         {
-
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                textBox1.Text = filename;
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri(filename);
+                b.EndInit();
+                foto.Source = b;
         }
     }
 }

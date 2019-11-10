@@ -18,7 +18,6 @@ namespace Vistas.userControls.uGestionVentas
 {
     public partial class uPasaje : UserControl
     {
-        
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
@@ -161,21 +160,48 @@ namespace Vistas.userControls.uGestionVentas
             Button asiento = ((Button)sender);
             if (asiento.Background == Brushes.Red)
             {
-                MessageBox.Show("Asiento no Disponible.", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (MessageBox.Show("¿Dar de Baja el Pasaje?", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Question) != MessageBoxResult.Cancel)
+                {
+                    DateTime fechaServicio = Convert.ToDateTime(oServicio.ser_fecha);
+                    DateTime fechaBajaPasaje = DateTime.Now;
+                    bajaPasaje(fechaServicio, fechaBajaPasaje, asiento);
+                }
             }
             else
             {
-                MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information) != MessageBoxResult.Cancel)
+                {
+                    asiento.Background = Brushes.Red;
+                    gridPrincipalPasajes.Children.Clear();
+                    userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
+                    venta.CodigoAutobus = codigoAutobus;
+                    venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
+                    venta.ServicioCodigo = oServicio.ser_codigo;
+                    venta.NombreUsuario = nombreUsuario;
+                    venta.CodigoEmpresa = codigoEmpresa;
+                    gridPrincipalPasajes.Children.Add(venta);
+                }
                 
-                asiento.Background = Brushes.Red;
+            }
+        }
+
+        private void bajaPasaje(DateTime fechaServicio, DateTime fechaBaja, Button button)
+        {
+            if (fechaServicio > fechaBaja)
+            {
+                Pasaje oPasaje = _pasajeRepositorio.traerAsiento(Convert.ToInt32(button.Content), oServicio.ser_codigo);
+                _pasajeRepositorio.removePasaje(oPasaje.pas_codigo);
                 gridPrincipalPasajes.Children.Clear();
-                userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
-                venta.CodigoAutobus = codigoAutobus;
-                venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
-                venta.ServicioCodigo = oServicio.ser_codigo;
-                venta.NombreUsuario = nombreUsuario;
-                venta.CodigoEmpresa = codigoEmpresa;
-                gridPrincipalPasajes.Children.Add(venta);
+                userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
+                pasajes.CodigoServicio = oServicio.ser_codigo;
+                pasajes.NombreUsuario = nombreUsuario;
+                pasajes.CodigoEmpresa = (int)oAutobus.emp_codigo; ; 
+                gridPrincipalPasajes.Children.Add(pasajes);
+                MessageBox.Show("Pasaje dado de Baja!", "Venta de Pasajes", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("No se puede dar de baja el Pasaje, el Servicio ya fue realizado", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
