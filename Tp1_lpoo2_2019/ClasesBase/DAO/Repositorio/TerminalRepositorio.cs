@@ -34,7 +34,7 @@ namespace ClasesBase.DAO.Repositorio
             using (BDpasajesEntities context = new BDpasajesEntities())
             {
                 IQueryable<Terminal> terminalEncontrada = from q in context.Terminal
-                                                          where q.ter_nombre == nombre
+                                                          where q.ter_nombre.Contains(nombre)
                                                           select q;
 
                 List<Terminal> lista = terminalEncontrada.ToList();

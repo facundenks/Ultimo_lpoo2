@@ -34,6 +34,9 @@ namespace Vistas.userControls.userControlListados
             set { nombreUsuario = value; }
         }
 
+        bool ban1 = false;
+        bool ban2 = false;
+
         public userControlListadoServicio()
         {
             InitializeComponent();
@@ -43,33 +46,25 @@ namespace Vistas.userControls.userControlListados
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (vistaColeccionFiltrada != null)
-            {
-                //Se invoca al metodo eventVistaUser a medida que se escriba en el textBox
-                vistaColeccionFiltrada.Filter += eventVistaUsuario_filter;
-            }
-        }
-
-        private void eventVistaUsuario_filter(object sender, FilterEventArgs e)
-        {
-            ClassServicioString servicio = e.Item as ClassServicioString;
-
             try
             {
-                if (servicio.Ter_origen.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                if (textBox1.Text != "")
                 {
-                    e.Accepted = true;
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServiciosOrigen(textBox1.Text.ToString());
                 }
                 else
                 {
-                    e.Accepted = false;
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServicios();
                 }
+
             }
             catch (Exception exception)
             {
                 Console.WriteLine("Error");
             }
         }
+
+        
 
         private void Servicios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -83,10 +78,11 @@ namespace Vistas.userControls.userControlListados
             if (_servicioRepositorio.buscarServicio(servicio.Ser_codigo) != null)
             {
                 GridAutobusesMain.Children.Clear();
-                userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
+                userControls.uGestionVentas.uGestionVentaPrincipal pasajes = new userControls.uGestionVentas.uGestionVentaPrincipal();
                 pasajes.CodigoServicio = servicio.Ser_codigo;
                 pasajes.NombreUsuario = nombreUsuario;
                 pasajes.CodigoEmpresa = servicio.Emp_codigo;
+                pasajes.Pisos = servicio.Aut_cantidadPisos;
                 GridAutobusesMain.Children.Add(pasajes);
             }
             else
@@ -102,7 +98,14 @@ namespace Vistas.userControls.userControlListados
 
             if (inicio <= fin)
             {
-                Servicios.ItemsSource = _classTrabajarServicioFormat.listarServiciosPorFecha(inicio,fin);
+                if (_classTrabajarServicioFormat.listarServiciosPorFecha(inicio, fin) != null)
+                {
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServiciosPorFecha(inicio, fin);
+                }
+                else {
+                    Servicios.ItemsSource = _classTrabajarServicioFormat.listarServicios();
+                }
+                
             }
             else {
                 MessageBox.Show("Inicio no puede ser mayor que Fin");
@@ -124,6 +127,17 @@ namespace Vistas.userControls.userControlListados
             {
                 Console.WriteLine("Error");
             }
+        }
+
+        private void activarFiltroFecha() { 
+            
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            //btnFiltrar.IsEnabled = false;
+            dateFechaFin.SelectedDate = DateTime.Today;
+            dateFechaInicio.SelectedDate = DateTime.Today;
         }
     }
 }
