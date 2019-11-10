@@ -7,9 +7,9 @@
              d:DesignHeight="690" d:DesignWidth="684" Loaded="UserControl_Loaded" Background="{x:Null}">
 
 
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0,0,89" ScrollChanged="ScrollViewer_ScrollChanged">
+    
 
-        <Grid ScrollViewer.CanContentScroll="True" Name="gridPrincipalPasajes" Width="687" Height="784">
+        <Grid Name="gridPrincipalPasajes" Width="687" Height="784">
 
             <Grid Height="667" Width="277" Background="#FFF4F4E4" >
                 <StackPanel Name="grdColumna1" Margin="157,12,0,107"></StackPanel>
@@ -20,7 +20,7 @@
                 <Rectangle Height="25" HorizontalAlignment="Left" Name="rectangle2" Stroke="#FF001900" VerticalAlignment="Bottom" Width="32" AllowDrop="False" Fill="Red" Margin="157,0,0,49" />
             </Grid>
         </Grid>
-    </ScrollViewer>
+    
     
         
     

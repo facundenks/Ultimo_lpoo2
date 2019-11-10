@@ -110,6 +110,7 @@ namespace Vistas.userControls.userControlABM
                     griVentaPrincipal.Children.Clear();
                     userControls.uGestionVentas.uPasaje pasajev = new userControls.uGestionVentas.uPasaje();
                     pasajev.CodigoServicio = servicioCodigo;
+                    pasajev.NombreUsuario = nombreUsuario;
                     pasajev.CodigoEmpresa = codigoEmpresa;
                     griVentaPrincipal.Children.Add(pasajev);
                 }
