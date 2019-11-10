@@ -4,14 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="570" d:DesignWidth="755">
     
-    <Grid x:Name="GridGestionVentas">
+    <Grid x:Name="GridGestionVentas" Background="Transparent">
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Gestion" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
         </Grid>
         <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD"/>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="0,0,-22,-22">
             <StackPanel Orientation="Horizontal">
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridCliente" MouseLeftButtonDown="GridCliente_MouseLeftButtonDown" Background="#F45BB0DD">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" Fill="{x:Null}" />

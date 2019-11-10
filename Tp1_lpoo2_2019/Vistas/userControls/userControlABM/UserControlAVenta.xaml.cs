@@ -73,6 +73,14 @@ namespace Vistas.userControls.userControlABM
             set { dniCliente = value; }
         }
 
+        private int pisos;
+
+        public int Pisos
+        {
+            get { return pisos; }
+            set { pisos = value; }
+        }
+
         public UserControlAVenta()
         {
             InitializeComponent();
@@ -107,12 +115,31 @@ namespace Vistas.userControls.userControlABM
                     detalle.CodigoEmpresa = codigoEmpresa;
                     detalle.Show();
 
-                    griVentaPrincipal.Children.Clear();
-                    userControls.uGestionVentas.uPasaje pasajev = new userControls.uGestionVentas.uPasaje();
+                    /*griVentaPrincipal.Children.Clear();
+                    userControls.uGestionVentas.uGestionVentaPrincipal pasajev = new userControls.uGestionVentas.uGestionVentaPrincipal();
                     pasajev.CodigoServicio = servicioCodigo;
                     pasajev.NombreUsuario = nombreUsuario;
                     pasajev.CodigoEmpresa = codigoEmpresa;
-                    griVentaPrincipal.Children.Add(pasajev);
+                    pasajev.Pisos = pisos;
+                    pasajev.Band = true;
+                    griVentaPrincipal.Children.Add(pasajev);*/
+
+                    if(pisos==2){
+                        griVentaPrincipal.Children.Clear();
+                        userControls.uGestionVentas.uPasajeDosPisos pasajev2 = new userControls.uGestionVentas.uPasajeDosPisos();
+                        pasajev2.CodigoServicio = servicioCodigo;
+                        pasajev2.CodigoEmpresa = codigoEmpresa;
+                        pasajev2.Pisos = pisos;
+                        pasajev2.Band = true;
+                        griVentaPrincipal.Children.Add(pasajev2);
+                    }else{
+                        griVentaPrincipal.Children.Clear();
+                        userControls.uGestionVentas.uPasajeUnPiso pasajev = new userControls.uGestionVentas.uPasajeUnPiso();
+                        pasajev.CodigoServicio = servicioCodigo;
+                        pasajev.CodigoEmpresa = codigoEmpresa;
+                        pasajev.Pisos = pisos;
+                        griVentaPrincipal.Children.Add(pasajev);
+                    }
                 }
             }
             else
