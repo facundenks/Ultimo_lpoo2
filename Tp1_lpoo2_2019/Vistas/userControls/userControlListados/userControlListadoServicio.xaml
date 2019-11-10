@@ -8,10 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="403" d:DesignWidth="853" Width="1008" Height="435">
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_servicios" 
             ObjectType="{x:Type svc:ClassTrabajarServicioFormat}" 
-            MethodName="listarServicios"/>-->
+            MethodName="listarServicios"/>
 
         <CollectionViewSource x:Key="Vista_Services" Source="{StaticResource ResourceKey=lista_servicios}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>

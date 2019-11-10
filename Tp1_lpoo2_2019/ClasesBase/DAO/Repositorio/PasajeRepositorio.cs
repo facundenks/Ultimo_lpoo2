@@ -96,5 +96,17 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public void removePasaje(int id)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Pasaje pasaje = (from q in context.Pasaje
+                                     where q.pas_codigo == id
+                                     select q).First();
+                context.DeleteObject(pasaje);
+                context.SaveChanges();
+            }
+        }
     }
 }
