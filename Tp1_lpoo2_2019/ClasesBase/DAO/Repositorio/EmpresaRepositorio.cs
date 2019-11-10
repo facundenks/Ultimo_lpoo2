@@ -28,5 +28,36 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public Empresa buscarEmpresaPorNombre(String nombre)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Empresa> empresa = from q in context.Empresa
+                                              where
+                                                  q.emp_nombre == nombre
+                                              select q;
+                List<Empresa> lista = empresa.ToList();
+                if (lista.Count != 0)
+                {
+                    var empresaEncontrada = lista[0];
+                    return empresaEncontrada;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<Empresa> listarEmpresas()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Empresa> empresas = from u in context.Empresa
+                                            select u;
+                return empresas.ToList();
+            }
+        }
     }
 }
