@@ -90,6 +90,7 @@ namespace Vistas.userControls.userControlABM
                 b.UriSource = new Uri(filename);
                 b.EndInit();
                 foto.Source = b;
+            }
         }
     }
 }

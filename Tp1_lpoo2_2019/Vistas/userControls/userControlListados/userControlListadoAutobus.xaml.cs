@@ -47,7 +47,7 @@ namespace Vistas.userControls.userControlListados
             if (_servicioRepositorio.servicioCoche(auto.aut_codigo) != null)
             {
                 GridAutobusesMain.Children.Clear();
-                userControls.uGestionVentas.uPasaje pasajes = new userControls.uGestionVentas.uPasaje();
+                userControls.uGestionVentas.uPasajeUnPiso pasajes = new userControls.uGestionVentas.uPasajeUnPiso();
                 //pasajes.CodigoAutobus = auto.aut_codigo;
                 pasajes.NombreUsuario = nombreUsuario;
                 GridAutobusesMain.Children.Add(pasajes);
