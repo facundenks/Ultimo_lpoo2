@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas.userControls.userControlListados
 {
@@ -19,6 +20,7 @@ namespace Vistas.userControls.userControlListados
     /// </summary>
     public partial class userControlListadoVentaPorFecha : UserControl
     {
+        ClassTrabajarVentaString ventas = new ClassTrabajarVentaString();
         private CollectionViewSource vistaColeccionFiltradaPorFecha;
         public userControlListadoVentaPorFecha()
         {
@@ -42,14 +44,15 @@ namespace Vistas.userControls.userControlListados
             try
             {
 
-                /*if (ventas.PasajeFec.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
+                if (ventas.ClienteDNI.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase) || ventas.AutobusMatricula.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase)
+                    || ventas.NombreEmpresa.StartsWith(textBox1.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     e.Accepted = true;
                 }
                 else
                 {
                     e.Accepted = false;
-                }*/
+                }
             }
             catch (Exception exception)
             {
@@ -69,5 +72,40 @@ namespace Vistas.userControls.userControlListados
             venDoc.Usuario = ventas;*/
 
         }
+
+        private void btnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime inicio = Convert.ToDateTime(dtpInicio.ToString());
+            DateTime fin = Convert.ToDateTime(dtpFin.ToString());
+
+
+            if (inicio <= fin)
+            {
+                GridVentas.Children.Clear();
+                userControls.userControlListados.UserControlListadoFechas ventasFecha = new userControls.userControlListados.UserControlListadoFechas();
+                ventasFecha.OVenta = ventas.listarVentasPorFecha(inicio, fin);
+                String cantidad = ventasFecha.OVenta.Count.ToString();
+                String total = ventasFecha.OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
+                GridVentas.Children.Add(ventasFecha);
+            }
+            else
+            {
+                MessageBox.Show("Inicio no puede ser mayor que Fin");
+            }
+
+        }
+
+        private List <ClassVentas> filtro (){
+            
+            List<ClassVentas> ventas = new List<ClasesBase.ClassVentas>();
+
+            for (int i = 0; i < Ventas.Items.Count; i++)
+            {
+                ventas.Add((ClassVentas)Ventas.Items[i]);
+            }
+
+            return ventas;
+        }
+            
     }
 }
