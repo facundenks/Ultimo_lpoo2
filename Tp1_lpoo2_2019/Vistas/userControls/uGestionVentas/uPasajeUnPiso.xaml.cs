@@ -16,9 +16,11 @@ using ClasesBase.DAO.Repositorio;
 
 namespace Vistas.userControls.uGestionVentas
 {
-    public partial class uPasaje : UserControl
+    /// <summary>
+    /// Lógica de interacción para uPasajeUnPiso.xaml
+    /// </summary>
+    public partial class uPasajeUnPiso : UserControl
     {
-        
         ServicioRepositorio _servicioRepositorio = new ServicioRepositorio();
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
@@ -28,6 +30,14 @@ namespace Vistas.userControls.uGestionVentas
         int asientoLibre = 0, asientoOcupado = 0;
         int capacidad = 0;
         int codigoAutobus = 0;
+
+        private bool band = false;
+
+        public bool Band
+        {
+            get { return band; }
+            set { band = value; }
+        }
 
         private String nombreUsuario;
 
@@ -45,17 +55,25 @@ namespace Vistas.userControls.uGestionVentas
             set { codigoServicio = value; }
         }
 
-        public uPasaje()
-        {
-            InitializeComponent();
-        }
-
         private int codigoEmpresa;
 
         public int CodigoEmpresa
         {
             get { return codigoEmpresa; }
             set { codigoEmpresa = value; }
+        }
+
+        private int pisos;
+
+        public int Pisos
+        {
+            get { return pisos; }
+            set { pisos = value; }
+        }
+
+        public uPasajeUnPiso()
+        {
+            InitializeComponent();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -66,10 +84,15 @@ namespace Vistas.userControls.uGestionVentas
             capacidad = (int)oAutobus.aut_capacidad;
             cargarAsientos(capacidad);
             contadorDeAsientos();
+            if (band)
+            {
+                scrol.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                scrol.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            }
         }
 
         private void cargarAsientos(int cantAsientos)
-        { 
+        {
             int cantidadAsientos = cantAsientos;
 
             int contadorAsientos = 1;
@@ -82,7 +105,7 @@ namespace Vistas.userControls.uGestionVentas
                     grdColumna1.Children.Add(generarDosAsientos(contadorAsientos));
 
                 bandera = !bandera;
-                
+
                 contadorAsientos += 2;
             }
             if (cantidadAsientos % 2 == 1)
@@ -129,21 +152,22 @@ namespace Vistas.userControls.uGestionVentas
 
             botonAsiento.Click += new RoutedEventHandler(btnAsiento_Click);
 
-            if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true) {
+            if (_servicioRepositorio.servicioConVentas(oServicio.ser_codigo) == true)
+            {
 
-                Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento,oServicio.ser_codigo);
+                Pasaje oPasaje = _pasajeRepositorio.traerAsiento(numeroAsiento, oServicio.ser_codigo);
 
                 if (oPasaje != null)
                 {
-                    Cliente oCliente = new Cliente(); 
+                    Cliente oCliente = new Cliente();
                     oCliente = _clienteRepositorio.buscarCliente(oPasaje.cli_dni);
 
                     botonAsiento.Background = Brushes.Red;
                     ToolTip tt = new ToolTip();
-                    tt.Content = "Cliente: " + oCliente.cli_nombre + " " + oCliente.cli_apellido 
-                        +"\nDNI: " + oCliente.cli_dni
-                        +"\nTelefono: "+ oCliente.cli_telefono
-                        +"\nEmail: "+ oCliente.cli_email;
+                    tt.Content = "Cliente: " + oCliente.cli_nombre + " " + oCliente.cli_apellido
+                        + "\nDNI: " + oCliente.cli_dni
+                        + "\nTelefono: " + oCliente.cli_telefono
+                        + "\nEmail: " + oCliente.cli_email;
                     botonAsiento.ToolTip = tt;
                     asientoOcupado++;
                 }
@@ -151,7 +175,7 @@ namespace Vistas.userControls.uGestionVentas
                 {
                     botonAsiento.Cursor = Cursors.Hand;
                 }
-                
+
             }
             return botonAsiento;
         }
@@ -166,7 +190,7 @@ namespace Vistas.userControls.uGestionVentas
             else
             {
                 MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                
+
                 asiento.Background = Brushes.Red;
                 gridPrincipalPasajes.Children.Clear();
                 userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
@@ -175,6 +199,7 @@ namespace Vistas.userControls.uGestionVentas
                 venta.ServicioCodigo = oServicio.ser_codigo;
                 venta.NombreUsuario = nombreUsuario;
                 venta.CodigoEmpresa = codigoEmpresa;
+                venta.Pisos = pisos;
                 gridPrincipalPasajes.Children.Add(venta);
             }
         }
@@ -183,7 +208,7 @@ namespace Vistas.userControls.uGestionVentas
         private void contadorDeAsientos()
         {
             asientoLibre = capacidad - asientoOcupado;
-            label1.Content =  asientoLibre+" Asientos Libres";
+            label1.Content = asientoLibre + " Asientos Libres";
             label2.Content = asientoOcupado + " Asientos Ocupados";
         }
     }

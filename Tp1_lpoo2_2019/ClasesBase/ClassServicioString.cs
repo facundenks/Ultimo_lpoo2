@@ -86,5 +86,13 @@ namespace ClasesBase
             get { return emp_nombre; }
             set { emp_nombre = value; }
         }
+
+        private int aut_cantidadPisos;
+
+        public int Aut_cantidadPisos
+        {
+            get { return aut_cantidadPisos; }
+            set { aut_cantidadPisos = value; }
+        }
     }
 }

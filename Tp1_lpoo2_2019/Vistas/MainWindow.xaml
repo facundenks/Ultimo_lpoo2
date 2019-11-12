@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Vistas.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Venta de Pasajes" Height="364" Width="575" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="Venta de Pasajes" Height="364" Width="575" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="ThreeDBorderWindow">
     <Window.Background>
         <ImageBrush ImageSource="/Vistas;component/Images/TerminalOmnibusLaPlata.jpg" />
     </Window.Background>

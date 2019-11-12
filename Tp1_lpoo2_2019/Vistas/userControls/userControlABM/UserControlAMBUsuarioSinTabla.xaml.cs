@@ -65,6 +65,14 @@ namespace Vistas.userControls.userControlABM
             set { codigoEmpresa = value; }
         }
 
+        private int pisos;
+
+        public int Pisos
+        {
+            get { return pisos; }
+            set { pisos = value; }
+        }
+
         public UserControlAMBUsuarioSinTabla()
         {
             InitializeComponent();
@@ -106,6 +114,7 @@ namespace Vistas.userControls.userControlABM
                         venta.CodigoAutobus = codigoAutobus;
                         venta.CodigoEmpresa = codigoEmpresa;
                         venta.ServicioCodigo = servicioCodigo;
+                        venta.Pisos = pisos;
                         gridPrincipalUsuarioSinTabla.Children.Add(venta);
                     }
                 }

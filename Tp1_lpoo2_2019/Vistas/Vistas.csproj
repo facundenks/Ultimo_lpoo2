@@ -84,8 +84,14 @@
     <Compile Include="userControls\gestionMenu\UserControlVentas.xaml.cs">
       <DependentUpon>UserControlVentas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="userControls\uGestionVentas\uPasaje.xaml.cs">
-      <DependentUpon>uPasaje.xaml</DependentUpon>
+    <Compile Include="userControls\uGestionVentas\uGestionVentaPrincipal.xaml.cs">
+      <DependentUpon>uGestionVentaPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\uGestionVentas\uPasajeDosPisos.xaml.cs">
+      <DependentUpon>uPasajeDosPisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\uGestionVentas\uPasajeUnPiso.xaml.cs">
+      <DependentUpon>uPasajeUnPiso.xaml</DependentUpon>
     </Compile>
     <Compile Include="userControls\uLogin\uLogin.xaml.cs">
       <DependentUpon>uLogin.xaml</DependentUpon>
@@ -195,7 +201,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="userControls\uGestionVentas\uPasaje.xaml">
+    <Page Include="userControls\uGestionVentas\uGestionVentaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\uGestionVentas\uPasajeDosPisos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\uGestionVentas\uPasajeUnPiso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,6 +27,17 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public List<Servicio> listarServiciosOrigen(int codigoOrigen)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> listaServicios = from q in context.Servicio
+                                                      where q.ter_codigo_origen == codigoOrigen
+                                                      select q;
+                return listaServicios.ToList();
+            }
+        }
+
         public List<Servicio> listarServicios()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
