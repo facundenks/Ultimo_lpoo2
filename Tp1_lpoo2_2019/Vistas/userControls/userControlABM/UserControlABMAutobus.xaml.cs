@@ -101,10 +101,6 @@ namespace Vistas.userControls.userControlABM
                 b.EndInit();
                 foto.Source = b;
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> b1b4d71bc4a60a85d893a95a478642e3b1fec9b3
         }
 
         private void cargar_combo()
@@ -115,10 +111,6 @@ namespace Vistas.userControls.userControlABM
                 list.Add(e.emp_nombre);
             }
             cmbEmpresa.ItemsSource = list;
-<<<<<<< HEAD
-
-=======
->>>>>>> b1b4d71bc4a60a85d893a95a478642e3b1fec9b3
         }
     }
 }
