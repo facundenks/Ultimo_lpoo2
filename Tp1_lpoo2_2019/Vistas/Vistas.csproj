@@ -108,6 +108,9 @@
     <Compile Include="userControls\userControlABM\UserControlABMCliente.xaml.cs">
       <DependentUpon>UserControlABMCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userControls\userControlABM\UserControlABMTerminal.xaml.cs">
+      <DependentUpon>UserControlABMTerminal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="userControls\userControlABM\UserControlABMUsuario.xaml.cs">
       <DependentUpon>UserControlABMUsuario.xaml</DependentUpon>
     </Compile>
@@ -227,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlABM\UserControlABMCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlABM\UserControlABMTerminal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
