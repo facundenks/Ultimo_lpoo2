@@ -85,7 +85,7 @@ namespace ClasesBase.DAO.Repositorio
                                                 where
                                                 (q.pas_fechaHora >= inicio.Date && q.pas_fechaHora <= fin)
                                                 select q;
-                List<Pasaje> lista = pasaje.ToList();
+                List<Pasaje> lista = pasaje.OrderBy(x=>x.pas_fechaHora).ToList();
                 if (lista.Count != 0)
                 {
                     return lista;
