@@ -7,6 +7,16 @@ namespace ClasesBase.DAO.Repositorio
 {
     public class TerminalRepositorio
     {
+        public List<Terminal> listarTerminales()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Terminal> listaTerminales = from q in context.Terminal
+                                                      select q;
+                return listaTerminales.ToList();
+            }
+        }
+
         public Terminal buscarTerminal(int codigo)
         {
             using (BDpasajesEntities context = new BDpasajesEntities())

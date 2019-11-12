@@ -5,13 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              mc:Ignorable="d" 
-             d:DesignHeight="439" d:DesignWidth="830" Width="1037" Height="634">
-
+             d:DesignHeight="439" d:DesignWidth="830" Width="1037" Height="710">
+    <UserControl.Background>
+        <ImageBrush />
+    </UserControl.Background>
     <UserControl.Resources>
-        <ObjectDataProvider 
+        <!--<ObjectDataProvider 
             x:Key="lista_Autobuses" 
             ObjectType="{x:Type svc:AutobusRepositorio}" 
-            MethodName="getAutobus"/>
+            MethodName="getAutobus"/>-->
     </UserControl.Resources>
     
     <Grid>
@@ -21,8 +23,8 @@
         
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Datos Autobus" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,58,189,-688" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-124,0" />
         <GroupBox Header="Datos de Autobus" Height="498" HorizontalAlignment="Left" Margin="6,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1019" Foreground="#F45BB0DD">
             <Grid Background="White" Width="1000" Height="450">
                 <Grid.ColumnDefinitions>
@@ -64,8 +66,12 @@
                     </ListView.View>
                 </ListView>
                 <Label Content="Imagen" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="60,130,0,0" Name="label1" Target="{Binding}" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" />
-                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="90,130,0,0" Name="imagen" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                <Button Content="Button" Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="214,132,0,0" Name="button1" VerticalAlignment="Top" Width="25"  Click="guardarImagen_Click"/>
+                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="90,130,0,0" Name="imagen" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                <Button Grid.Column="1" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="214,127,0,0" Name="button1" VerticalAlignment="Top" Width="34"  Click="guardarImagen_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Vistas;component/Images/Apps-Search-And-Replace-icon.png" />
+                    </Button.Background>
+                </Button>
                 <Image Grid.Row="2" Height="147" HorizontalAlignment="Left" Margin="60,165,0,0" Name="foto" Stretch="Fill" VerticalAlignment="Top" Width="254" Grid.ColumnSpan="2" />
                 <Label Content="Empresa" FontWeight="Bold" Foreground="Black" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="60,44,0,0" Name="label2" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2" />
                 <ComboBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="90,87,0,0" Name="textBoxPisos" VerticalAlignment="Top" Width="120">

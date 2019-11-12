@@ -44,6 +44,11 @@
                     <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-28.png" />
                     <Label Content=" Terminal " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
+                <Grid Background="#F45BB0DD" Height="150" Name="grid1" Width="140" Margin="50 70 0 0" MouseLeftButtonDown="GridServicio_MouseLeftButtonDown">
+                    <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
+                    <Image Cursor="Hand" Height="80" HorizontalAlignment="Center" Margin="0,0,0,10" Source="/Vistas;component/Images/images.png" Stretch="Fill" VerticalAlignment="Bottom" Width="80" />
+                    <Label Background="#F42A2B32" Content="Servicio" FontSize="20" FontWeight="Bold" Foreground="#F9AFA9AD" Height="40" VerticalAlignment="Top" />
+                </Grid>
             </StackPanel>
         </StackPanel>
         

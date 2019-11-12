@@ -46,11 +46,19 @@ namespace Vistas.userControls.gestionMenu
             userControls.userControlABM.UserControlABMCliente usuarios = new userControls.userControlABM.UserControlABMCliente();
             GridGestionVentas.Children.Add(usuarios);
         }
+
         private void GridTermi_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridGestionVentas.Children.Clear();
             userControls.userControlListados.userControlListadoVentaPorFecha ventasFecha = new userControls.userControlListados.userControlListadoVentaPorFecha();
             GridGestionVentas.Children.Add(ventasFecha);
+        }
+
+        private void GridServicio_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridGestionVentas.Children.Clear();
+            userControls.userControlABM.UserControlABMServicio servicio = new userControls.userControlABM.UserControlABMServicio();
+            GridGestionVentas.Children.Add(servicio);
         }
 
     }
