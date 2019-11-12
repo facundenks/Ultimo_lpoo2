@@ -14,6 +14,7 @@ namespace ClasesBase
         ServicioRepositorio SerDAO = new ServicioRepositorio();
         AutobusRepositorio AutDAO = new AutobusRepositorio();
         TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
+        EmpresaRepositorio EmpDAO = new EmpresaRepositorio();
 
         public List<ClassVentas> ventaStringList()
         {
@@ -51,14 +52,19 @@ namespace ClasesBase
                 aut = AutDAO.buscarAutobus((int)ser.aut_codigo);
                 ven.AutobusTipoServicio = aut.aut_tiposervicio;
                 ven.AutobusMatricula = aut.aut_matricula;
+
+                Empresa emp = new Empresa();
+                emp = EmpDAO.buscarEmpresa((int)aut.emp_codigo);
+                ven.NombreEmpresa = emp.emp_nombre;
                 
-                ven.NombreEmpresa = "Bolut";
+                //ven.NombreEmpresa = "Bolut";
+
                 listaVentasString.Add(ven);
             }
             return listaVentasString;
         }
 
-        //AVUR DESDE ACA
+        //Metodo para el filtro de fechas
 
         public List<ClassVentas> listarVentasPorFecha(DateTime inicio, DateTime fin)
         {
@@ -73,6 +79,7 @@ namespace ClasesBase
                 Cliente cli = CliDAO.buscarCliente((String)item.cli_dni);
                 Terminal terOrigen = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_origen);
                 Terminal terDest = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_destino);
+                Empresa emp = EmpDAO.buscarEmpresa((int)auto.emp_codigo);
 
                 ven.AutobusMatricula = auto.aut_matricula;
                 ven.AutobusTipoServicio = auto.aut_tiposervicio;
@@ -91,7 +98,8 @@ namespace ClasesBase
                 ven.PasajeFec = Convert.ToString(item.pas_fechaHora);
                 ven.PasajePrecio = Convert.ToString(item.pas_precio);
 
-                ven.NombreEmpresa = "Bolut";
+                ven.NombreEmpresa = Convert.ToString(emp.emp_nombre);
+                //ven.NombreEmpresa = "Bolut";
                 pasajeFormat.Add(ven);
             }
            
@@ -99,6 +107,19 @@ namespace ClasesBase
             return pasajeFormat;
                        
          }
+        //Metodo para el horario de servicio con mas ventas
+
+        /*public DateTime mayorVenta(List<ClassVentas> lista) {
+
+            DateTime horario = new DateTime();
+            foreach(ClassVentas item in lista){
+            
+            
+            
+            }
+            return horario;
+        
+        }*/
         
             
      }

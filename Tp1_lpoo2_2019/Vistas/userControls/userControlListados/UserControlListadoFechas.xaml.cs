@@ -21,13 +21,36 @@ namespace Vistas.userControls.userControlListados
     public partial class UserControlListadoFechas : UserControl
     {
         List<ClassVentas> oVenta = new List<ClassVentas>();
-
-
+        
         public List<ClassVentas> OVenta
         {
             get { return oVenta; }
             set { oVenta = value; }
         }
+        String total;
+
+        public String Total
+        {
+            get { return total; }
+            set { total = value; }
+        }
+        String cantidad;
+
+        public String Cantidad
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
+
+        String horario;
+
+        public String Horario
+        {
+            get { return horario; }
+            set { horario = value; }
+        }
+
+        
         
         public UserControlListadoFechas()
         {            
@@ -36,6 +59,16 @@ namespace Vistas.userControls.userControlListados
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             Ventas.ItemsSource = oVenta;
+            cantidad= oVenta.Count.ToString();
+            total = OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
+            //horario = OVenta.Max(x=>Convert.ToDateTime(x.ServicioFec.));
+            
+            txtCantidad.Text = Convert.ToString(cantidad);
+            txtMontoTotal.Text = Convert.ToString(total);
+            txtHorarios.Text = Convert.ToString(horario);
+            
+            //String cantidad = Ventas.Items.Count.ToString();
+            //String total = OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
 
         }
     }
