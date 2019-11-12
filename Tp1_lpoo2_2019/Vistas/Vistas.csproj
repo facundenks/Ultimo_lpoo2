@@ -108,8 +108,13 @@
     <Compile Include="userControls\userControlABM\UserControlABMCliente.xaml.cs">
       <DependentUpon>UserControlABMCliente.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="userControls\userControlABM\UserControlABMServicio.xaml.cs">
       <DependentUpon>UserControlABMServicio.xaml</DependentUpon>
+=======
+    <Compile Include="userControls\userControlABM\UserControlABMTerminal.xaml.cs">
+      <DependentUpon>UserControlABMTerminal.xaml</DependentUpon>
+>>>>>>> b1b4d71bc4a60a85d893a95a478642e3b1fec9b3
     </Compile>
     <Compile Include="userControls\userControlABM\UserControlABMUsuario.xaml.cs">
       <DependentUpon>UserControlABMUsuario.xaml</DependentUpon>
@@ -122,6 +127,9 @@
     </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoAutobus.xaml.cs">
       <DependentUpon>userControlListadoAutobus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userControls\userControlListados\UserControlListadoFechas.xaml.cs">
+      <DependentUpon>UserControlListadoFechas.xaml</DependentUpon>
     </Compile>
     <Compile Include="userControls\userControlListados\userControlListadoServicio.xaml.cs">
       <DependentUpon>userControlListadoServicio.xaml</DependentUpon>
@@ -233,7 +241,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="userControls\userControlABM\UserControlABMServicio.xaml">
+=======
+    <Page Include="userControls\userControlABM\UserControlABMTerminal.xaml">
+>>>>>>> b1b4d71bc4a60a85d893a95a478642e3b1fec9b3
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="userControls\userControlListados\userControlListadoAutobus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userControls\userControlListados\UserControlListadoFechas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
