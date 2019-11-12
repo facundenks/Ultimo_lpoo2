@@ -22,7 +22,7 @@
         </CollectionViewSource>
     </UserControl.Resources>
 
-    <Grid Name="GridFechas" Width="1181" Background="White">
+    <Grid Name="GridFechas" Width="1181" Background="White" Height="460">
         <GroupBox Header="Datos de Ventas por Fecha " Height="317" HorizontalAlignment="Left" Margin="6,42,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1180" Foreground="#F45BB0DD" Background="#FFFAFAFA">
             <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}">
                 <ListView.View>
