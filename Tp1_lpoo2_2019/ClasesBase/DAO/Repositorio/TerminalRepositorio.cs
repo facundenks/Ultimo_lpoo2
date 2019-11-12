@@ -7,6 +7,15 @@ namespace ClasesBase.DAO.Repositorio
 {
     public class TerminalRepositorio
     {
+        public void agregarTerminal(Terminal t)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                context.Terminal.AddObject(t);
+                context.SaveChanges();
+            }
+        }
+
         public Terminal buscarTerminal(int codigo)
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
@@ -48,6 +57,16 @@ namespace ClasesBase.DAO.Repositorio
                 {
                     return null;
                 }
+            }
+        }
+
+        public List<Terminal> getTerminales()
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Terminal> terminales = from q in context.Terminal
+                                              select q;
+                return terminales.ToList();
             }
         }
     }

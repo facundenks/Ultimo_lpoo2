@@ -62,5 +62,12 @@ namespace Vistas.userControls.gestionMenu
             //usuarios.UserName = userName;
             GridAdministracion.Children.Add(usuarios);
         }
+
+        private void GridTerminal_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridAdministracion.Children.Clear();
+            userControls.userControlABM.UserControlABMTerminal terminal = new userControlABM.UserControlABMTerminal();
+            GridAdministracion.Children.Add(terminal);
+        }
     }
 }
