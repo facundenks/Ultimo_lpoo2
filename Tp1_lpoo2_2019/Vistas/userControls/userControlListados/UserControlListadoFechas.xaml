@@ -45,7 +45,7 @@
                 </ListView.View>
             </ListView>
         </GroupBox>
-        <Button Content="Vista Previa" Margin="1035,380,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" />
+        <Button Content="Vista Previa" Margin="1035,380,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" Click="button1_Click" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,380,0,0" Name="textBlock1" Text="Cantidad de Pasajes Vendidos: " VerticalAlignment="Top" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="339,384,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Right" Margin="0,379,862,0" Name="txtCantidad" VerticalAlignment="Top" Width="133"/>

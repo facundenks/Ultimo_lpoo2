@@ -1,0 +1,39 @@
+﻿<Window x:Class="Vistas.Document.Doc.VentaFiltradaPorFecha"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        Title="VentaFiltradaPorFecha" Height="734" Width="888" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <StackPanel Width="800" Height="642" Orientation="Vertical">
+        <FlowDocumentReader Canvas.Left="12" Canvas.Top="12" Height="535" Width="690">
+            <FlowDocument Name="DocMain">
+                <Paragraph>Lista de Ventas</Paragraph>
+                <BlockUIContainer>
+                    <ListView Name="ventasFechaList" IsEnabled="True">
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+                                    <GridViewColumn Width="80" Header="Codigo Pasaje" DisplayMemberBinding="{Binding PasajeCodigo}"/>
+                                    <GridViewColumn Width="80" Header="Asiento" DisplayMemberBinding="{Binding PasajeAsiento}"/>
+                                    <GridViewColumn Width="80" Header="Precio" DisplayMemberBinding="{Binding PasajePrecio}"/>
+                                    <GridViewColumn Width="80" Header="Fecha Pasaje" DisplayMemberBinding="{Binding PasajeFec}"/>
+                                    <GridViewColumn Width="80" Header="Nombre" DisplayMemberBinding="{Binding ClienteNombre}"/>
+                                    <GridViewColumn Width="80" Header="Apellido" DisplayMemberBinding="{Binding ClienteApellido}"/>
+                                    <GridViewColumn Width="80" Header="DNI" DisplayMemberBinding="{Binding ClienteDNI}"/>
+                                    <GridViewColumn Width="90" Header="Codigo Servicio" DisplayMemberBinding="{Binding ServicioCodigo}"/>
+                                    <GridViewColumn Width="80" Header="Fecha Servicio" DisplayMemberBinding="{Binding ServicioFec}"/>
+                                    <GridViewColumn Width="90" Header="Servicio Origen" DisplayMemberBinding="{Binding ServicioCodDestino}"/>
+                                    <GridViewColumn Width="90" Header="Servicio Destino" DisplayMemberBinding="{Binding ServicioCodOrigen}"/>
+                                    <GridViewColumn Width="80" Header="Tipo Servicio" DisplayMemberBinding="{Binding AutobusTipoServicio}"/>
+                                    <GridViewColumn Width="80" Header="Matricula" DisplayMemberBinding="{Binding AutobusMatricula}"/>
+                                    <GridViewColumn Width="80" Header="Empresa" DisplayMemberBinding="{Binding NombreEmpresa}"/>
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </BlockUIContainer>
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button Name="btnImprimir" Content="Imprimir" Click="btnImprimir_Click" Width="330" Foreground="White"></Button>
+    </StackPanel>
+</Window>

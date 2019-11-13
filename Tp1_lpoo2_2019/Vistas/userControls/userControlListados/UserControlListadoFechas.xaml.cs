@@ -71,5 +71,17 @@ namespace Vistas.userControls.userControlListados
             //String total = OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
 
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Document.Doc.VentaFiltradaPorFecha usuDoc = new Document.Doc.VentaFiltradaPorFecha();
+            List<ClassVentas> vents = new List<ClassVentas>();
+            for (int i = 0; i < Ventas.Items.Count; i++)
+            {
+                vents.Add((ClassVentas)Ventas.Items[i]);
+            }
+            usuDoc.Ventas = vents;
+            usuDoc.Show();
+        }
     }
 }

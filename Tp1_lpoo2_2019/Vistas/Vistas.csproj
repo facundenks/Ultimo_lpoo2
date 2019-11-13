@@ -65,6 +65,12 @@
     <Compile Include="Document\Doc\UsuariosDoc.xaml.cs">
       <DependentUpon>UsuariosDoc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Document\Doc\VentaDoc.xaml.cs">
+      <DependentUpon>VentaDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Document\Doc\VentaFiltradaPorFecha.xaml.cs">
+      <DependentUpon>VentaFiltradaPorFecha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Document\Doc\VentaPasaje.xaml.cs">
       <DependentUpon>VentaPasaje.xaml</DependentUpon>
     </Compile>
@@ -110,7 +116,7 @@
     </Compile>
     <Compile Include="userControls\userControlABM\UserControlABMServicio.xaml.cs">
       <DependentUpon>UserControlABMServicio.xaml</DependentUpon>
-    </Compile>  
+    </Compile>
     <Compile Include="userControls\userControlABM\UserControlABMTerminal.xaml.cs">
       <DependentUpon>UserControlABMTerminal.xaml</DependentUpon>
     </Compile>
@@ -139,6 +145,14 @@
       <DependentUpon>userControlListadoVentaPorFecha.xaml</DependentUpon>
     </Compile>
     <Page Include="Document\Doc\UsuariosDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Document\Doc\VentaDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Document\Doc\VentaFiltradaPorFecha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,11 +253,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="userControls\userControlABM\UserControlABMServicio.xaml">
     </Page>
     <Page Include="userControls\userControlABM\UserControlABMTerminal.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
