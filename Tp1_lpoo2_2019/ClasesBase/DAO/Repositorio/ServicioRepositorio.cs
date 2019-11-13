@@ -129,5 +129,37 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public bool controlFechaHoraServicio(DateTime fecha, int codigoAutobus)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> servicioEncontrado = from q in context.Servicio
+                                                          where q.ser_fecha == fecha 
+                                                          select q;
+
+                List<Servicio> lista = servicioEncontrado.ToList();
+                if (lista.Count != 0)
+                {
+                    bool ban = true;
+                    foreach (Servicio s in lista){
+                        int hora = Convert.ToInt32(Convert.ToDateTime(s.ser_fecha).Hour);
+                        int minutos = Convert.ToInt32(Convert.ToDateTime(s.ser_fecha).Minute);
+                        if(hora == fecha.Hour && minutos == fecha.Minute && s.ser_estado == "Abierto" 
+                            && s.aut_codigo == codigoAutobus){
+
+                            ban = false;
+                        }
+                    }
+                   
+                    return ban;
+    
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }

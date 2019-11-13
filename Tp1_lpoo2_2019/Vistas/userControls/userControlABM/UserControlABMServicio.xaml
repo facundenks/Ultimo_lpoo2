@@ -4,17 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
-             d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded">
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+             d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded" Width="996">
 
     <UserControl.Resources>
         <ObjectDataProvider 
-            x:Key="lista_Servicios" 
-            ObjectType="{x:Type svc:ServicioRepositorio}" 
+            x:Key="lista_servicios" 
+            ObjectType="{x:Type svc:ClassTrabajarServicioFormat}" 
             MethodName="listarServicios"/>
     </UserControl.Resources>
     
-    <Grid Height="573" Width="847" Background="White">
+    <Grid Height="635" Width="976" Background="White">
         
         <Grid.Resources>
             <XmlDataProvider x:Key="tipo_servicio" Source="../../Minutos.xml" XPath="/minutos" />
@@ -24,8 +24,8 @@
             <Label Content="Datos de Servicios" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
             <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,58,6,-688" />
         </Grid>
-        <GroupBox Header="Servicios" Height="378" HorizontalAlignment="Left" Margin="1,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="846" Foreground="#F45BB0DD">
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <GroupBox Header="Servicios" Height="449" HorizontalAlignment="Left" Margin="1,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="968" Foreground="#F45BB0DD">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="958" Height="426">
                 <Label Content="Autobus" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,62,0,0" Name="lblId" Target="{Binding}" VerticalAlignment="Top" />
                 <Label Content="Fecha" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,101,0,0" Name="lblCapacidad" Target="{Binding}" VerticalAlignment="Top" />
                 <Label Content="Destino" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,267,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" />
@@ -67,19 +67,29 @@
                     <ComboBoxItem Content="21"/>
                     <ComboBoxItem Content="22"/>
                     <ComboBoxItem Content="23"/>
-<ComboBoxItem Content="00"/>
-                    <ComboBoxItem Content="00"/>
                 </ComboBox>
 
-                <ListView ItemsSource="{Binding Source={StaticResource lista_Servicios}}" Margin="263,42,14,60" Name="Servicios">
+                <ListView Name="Servicios" Margin="229,51,20,24" ItemsSource="{Binding Source= {StaticResource lista_servicios}}" >
+                    <ListView.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="hiddenStyle" TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Style>
+                        </ResourceDictionary>
+                    </ListView.Resources>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding ser_codigo}" Header="Codigo Ser" Width="55" />
-                            <GridViewColumn DisplayMemberBinding="{Binding aut_codigo}" Header="Codigo Aut" Width="100" />
-                            <GridViewColumn DisplayMemberBinding="{Binding ser_fecha}" Header="Fecha" Width="110" />
-                            <GridViewColumn DisplayMemberBinding="{Binding ser_estado}" Header="Estado" Width="100" />
-                            <GridViewColumn DisplayMemberBinding="{Binding ter_codigo_origen}" Header="Origen" Width="100" />
-                            <GridViewColumn DisplayMemberBinding="{Binding ter_codigo_destino}" Header="Destino" Width="55" />
+                            <GridViewColumn Width="0" Header="Codigo Servicio" DisplayMemberBinding="{Binding Ser_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="100" Header="Estado Servicio" DisplayMemberBinding="{Binding Ser_estado}"/>
+                            <GridViewColumn Width="100" Header="Nombre Empresa" DisplayMemberBinding="{Binding Emp_nombre}"/>
+                            <GridViewColumn Width="0" Header="Codigo Emp" DisplayMemberBinding="{Binding Emp_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="180" Header="Fecha Servicio" DisplayMemberBinding="{Binding Ser_fecha}"/>
+                            <GridViewColumn Width="110" Header="Matricula Autobus" DisplayMemberBinding="{Binding Aut_matricula}"/>
+                            <GridViewColumn Width="110" Header="Pisos Autobus" DisplayMemberBinding="{Binding Aut_cantidadPisos}"/>
+                            <GridViewColumn Width="100" Header="Tipo Servicio" DisplayMemberBinding="{Binding Aut_tiposervicio}"/>
+                            <GridViewColumn Width="0" Header="Codigo Aut" DisplayMemberBinding="{Binding Aut_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
+                            <GridViewColumn Width="110" Header="Terminal Origen" DisplayMemberBinding="{Binding Ter_origen}"/>
+                            <GridViewColumn Width="100" Header="Terminal Destino" DisplayMemberBinding="{Binding Ter_destino}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -87,9 +97,9 @@
             </Grid>
             
         </GroupBox>
-        <Button Background="#FFD73C61" Content="Guardar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="102,470,0,0" Name="btnGuardarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="4" VerticalAlignment="Top" Width="167" Click="btnGuardarUsuario_Click" />
-        <Button Background="#FFD73C61" Content="Modificar" Cursor="Hand" Height="24" Margin="0,470,124,0" Name="btnModificarUsuario" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" />
-        <Button Background="#FFD73C61" Content="Eliminar" Cursor="Hand" Height="24" Margin="0,505,124,0" Name="btnEliminarUsuario" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" />
-        <Button Background="#FFD73C61" Content="Limpiar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="102,505,0,0" Name="btnLimpiarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="5" VerticalAlignment="Top" Width="167" />
+        <Button Background="#FFD73C61" Content="Guardar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="164,521,0,0" Name="btnGuardarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="4" VerticalAlignment="Top" Width="167" Click="btnGuardarUsuario_Click" />
+        <Button Background="#FFD73C61" Content="Modificar" Cursor="Hand" Height="24" Margin="0,521,132,0" Name="btnModificarUsuario" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" />
+        <Button Background="#FFD73C61" Content="Eliminar" Cursor="Hand" Height="24" Margin="0,556,132,0" Name="btnEliminarUsuario" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" />
+        <Button Background="#FFD73C61" Content="Limpiar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="164,556,0,0" Name="btnLimpiarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="5" VerticalAlignment="Top" Width="167" />
     </Grid>
 </UserControl>
