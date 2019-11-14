@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
-             d:DesignHeight="440" d:DesignWidth="749">
+             d:DesignHeight="391" d:DesignWidth="832" VerticalContentAlignment="Top">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="DATA_CLIENT"
                             ObjectType="{x:Type svc:TrabajarClienteValidator}"
@@ -49,30 +49,29 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Name="gridPrincipalUsuarioSinTabla" Width="607" Background="Transparent" Height="383">
-
-        <Grid Height="60" VerticalAlignment="Top" Margin="0,0,6,0">
+    <Grid Name="gridPrincipalUsuarioSinTabla" Width="841" Background="Transparent" Height="389">
+        <Grid Height="60" VerticalAlignment="Top" Margin="0,0,6,0" Grid.ColumnSpan="2">
             <Label Content="Datos Usuario" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F4FFFFFF" />
             <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F4FFFFFF" Margin="0,0,6,-369" />
         </Grid>
-        <GroupBox Header="Datos de Usuario" Height="305" HorizontalAlignment="Left" Margin="0,41,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="595" Foreground="White" >
-            <Grid Margin="131,-2,105,2" Height="222" Background="#F45BB0DD">
+        <GroupBox Header="Datos de Usuario" Height="242" HorizontalAlignment="Left" Margin="10,35,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="712" Foreground="White" Grid.ColumnSpan="2">
+            <Grid Margin="131,-2,105,2" Height="222" Background="#F45BB0DD" Width="505">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="323*" />
             </Grid.RowDefinitions>
-                <Label Content="DNI" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,17,0,0" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" Grid.RowSpan="2" />
-            <Label Content="Nombre" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,50,0,0" Name="lblNombre" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
-            <Label Content="Apellido" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,90,0,0" Name="lblApellido" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
-            <Label Content="Telefono" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,130,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
-            <Label Content="E-mail" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,170,0,0" Name="lblEmail" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
-            <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,17,0,0" Name="txtDNI" Style="{StaticResource EstiloError}" TabIndex="1" Text="{Binding Path=Cli_dni, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Width="120" Grid.RowSpan="2" Height="25" VerticalAlignment="Top" />
+                <Label Content="DNI" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,17,0,0" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" Grid.RowSpan="2" />
+            <Label Content="Nombre" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,50,0,0" Name="lblNombre" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
+            <Label Content="Apellido" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,90,0,0" Name="lblApellido" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
+            <Label Content="Telefono" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,130,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
+            <Label Content="E-mail" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="35,170,0,0" Name="lblEmail" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" />
+            <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,17,0,0" Name="txtDNI" Style="{StaticResource EstiloError}" TabIndex="1" Text="{Binding Path=Cli_dni, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Width="120" Grid.RowSpan="2" Height="25" VerticalAlignment="Top" KeyDown="txtDNI_KeyDown" />
             <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,50,0,0" Name="txtNombre" Style="{StaticResource EstiloError}" TabIndex="2" Text="{Binding Path=Cli_nombre, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Grid.Row="1" Height="25" VerticalAlignment="Top" />
             <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,90,0,0" Name="txtApellido" Style="{StaticResource EstiloError}" TabIndex="3" Text="{Binding Path=Cli_apellido, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Grid.Row="1" />
-            <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,130,0,0" Name="txtTelefono" Style="{StaticResource EstiloError}" TabIndex="4" Text="{Binding Path=Cli_telefono, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Grid.Row="1" />
+            <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,0,0,66" Name="txtTelefono" Style="{StaticResource EstiloError}" TabIndex="4" Text="{Binding Path=Cli_telefono, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" VerticalAlignment="Bottom" Grid.Row="1" KeyDown="txtTelefono_KeyDown" />
             <TextBox DataContext="{StaticResource DATA_CLIENT}" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="122,170,0,0" Name="txtEmail" Style="{StaticResource EstiloError}" TabIndex="5" Text="{Binding Path=Cli_email, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" VerticalAlignment="Top" Grid.Row="1" />
         </Grid>
         </GroupBox>
-        <Button Background="#FFD73C61" Content="Nuevo Cliente" Height="23" HorizontalAlignment="Left" Margin="224,348,0,0" Name="btnNuevoCliente" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" Width="168" Click="btnNuevoCliente_Click" />
+        <Button Background="#FFD73C61" Content="Nuevo Cliente" Height="23" HorizontalAlignment="Left" Margin="230,283,0,0" Name="btnNuevoCliente" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" Width="168" Click="btnNuevoCliente_Click" Grid.ColumnSpan="2" />
     </Grid>
 </UserControl>
