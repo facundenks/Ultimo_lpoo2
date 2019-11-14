@@ -16,6 +16,8 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+
+
         public List<Pasaje> ListaPasajes(int numServicio)
         {
             using (BDpasajesEntities db = new BDpasajesEntities())
@@ -105,6 +107,15 @@ namespace ClasesBase.DAO.Repositorio
                                      where q.pas_codigo == id
                                      select q).First();
                 context.DeleteObject(pasaje);
+                context.SaveChanges();
+            }
+        }
+
+        public void removerPasajes(int idServicio)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                context.Pasaje.Where(x => x.ser_codigo == idServicio).ToList().ForEach(context.Pasaje.DeleteObject);
                 context.SaveChanges();
             }
         }

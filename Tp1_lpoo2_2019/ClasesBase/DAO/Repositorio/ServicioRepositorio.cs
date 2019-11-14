@@ -16,6 +16,22 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public void ModificarServicio(Servicio oServicio)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Servicio servicioMod = context.Servicio.SingleOrDefault(p => p.ser_codigo == oServicio.ser_codigo);
+
+                servicioMod.ser_estado = oServicio.ser_estado;
+                servicioMod.ser_fecha = oServicio.ser_fecha;
+                servicioMod.aut_codigo = oServicio.aut_codigo;
+                servicioMod.ter_codigo_origen = oServicio.ter_codigo_origen;
+                servicioMod.ter_codigo_destino = oServicio.ter_codigo_destino;
+                
+                context.SaveChanges();
+            }
+        }
+
         public List<Servicio> listarServiciosDestino(int codigoDestino)
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
@@ -66,6 +82,28 @@ namespace ClasesBase.DAO.Repositorio
                 else
                 {
                     return null;
+                }
+            }
+        }
+
+        public bool existeServicio(int codigo)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> servicioEncontrado = from q in context.Servicio
+                                                          where q.ser_codigo == codigo 
+                                                          select q;
+
+                List<Servicio> lista = servicioEncontrado.ToList();
+                if (lista.Count != 0)
+                {
+                    var servicio = lista[0];
+
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -154,6 +192,40 @@ namespace ClasesBase.DAO.Repositorio
                    
                     return ban;
     
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        public bool controlFechaHoraServicioExistente(DateTime fecha, int codigoAutobus, int serCodigo)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Servicio> servicioEncontrado = from q in context.Servicio
+                                                          where q.ser_fecha == fecha
+                                                          select q;
+
+                List<Servicio> lista = servicioEncontrado.ToList();
+                if (lista.Count != 0)
+                {
+                    bool ban = true;
+                    foreach (Servicio s in lista)
+                    {
+                        int hora = Convert.ToInt32(Convert.ToDateTime(s.ser_fecha).Hour);
+                        int minutos = Convert.ToInt32(Convert.ToDateTime(s.ser_fecha).Minute);
+                        if (hora == fecha.Hour && minutos == fecha.Minute && s.ser_estado == "Abierto"
+                            && s.aut_codigo == codigoAutobus && s.ser_codigo != serCodigo)
+                        {
+
+                            ban = false;
+                        }
+                    }
+
+                    return ban;
+
                 }
                 else
                 {
