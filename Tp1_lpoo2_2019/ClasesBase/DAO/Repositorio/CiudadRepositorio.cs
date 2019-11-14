@@ -47,5 +47,27 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
+
+        public Ciudad getCiudadId(int id)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                IQueryable<Ciudad> ciudad = from q in context.Ciudad
+                                            where q.ciu_codigo == id
+                                            select q;
+
+                List<Ciudad> lista = ciudad.ToList();
+                if (lista.Count != 0)
+                {
+                    var ciudadEncontrada = lista[0];
+
+                    return ciudadEncontrada;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
