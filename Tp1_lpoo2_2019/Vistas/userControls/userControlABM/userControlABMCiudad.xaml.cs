@@ -27,7 +27,7 @@ namespace Vistas.userControls.userControlABM
         TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
         Servicio oServicio = new Servicio();
         ServicioRepositorio _servicioReporsitorio = new ServicioRepositorio();
-       
+        ClassTrabajarCiudadString listaCiudades = new ClassTrabajarCiudadString();
 
 
         public userControlABMCiudad()
@@ -52,7 +52,7 @@ namespace Vistas.userControls.userControlABM
         {
             if (txtIdCiudad.Text != "" && txtNombreCiudad.Text != "")
             {
-                if (MessageBox.Show("Mensaje", "Guardar Ciudad", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                if (MessageBox.Show("¿Agregar Ciudad?", "Guardar Ciudad", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
                 {
 
                     oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
@@ -60,7 +60,9 @@ namespace Vistas.userControls.userControlABM
 
                     _ciudadRepositorio.AgregarCiudad(oCiudad);
 
+                    MessageBox.Show("Ciudad agregada correctamente!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                     limpiar();
+                    Ciudades.ItemsSource = listaCiudades.CiudadStringList();
 
                 }
             }
@@ -74,6 +76,7 @@ namespace Vistas.userControls.userControlABM
         {
             txtIdCiudad.Clear();
             txtNombreCiudad.Clear();
+            txtIdCiudad.IsEnabled = true;
         }
 
         private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
@@ -81,14 +84,15 @@ namespace Vistas.userControls.userControlABM
             var resultado = MessageBox.Show("¿Modificar Ciudad?", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Question);
             if (resultado.Equals(MessageBoxResult.OK))
             {
-                oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad);
-                oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad);
+                oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
+                oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad.Text);
                 _ciudadRepositorio.modificarCiudad(oCiudad);
 
                 MessageBox.Show("Ciudad modificada correctamente!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 
                 limpiar();
-                Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
+                //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
+                Ciudades.ItemsSource = listaCiudades.CiudadStringList();
             }
         }
 
@@ -97,13 +101,17 @@ namespace Vistas.userControls.userControlABM
 
         }
 
-        private void Ciudades_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Ciudades_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            
+            txtIdCiudad.IsEnabled = false;
+            var v = ((ClassCiudadString)Ciudades.SelectedItem);
+            if (v != null)
+            {
+                txtIdCiudad.Text = v.Ciu_codigo.ToString();
+                txtNombreCiudad.Text = v.Ciu_nombre.ToString();
+            }
         }
-
-        
+       
 
        /* private void btnEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {

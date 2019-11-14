@@ -67,6 +67,7 @@
     <Compile Include="ClassCiudadString.cs" />
     <Compile Include="ClassServicioString.cs" />
     <Compile Include="ClassTerminalString.cs" />
+    <Compile Include="ClassTrabajarCiudadString.cs" />
     <Compile Include="ClassTrabajarServicioFormat.cs" />
     <Compile Include="ClassTrabajarTerminalString.cs" />
     <Compile Include="ClassTrabajarUsuarioString.cs" />

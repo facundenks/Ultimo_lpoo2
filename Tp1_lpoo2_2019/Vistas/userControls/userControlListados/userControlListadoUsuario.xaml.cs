@@ -55,7 +55,7 @@ namespace Vistas.userControls.userControlListados
             }
             catch (Exception exception)
             {
-                Console.WriteLine("Error");
+                Console.WriteLine(exception);
             }
         }
 

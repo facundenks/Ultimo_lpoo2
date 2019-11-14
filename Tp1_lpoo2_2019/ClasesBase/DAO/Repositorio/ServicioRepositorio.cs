@@ -233,7 +233,6 @@ namespace ClasesBase.DAO.Repositorio
                 }
             }
         }
-
         public string buscarServicio()
         {
             throw new NotImplementedException();

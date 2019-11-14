@@ -8,10 +8,10 @@
         d:DesignHeight="439" d:DesignWidth="830" Width="676" Height="429">
 
     <UserControl.Resources>
-        <!--<ObjectDataProvider x:Key="datos_terminal"
+        <ObjectDataProvider x:Key="datos_terminal"
                             ObjectType="{x:Type svc:ClassTrabajarTerminalString}"
                             MethodName="TerminalStringList">
-        </ObjectDataProvider>-->
+        </ObjectDataProvider>
 
     </UserControl.Resources>
 
@@ -37,8 +37,11 @@
                 <TextBox HorizontalAlignment="Left" Margin="94,0,0,3" Name="nombreTerminal" VerticalAlignment="Bottom" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="1" Width="120" Height="26"/>
                 <ComboBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="94,0,0,159" Name="cmbCiudad" VerticalAlignment="Bottom" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2" Height="24" Grid.Row="2" />
                 
-                    <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,12,0" 
-                              ItemsSource="{Binding Source={StaticResource datos_terminal}}"  Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged" Height="214" VerticalAlignment="Top">
+
+                    <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,265,220" 
+                              ItemsSource="{Binding Source={StaticResource datos_terminal}}"  
+                              Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged">
+
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="133" Header="Codigo de Terminal" DisplayMemberBinding="{Binding Terminal_codigo}"/>
