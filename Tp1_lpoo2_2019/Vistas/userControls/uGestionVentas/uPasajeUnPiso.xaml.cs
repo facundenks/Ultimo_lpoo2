@@ -85,6 +85,7 @@ namespace Vistas.userControls.uGestionVentas
             capacidad = (int)oAutobus.aut_capacidad;
             cargarAsientos(capacidad);
             contadorDeAsientos();
+
             txtDestino.Text = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_destino).ter_nombre;
             txtOrigen.Text = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_origen).ter_nombre;
             txtSalida.Text = oServicio.ser_fecha.ToString();
@@ -93,6 +94,7 @@ namespace Vistas.userControls.uGestionVentas
             b.UriSource = new Uri(_autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo).aut_imagen.ToString());
             b.EndInit();
             foto.Source = b;
+
             if (band)
             {
                 scrol.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
@@ -147,7 +149,7 @@ namespace Vistas.userControls.uGestionVentas
         {
             Button botonAsiento = new Button
             {
-                Background = Brushes.Green,
+                Background = Brushes.Black,
                 Foreground = Brushes.White,
                 FontWeight = FontWeights.Bold,
                 Content = numeroAsiento.ToString(),
