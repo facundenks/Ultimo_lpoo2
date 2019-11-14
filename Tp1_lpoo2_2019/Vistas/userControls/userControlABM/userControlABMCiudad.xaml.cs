@@ -83,18 +83,29 @@ namespace Vistas.userControls.userControlABM
 
         private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            var v = ((ClassCiudadString)Ciudades.SelectedItem);
             var resultado = MessageBox.Show("¿Modificar Ciudad?", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Question);
             if (resultado.Equals(MessageBoxResult.OK))
             {
-                oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
-                oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad.Text);
-                _ciudadRepositorio.modificarCiudad(oCiudad);
+                if (v.Ciu_nombre != txtNombreCiudad.Text)
+                {
+                    oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
+                    oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad.Text);
+                    _ciudadRepositorio.modificarCiudad(oCiudad);
 
-                MessageBox.Show("Ciudad modificada correctamente!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                    MessageBox.Show("Ciudad modificada correctamente!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 
-                limpiar();
-                //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
-                Ciudades.ItemsSource = listaCiudades.CiudadStringList();
+                    limpiar();
+                    //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
+                    Ciudades.ItemsSource = listaCiudades.CiudadStringList();
+                }else{
+                    MessageBox.Show("No se Realizaron cambios!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                    limpiar();
+                    //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
+                    Ciudades.ItemsSource = listaCiudades.CiudadStringList();
+                    btnModificarUsuario.IsEnabled = false;
+                }
+                
             }
         }
 
