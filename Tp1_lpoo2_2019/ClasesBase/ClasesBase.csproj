@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassCiudadString.cs" />
     <Compile Include="ClassServicioString.cs" />
     <Compile Include="ClassTerminalString.cs" />
     <Compile Include="ClassTrabajarServicioFormat.cs" />

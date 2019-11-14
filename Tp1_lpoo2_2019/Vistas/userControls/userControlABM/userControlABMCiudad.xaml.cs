@@ -23,6 +23,12 @@ namespace Vistas.userControls.userControlABM
     {
         Ciudad oCiudad = new Ciudad();
         CiudadRepositorio _ciudadRepositorio = new CiudadRepositorio();
+        Terminal oTerminal = new Terminal();
+        TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
+        Servicio oServicio = new Servicio();
+        ServicioRepositorio _servicioReporsitorio = new ServicioRepositorio();
+       
+
 
         public userControlABMCiudad()
         {
@@ -69,5 +75,84 @@ namespace Vistas.userControls.userControlABM
             txtIdCiudad.Clear();
             txtNombreCiudad.Clear();
         }
+
+        private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            var resultado = MessageBox.Show("¿Modificar Ciudad?", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Question);
+            if (resultado.Equals(MessageBoxResult.OK))
+            {
+                oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad);
+                oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad);
+                _ciudadRepositorio.modificarCiudad(oCiudad);
+
+                MessageBox.Show("Ciudad modificada correctamente!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+
+                limpiar();
+                Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Ciudades_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            
+        }
+
+        
+
+       /* private void btnEliminarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdCiudad.Text != "" && txtNombreCiudad.Text != "")
+            {
+                var resultado = MessageBox.Show("¿Eliminar ciudad?", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    bool encontrado1 = false;
+                    bool encontrado2 = false;
+                    oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
+                    List<Terminal> terminales = new List<Terminal>();
+                    terminales = _terminalRepositorio.listarTerminalCiudad(oCiudad.ciu_codigo);
+
+                    foreach (Terminal ter in terminales)
+                    {
+                        //bool coso = _servicioReporsitorio.servicioValidarOrigen(ter.ter_codigo);
+                        if (_servicioReporsitorio.servicioValidarOrigen(ter.ter_codigo))
+                        {
+                            encontrado1 = true;
+                        }
+                    }
+                    foreach (Terminal termi in terminales)
+                    {
+                        if (_servicioReporsitorio.servicioValidarDestino(termi.ter_codigo))
+                        {
+                            encontrado2 = true;
+                        }
+                    }
+                    
+                    if (encontrado1 && encontrado2 )
+                    {
+                        _ciudadRepositorio.removeCiudad(oCiudad.ciu_codigo);
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede eliminar la ciudad con un servicio en uso");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+        }*/
+
+       
     }
 }

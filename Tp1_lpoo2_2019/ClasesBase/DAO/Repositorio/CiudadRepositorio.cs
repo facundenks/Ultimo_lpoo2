@@ -16,6 +16,18 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public void modificarCiudad(Ciudad oCiudad)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Ciudad ciu = context.Ciudad.SingleOrDefault(p => p.ciu_codigo == oCiudad.ciu_codigo);
+                ciu.ciu_codigo = oCiudad.ciu_codigo;
+                ciu.ciu_nombre = oCiudad.ciu_nombre;
+
+                context.SaveChanges();
+            }
+        }
+
         public List<Ciudad> getCiudades()
         {
             using (BDpasajesEntities context = new BDpasajesEntities())
