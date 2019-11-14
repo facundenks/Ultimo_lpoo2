@@ -25,7 +25,9 @@ namespace Vistas.userControls.userControlABM
         Terminal terminal = new Terminal();
         TerminalRepositorio _TerminalRepositorio = new TerminalRepositorio();
         CiudadRepositorio _CiudadRepositorio = new CiudadRepositorio();
+        ServicioRepositorio _ServicioReposiorio = new ServicioRepositorio();
         ObservableCollection<string> list = new ObservableCollection<string>();
+        ClassTrabajarTerminalString listaTerminales = new ClassTrabajarTerminalString();
 
         public UserControlABMTerminal()
         {
@@ -65,6 +67,7 @@ namespace Vistas.userControls.userControlABM
             terminal.ciu_codigo = _CiudadRepositorio.getCiudad(cmbCiudad.SelectedValue.ToString()).ciu_codigo;
             _TerminalRepositorio.agregarTerminal(terminal);
             limpiar();
+            list_terminales.ItemsSource = listaTerminales.TerminalStringList();
         }
         
         //Metodo que retorna una variable boleada para saber si el nombre de terminal ya esta registrado en la bd
@@ -106,29 +109,71 @@ namespace Vistas.userControls.userControlABM
 
         private void list_terminales_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var v = ((Terminal)list_terminales.SelectedItem);
+            var v = ((ClassTerminalString)list_terminales.SelectedItem);
             if (v != null)
             {
-                nombreTerminal.IsEnabled = false;
-                nombreTerminal.Text = v.ter_nombre.ToString();
-                cmbCiudad.Text = v.ciu_codigo.ToString();
+                nombreTerminal.Text = v.Terminal_nombre;
+                cmbCiudad.Text = v.Terminal_ciudad;
             }
         }
 
         private void btnModificarTerminal_Click(object sender, RoutedEventArgs e)
         {
+            Terminal unTerminal = new Terminal();
+            Ciudad unCiudad = new Ciudad();
 
+            if (MessageBox.Show("Modificar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+            {
+                var v = ((ClassTerminalString)list_terminales.SelectedItem);
+                unTerminal = _TerminalRepositorio.buscarTerminal(Convert.ToInt16(v.Terminal_codigo));
+                unTerminal.ter_nombre = Convert.ToString(nombreTerminal.Text);
+
+                _TerminalRepositorio.modificarTerminal(unTerminal);
+
+                limpiar();
+
+                list_terminales.ItemsSource = listaTerminales.TerminalStringList();
+            }
         }
 
-        private void txtTermNombre_KeyDown(object sender, KeyEventArgs e)
+        private void btnEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            var v = ((ClassTerminalString)list_terminales.SelectedItem);
+            if (v.Terminal_codigo != "")
+            {
+                var resultado = MessageBox.Show("¿Eliminar terminal?", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    Boolean band = false;
+                    List<Servicio> servicios = new List<Servicio>();
+                    servicios = _ServicioReposiorio.listarServicios();
 
+                    foreach (Servicio s in servicios)
+                    {
+                        //bool coso = _servicioReporsitorio.servicioValidarOrigen(ter.ter_codigo);
+                        if (s.ter_codigo_destino == Convert.ToInt32(v.Terminal_codigo) || s.ter_codigo_origen == Convert.ToInt32(v.Terminal_codigo))
+                        {
+                            band = true;
+                        }
+                    }
+
+                    if (band)
+                    {
+                        MessageBox.Show("La Terminal tiene un servicio Abierto", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        _TerminalRepositorio.eliminarTerminal(Convert.ToInt32(v.Terminal_codigo));
+                        MessageBox.Show("Terminal dada de Baja", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                        list_terminales.ItemsSource = listaTerminales.TerminalStringList();
+                        limpiar();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-        private void txtTermNombre_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
     }
 }

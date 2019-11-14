@@ -238,10 +238,5 @@ namespace ClasesBase.DAO.Repositorio
         {
             throw new NotImplementedException();
         }
-
-/*        public Boolean verificarAutobus(int id)
-        {
-           
-        }*/
     }
 }
