@@ -27,10 +27,13 @@ namespace Vistas.userControls.userControlABM
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
         EmpresaRepositorio _empresaRepositorio = new EmpresaRepositorio();
         ObservableCollection<string> list = new ObservableCollection<string>();
+        int idGlobal;
 
         public UserControlABMAutobus()
         {
             InitializeComponent();
+            btnModificarUsuario.IsEnabled = false;
+            btnEliminarUsuario.IsEnabled = false;
             cargar_combo();
         }
 
@@ -40,33 +43,6 @@ namespace Vistas.userControls.userControlABM
                 e.Handled = false;
             else
                 e.Handled = true;
-        }
-
-        private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtCapacidad.Text != "" && cmbServicio.SelectedIndex != -1 && txtPatente.Text != "")
-            {
-                var resultado = MessageBox.Show("Mensaje", "Guardar Autobus", MessageBoxButton.OK, MessageBoxImage.Question);
-                if (resultado.Equals(MessageBoxResult.OK))
-                {
-                    oAutobus.aut_capacidad = Convert.ToInt32(txtCapacidad.Text);
-                    oAutobus.aut_tiposervicio = cmbServicio.SelectedValue.ToString();
-                    oAutobus.aut_matricula = txtPatente.Text;
-                    oAutobus.emp_codigo = _empresaRepositorio.buscarEmpresaPorNombre(cmbEmpresa.SelectedValue.ToString()).emp_codigo;
-                    oAutobus.aut_cantidadPisos = Convert.ToInt32(textBoxPisos.Text);
-                    oAutobus.aut_imagen = imagen.Text;
-
-                    _autobusRepositorio.AgrgarAutobus(oAutobus);
-
-                    Autobuses.ItemsSource = _autobusRepositorio.getAutobus();
-                    
-                    limpiar();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Completar todos los campos");
-            }
         }
 
         private void limpiar()
@@ -111,6 +87,99 @@ namespace Vistas.userControls.userControlABM
                 list.Add(e.emp_nombre);
             }
             cmbEmpresa.ItemsSource = list;
+        }
+
+        private void btnGuardarAutobus_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtCapacidad.Text != "" && cmbServicio.SelectedIndex != -1 && txtPatente.Text != "")
+            {
+                var resultado = MessageBox.Show("Mensaje", "Guardar Autobus", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    oAutobus.aut_capacidad = Convert.ToInt32(txtCapacidad.Text);
+                    oAutobus.aut_tiposervicio = cmbServicio.SelectedValue.ToString();
+                    oAutobus.aut_matricula = txtPatente.Text;
+                    oAutobus.emp_codigo = _empresaRepositorio.buscarEmpresaPorNombre(cmbEmpresa.SelectedValue.ToString()).emp_codigo;
+                    oAutobus.aut_cantidadPisos = Convert.ToInt32(textBoxPisos.Text);
+                    oAutobus.aut_imagen = imagen.Text;
+
+                    _autobusRepositorio.AgrgarAutobus(oAutobus);
+
+                    Autobuses.ItemsSource = _autobusRepositorio.getAutobus();
+                    
+                    limpiar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos");
+            }
+        }
+
+        private void lista_Autobuses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var v = ((Autobus)Autobuses.SelectedItem);
+            if (v != null)
+            {
+                cargarAutobusSeleccionado(v.aut_codigo);    
+            }
+        }
+
+        private void btnEliminarAutobus_click(object sender, RoutedEventArgs e)
+        {
+            var resultado = MessageBox.Show("¿Eliminar Autobus?", "Gestion Autobus", MessageBoxButton.OK, MessageBoxImage.Question);
+            if (resultado.Equals(MessageBoxResult.OK))
+            {
+                
+            }
+        }
+
+        private void btnModificarAutobus_click(object sender, RoutedEventArgs e)
+        {
+            Autobus oAutobus = new Autobus();
+
+            var resultado = MessageBox.Show("¿Modificar Autobus?", "Gestion Autobus", MessageBoxButton.OK, MessageBoxImage.Question);
+            if (resultado.Equals(MessageBoxResult.OK))
+            {
+                    oAutobus.aut_capacidad = Convert.ToInt32(txtCapacidad.Text);
+                    oAutobus.aut_matricula = Convert.ToString(txtPatente.Text);
+                    oAutobus.aut_tiposervicio = Convert.ToString(cmbServicio.SelectedValue);
+                    oAutobus.aut_cantidadPisos = Convert.ToInt32(textBoxPisos.SelectedValue);
+                    oAutobus.emp_codigo = _empresaRepositorio.buscarEmpresaPorNombre(Convert.ToString(cmbEmpresa.SelectedValue)).emp_codigo;
+                    oAutobus.aut_imagen = Convert.ToString(imagen.Text);
+
+                    _autobusRepositorio.ModificarAutobus(oAutobus);
+                    MessageBox.Show("Autobus modificado correctamente!", "Gestion Autobus", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+
+                    limpiar();
+                    Autobuses.ItemsSource = _autobusRepositorio.getAutobus();
+            }
+        }
+
+        private void cargarAutobusSeleccionado(int id)
+        {
+            Autobus a = _autobusRepositorio.buscarAutobus(id);
+            idGlobal = a.aut_codigo;
+            txtCapacidad.Text = a.aut_capacidad.ToString();
+            cmbServicio.SelectedValue = a.aut_tiposervicio.ToString();
+            txtPatente.Text = a.aut_matricula.ToString();
+            imagen.Text = a.aut_imagen.ToString();
+            textBoxPisos.Text = a.aut_cantidadPisos.ToString();
+            cmbEmpresa.Text = _empresaRepositorio.buscarEmpresa(Convert.ToInt32(a.emp_codigo)).emp_nombre.ToString();
+
+            BitmapImage b = new BitmapImage();
+            b.BeginInit();
+            b.UriSource = new Uri(imagen.Text);
+            b.EndInit();
+            foto.Source = b;
+
+            habilitarBotones();
+        }
+
+        private void habilitarBotones()
+        {
+            btnModificarUsuario.IsEnabled = true;
+            btnEliminarUsuario.IsEnabled = true;
         }
     }
 }

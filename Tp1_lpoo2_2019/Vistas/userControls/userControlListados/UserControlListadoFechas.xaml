@@ -48,9 +48,9 @@
         <Button Content="Vista Previa" Margin="1035,380,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" Click="button1_Click" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,380,0,0" Name="textBlock1" Text="Cantidad de Pasajes Vendidos: " VerticalAlignment="Top" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="339,384,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,379,862,0" Name="txtCantidad" VerticalAlignment="Top" Width="133"/>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="545,380,0,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="186,379,0,0" Name="txtCantidad" VerticalAlignment="Top" Width="133" IsReadOnly="True" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,380,496,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140" IsReadOnly="True" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="709,384,0,0" Name="textBlock3" Text="Horario de Mayores Ventas" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="873,379,0,0" Name="txtHorarios" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="873,379,0,0" Name="txtMayorHorario" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
     </Grid>
 </UserControl>

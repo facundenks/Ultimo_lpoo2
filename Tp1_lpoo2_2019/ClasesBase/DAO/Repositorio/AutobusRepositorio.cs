@@ -66,5 +66,33 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public void eliminarAutobus(int id)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Autobus autobus = (from q in context.Autobus
+                                     where q.aut_codigo == id
+                                     select q).First();
+                context.DeleteObject(autobus);
+                context.SaveChanges();
+            }
+        }
+
+        public void ModificarAutobus(Autobus oAutobus)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Autobus autobus = context.Autobus.SingleOrDefault(p => p.aut_codigo == oAutobus.aut_codigo);
+                autobus.aut_capacidad = oAutobus.aut_capacidad;
+                autobus.aut_tiposervicio = oAutobus.aut_tiposervicio;
+                autobus.aut_matricula = oAutobus.aut_matricula;
+                autobus.emp_codigo = oAutobus.emp_codigo;
+                autobus.aut_cantidadPisos = oAutobus.aut_cantidadPisos;
+                autobus.aut_imagen = oAutobus.aut_imagen;
+
+                context.SaveChanges();
+            }
+        }
+
     }
 }

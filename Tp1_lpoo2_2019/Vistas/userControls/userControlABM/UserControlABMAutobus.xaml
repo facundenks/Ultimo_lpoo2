@@ -10,10 +10,10 @@
         <ImageBrush />
     </UserControl.Background>
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_Autobuses" 
             ObjectType="{x:Type svc:AutobusRepositorio}" 
-            MethodName="getAutobus"/>-->
+            MethodName="getAutobus"/>
     </UserControl.Resources>
     
     <Grid>
@@ -36,15 +36,15 @@
                     <RowDefinition Height="14*" />
                     <RowDefinition Height="240*" />
                 </Grid.RowDefinitions>
-                <Label Content="Capacidad" Height="28" HorizontalAlignment="Left" Margin="60,25,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
-                <Label Content="Servicio" Height="28" HorizontalAlignment="Left" Margin="60,75,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
+                <Label Content="Capacidad" Height="28" HorizontalAlignment="Left" Margin="60,25,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
+                <Label Content="Servicio" Height="28" HorizontalAlignment="Left" Margin="60,75,0,0" Name="lblServicio" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
                 <Label Content="Patente" Height="28" HorizontalAlignment="Left" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" Margin="60,0,0,0" />
                 <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="91,25,0,0" Name="txtCapacidad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtCapacidad_KeyDown" TabIndex="1"/>
                 <ComboBox x:Uid="FormTextBox" ItemsSource="{Binding Source={StaticResource tipo_servicio},XPath=tipo/@name}" HorizontalAlignment="Left" Margin="90,75,0,0" Name="cmbServicio" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2" />
                 <TextBox x:Uid="FormTextBox" Grid.Row="2" HorizontalAlignment="Left" Margin="90,0,0,0" Name="txtPatente" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3"/>
 
                 <ListView Name="Autobuses" Grid.Column="1" Margin="253,25,6,15" Grid.RowSpan="3"
-                          ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}">
+                          ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}" SelectionChanged="lista_Autobuses_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="55" Header="Codigo" DisplayMemberBinding="{Binding aut_codigo}"/>
@@ -72,7 +72,7 @@
                         <ImageBrush ImageSource="/Vistas;component/Images/Apps-Search-And-Replace-icon.png" />
                     </Button.Background>
                 </Button>
-                <Image Grid.Row="2" Height="147" HorizontalAlignment="Left" Margin="60,165,0,0" Name="foto" Stretch="Fill" VerticalAlignment="Top" Width="254" Grid.ColumnSpan="2" />
+                <Image Grid.Row="2" Height="147" HorizontalAlignment="Left" Margin="60,165,0,0" Name="foto" Stretch="Fill" VerticalAlignment="Top" Width="254" Grid.ColumnSpan="2"/>
                 <Label Content="Empresa" FontWeight="Bold" Foreground="Black" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="60,44,0,0" Name="label2" VerticalAlignment="Top" Width="66" Grid.ColumnSpan="2" />
                 <ComboBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="90,87,0,0" Name="textBoxPisos" VerticalAlignment="Top" Width="120">
                     <ComboBoxItem>1</ComboBoxItem>
@@ -84,9 +84,9 @@
             </Grid>
         </GroupBox>
         
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="120,575,0,0" Name="btnGuardarUsuario"  Cursor="Hand"   Width="167"  Click="btnGuardarUsuario_Click" TabIndex="4" Height="24" VerticalAlignment="Top"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,575,120,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,610,120,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="120,575,0,0" Name="btnGuardarUsuario"  Cursor="Hand"   Width="167"  Click="btnGuardarAutobus_Click" TabIndex="4" Height="24" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,575,120,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167" Click="btnModificarAutobus_click"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,610,120,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167"  Click="btnEliminarAutobus_click"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="120,610,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5"/>
     </Grid>
 </UserControl>

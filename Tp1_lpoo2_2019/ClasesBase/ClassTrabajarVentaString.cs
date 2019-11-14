@@ -101,28 +101,8 @@ namespace ClasesBase
                 ven.NombreEmpresa = Convert.ToString(emp.emp_nombre);
                 //ven.NombreEmpresa = "Bolut";
                 pasajeFormat.Add(ven);
-            }
-           
-            
-            return pasajeFormat;
-                       
-         }
-        //Metodo para el horario de servicio con mas ventas
-
-        /*public DateTime mayorVenta(List<ClassVentas> lista) {
-
-            DateTime horario = new DateTime();
-            foreach(ClassVentas item in lista){
-            
-            
-            
-            }
-            return horario;
-        
-        }*/
-        
-            
+            }      
+            return pasajeFormat;          
+         }        
      }
-        
-    
 }

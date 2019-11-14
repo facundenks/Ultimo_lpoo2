@@ -126,7 +126,6 @@ namespace ClasesBase.DAO.Repositorio
                 List<Usuario> lista = Usuario.ToList();
                 if (lista.Count == 1)
                 {
-
                     return true;
                 }
                 else
