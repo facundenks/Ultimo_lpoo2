@@ -73,6 +73,19 @@ namespace Vistas.userControls.userControlABM
                 listAutobus.Add(a.aut_matricula);
             }
             cmbAtobuses.ItemsSource = listAutobus;
+            btnModificarServicio.IsEnabled = true;
+        }
+
+        private void btnLimpiar(object sender, RoutedEventArgs e)
+        {
+            cmbHora.SelectedIndex = -1;
+            cmbMinutos.SelectedIndex = -1;
+            cmbEstado.SelectedIndex = -1;
+            cmbAtobuses.SelectedIndex = -1;
+            cmbDestino.SelectedIndex = -1;
+            cmbOrigen.SelectedIndex = -1;
+            dateFecha.SelectedDate = DateTime.Today;
+            btnModificarServicio.IsEnabled = false;
         }
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
