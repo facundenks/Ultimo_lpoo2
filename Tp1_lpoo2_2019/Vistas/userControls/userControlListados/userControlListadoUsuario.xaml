@@ -11,9 +11,9 @@
     
     <UserControl.Resources>
         
-        <!--<ObjectDataProvider x:Key="lista_usuarios" 
+        <ObjectDataProvider x:Key="lista_usuarios" 
                             ObjectType="{x:Type svc:ClassTrabajarUsuarioString}" 
-                            MethodName="UsuarioStringList"/>-->
+                            MethodName="UsuarioStringList"/>
    
         <CollectionViewSource x:Key="Vista_User" Source="{StaticResource ResourceKey=lista_usuarios}" Filter="eventVistaUsuario_filter">
             <CollectionViewSource.SortDescriptions>
