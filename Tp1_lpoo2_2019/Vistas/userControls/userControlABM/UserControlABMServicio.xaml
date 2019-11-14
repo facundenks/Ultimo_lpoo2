@@ -8,10 +8,10 @@
              d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded" Width="732" Foreground="White">
 
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_servicios" 
             ObjectType="{x:Type svc:ClassTrabajarServicioFormat}" 
-            MethodName="listarServicios"/>-->
+            MethodName="listarServicios"/>
     </UserControl.Resources>
 
     <Grid Height="635" Width="976">    
@@ -98,6 +98,6 @@
         </GroupBox>
         <Button Background="#FFD73C61" Content="Guardar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="69,509,0,0" Name="btnGuardarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="4" VerticalAlignment="Top" Width="167" Click="btnGuardarUsuario_Click" />
         <Button Background="#FFD73C61" Content="Modificar" Cursor="Hand" Height="24" Margin="0,509,425,0" Name="btnModificarServicio" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="167" Click="btnModificarServicio_Click" />
-        <Button Background="#FFD73C61" Content="Limpiar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="69,539,0,0" Name="btnLimpiarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="5" VerticalAlignment="Top" Width="167" />
+        <Button Background="#FFD73C61" Content="Limpiar" Cursor="Hand" Height="24" HorizontalAlignment="Left" Margin="69,539,0,0" Name="btnLimpiarUsuario" Style="{StaticResource btn_plantilla_aceptar}" TabIndex="5" VerticalAlignment="Top" Width="167" Click="btnLimpiar"/>
     </Grid>
 </UserControl>

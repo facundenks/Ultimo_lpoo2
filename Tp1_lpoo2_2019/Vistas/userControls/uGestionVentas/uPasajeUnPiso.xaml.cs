@@ -196,24 +196,30 @@ namespace Vistas.userControls.uGestionVentas
             Button asiento = ((Button)sender);
             if (asiento.Background == Brushes.Red)
             {
-                DateTime fechaServicio = Convert.ToDateTime(oServicio.ser_fecha);
-                DateTime fechaBajaPasaje = DateTime.Now;
-                bajaPasaje(fechaServicio, fechaBajaPasaje, asiento);
+                var resultado = MessageBox.Show("¿Desea dar de baja el Pasaje?.", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    DateTime fechaServicio = Convert.ToDateTime(oServicio.ser_fecha);
+                    DateTime fechaBajaPasaje = DateTime.Now;
+                    bajaPasaje(fechaServicio, fechaBajaPasaje, asiento);
+                }
             }
             else
             {
-                MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                asiento.Background = Brushes.Red;
-                gridPrincipalPasajes.Children.Clear();
-                userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
-                venta.CodigoAutobus = codigoAutobus;
-                venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
-                venta.ServicioCodigo = oServicio.ser_codigo;
-                venta.NombreUsuario = nombreUsuario;
-                venta.CodigoEmpresa = codigoEmpresa;
-                venta.Pisos = pisos;
-                gridPrincipalPasajes.Children.Add(venta);
+                var resultado = MessageBox.Show("Asiento Disponible", "Venta de Pasaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    asiento.Background = Brushes.Red;
+                    gridPrincipalPasajes.Children.Clear();
+                    userControls.userControlABM.UserControlAVenta venta = new userControls.userControlABM.UserControlAVenta();
+                    venta.CodigoAutobus = codigoAutobus;
+                    venta.NumeroAsietnto = Convert.ToInt32(asiento.Content);
+                    venta.ServicioCodigo = oServicio.ser_codigo;
+                    venta.NombreUsuario = nombreUsuario;
+                    venta.CodigoEmpresa = codigoEmpresa;
+                    venta.Pisos = pisos;
+                    gridPrincipalPasajes.Children.Add(venta);
+                }
             }
         }
 
