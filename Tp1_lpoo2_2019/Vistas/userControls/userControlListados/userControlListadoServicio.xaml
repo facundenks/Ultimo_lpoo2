@@ -6,12 +6,12 @@
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="403" d:DesignWidth="853" Width="852" Height="421" Loaded="UserControl_Loaded" VerticalContentAlignment="Top">
+             d:DesignHeight="403" d:DesignWidth="853" Width="807" Height="421" Loaded="UserControl_Loaded" VerticalContentAlignment="Top">
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_servicios" 
             ObjectType="{x:Type svc:ClassTrabajarServicioFormat}" 
-            MethodName="listarServicios"/>-->
+            MethodName="listarServicios"/>
 
         <CollectionViewSource x:Key="Vista_Services" Source="{StaticResource ResourceKey=lista_servicios}">
             <CollectionViewSource.SortDescriptions>
@@ -26,46 +26,9 @@
 
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Servicios" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" />
-            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F4FFFFFF" Margin="0,8,181,-413" />
+            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F4FFFFFF" Margin="-3,-2,540,-403" />
         </Grid>
-            <Grid Background="White" Width="992" Height="279">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="85*" />
-                    <ColumnDefinition Width="733*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="33*" />
-                    <RowDefinition Height="18*" />
-                    <RowDefinition Height="137*" />
-                </Grid.RowDefinitions>
-
-                <ListView Name="Servicios" Margin="0,1,176,-51" Grid.RowSpan="3"
-                          ItemsSource="{Binding Source= {StaticResource Vista_Services}}" MouseDoubleClick="Servicios_MouseDoubleClick" Grid.ColumnSpan="2">
-                    <ListView.Resources>
-                        <ResourceDictionary>
-                            <Style x:Key="hiddenStyle" TargetType="GridViewColumnHeader">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </Style>
-                        </ResourceDictionary>
-                    </ListView.Resources>
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Width="0" Header="Codigo Servicio" DisplayMemberBinding="{Binding Ser_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
-                            <GridViewColumn Width="100" Header="Estado Servicio" DisplayMemberBinding="{Binding Ser_estado}"/>
-                            <GridViewColumn Width="100" Header="Nombre Empresa" DisplayMemberBinding="{Binding Emp_nombre}"/>
-                            <GridViewColumn Width="0" Header="Codigo Emp" DisplayMemberBinding="{Binding Emp_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
-                            <GridViewColumn Width="180" Header="Fecha Servicio" DisplayMemberBinding="{Binding Ser_fecha}"/>
-                            <GridViewColumn Width="110" Header="Matricula Autobus" DisplayMemberBinding="{Binding Aut_matricula}"/>
-                            <GridViewColumn Width="110" Header="Pisos Autobus" DisplayMemberBinding="{Binding Aut_cantidadPisos}"/>
-                            <GridViewColumn Width="100" Header="Tipo Servicio" DisplayMemberBinding="{Binding Aut_tiposervicio}"/>
-                            <GridViewColumn Width="0" Header="Codigo Aut" DisplayMemberBinding="{Binding Aut_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}"/>
-                            <GridViewColumn Width="110" Header="Terminal Origen" DisplayMemberBinding="{Binding Ter_origen}"/>
-                            <GridViewColumn Width="100" Header="Terminal Destino" DisplayMemberBinding="{Binding Ter_destino}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </Grid>
-        </GroupBox>
+            <GroupBox Header="Datos de Servicios" Height="353" HorizontalAlignment="Left" Margin="3,39,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="834" Foreground="White" Background="#F45BB0DD"></GroupBox>
         <Label Content="Fecha Inifio" Height="28" HorizontalAlignment="Left" Margin="10,66,0,0" Name="label1" VerticalAlignment="Top" />
         <Label Content="Fecha Fin" Height="28" HorizontalAlignment="Left" Margin="168,66,0,0" Name="label2" VerticalAlignment="Top" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="12,93,0,0" Name="dateFechaInicio" VerticalAlignment="Top" Width="115" />
@@ -75,6 +38,41 @@
         <Label Content="Origen" Height="28" HorizontalAlignment="Left" Margin="528,66,0,0" Name="label3" VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="708,93,0,0" Name="textBox2" VerticalAlignment="Top" Width="156" TextChanged="textBox2_TextChanged" />
         <Label Content="Destino" Height="28" HorizontalAlignment="Left" Margin="708,66,0,0" Name="label4" VerticalAlignment="Top" />
-    </Grid>
+            <Grid Width="806" Height="297" Margin="4,72,0,29" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85*" />
+                    <ColumnDefinition Width="733*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33*" />
+                    <RowDefinition Height="18*" />
+                    <RowDefinition Height="137*" />
+                </Grid.RowDefinitions>
+                <ListView Name="Servicios" Margin="1,47,9,1" ItemsSource="{Binding Source= {StaticResource Vista_Services}}" MouseDoubleClick="Servicios_MouseDoubleClick" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                    <ListView.Resources>
+                        <ResourceDictionary>
+                            <Style x:Key="hiddenStyle" TargetType="GridViewColumnHeader">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </Style>
+                        </ResourceDictionary>
+                    </ListView.Resources>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="0" Header="Codigo Servicio" DisplayMemberBinding="{Binding Ser_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}" />
+                            <GridViewColumn Width="100" Header="Estado Servicio" DisplayMemberBinding="{Binding Ser_estado}" />
+                            <GridViewColumn Width="100" Header="Nombre Empresa" DisplayMemberBinding="{Binding Emp_nombre}" />
+                            <GridViewColumn Width="0" Header="Codigo Emp" DisplayMemberBinding="{Binding Emp_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}" />
+                            <GridViewColumn Width="180" Header="Fecha Servicio" DisplayMemberBinding="{Binding Ser_fecha}" />
+                            <GridViewColumn Width="110" Header="Matricula Autobus" DisplayMemberBinding="{Binding Aut_matricula}" />
+                            <GridViewColumn Width="110" Header="Pisos Autobus" DisplayMemberBinding="{Binding Aut_cantidadPisos}" />
+                            <GridViewColumn Width="100" Header="Tipo Servicio" DisplayMemberBinding="{Binding Aut_tiposervicio}" />
+                            <GridViewColumn Width="0" Header="Codigo Aut" DisplayMemberBinding="{Binding Aut_codigo}" HeaderContainerStyle="{StaticResource hiddenStyle}" />
+                            <GridViewColumn Width="110" Header="Terminal Origen" DisplayMemberBinding="{Binding Ter_origen}" />
+                            <GridViewColumn Width="100" Header="Terminal Destino" DisplayMemberBinding="{Binding Ter_destino}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
     </ScrollViewer>    
 </UserControl>
