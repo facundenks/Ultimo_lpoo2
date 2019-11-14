@@ -33,6 +33,7 @@ namespace Vistas.userControls.userControlABM
         {
             InitializeComponent();
             cargar_combo();
+            btnModificarTerminal.IsEnabled = false;
         }
 
 
@@ -89,6 +90,7 @@ namespace Vistas.userControls.userControlABM
         private void btnLimpiarUsuario_Click(object sender, RoutedEventArgs e)
         {
             limpiar();
+            btnModificarTerminal.IsEnabled = false;
         }
 
         private void cargar_combo()
@@ -114,6 +116,7 @@ namespace Vistas.userControls.userControlABM
             {
                 nombreTerminal.Text = v.Terminal_nombre;
                 cmbCiudad.Text = v.Terminal_ciudad;
+                btnModificarTerminal.IsEnabled = true;
             }
         }
 
@@ -122,7 +125,7 @@ namespace Vistas.userControls.userControlABM
             Terminal unTerminal = new Terminal();
             Ciudad unCiudad = new Ciudad();
 
-            if (MessageBox.Show("Modificar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+            if (MessageBox.Show("¿Modificar Terminal?", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
                 var v = ((ClassTerminalString)list_terminales.SelectedItem);
                 unTerminal = _TerminalRepositorio.buscarTerminal(Convert.ToInt16(v.Terminal_codigo));
@@ -130,9 +133,11 @@ namespace Vistas.userControls.userControlABM
 
                 _TerminalRepositorio.modificarTerminal(unTerminal);
 
+                MessageBox.Show("Terminal modificada correctamente!", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 limpiar();
 
                 list_terminales.ItemsSource = listaTerminales.TerminalStringList();
+                btnModificarTerminal.IsEnabled = false;
             }
         }
 
@@ -159,7 +164,7 @@ namespace Vistas.userControls.userControlABM
 
                     if (band)
                     {
-                        MessageBox.Show("La Terminal tiene un servicio Abierto", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("La Terminal tiene un servicio Abierto, no se puede eliminar", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {

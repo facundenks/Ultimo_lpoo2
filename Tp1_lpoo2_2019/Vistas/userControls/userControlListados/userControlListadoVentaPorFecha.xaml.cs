@@ -118,6 +118,12 @@ namespace Vistas.userControls.userControlListados
 
             return ventas;
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            dtpInicio.SelectedDate = DateTime.Today;
+            dtpFin.SelectedDate = DateTime.Today;
+        }
             
     }
 }
