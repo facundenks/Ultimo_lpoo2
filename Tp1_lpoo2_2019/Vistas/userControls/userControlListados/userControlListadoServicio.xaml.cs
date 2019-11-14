@@ -34,9 +34,6 @@ namespace Vistas.userControls.userControlListados
             set { nombreUsuario = value; }
         }
 
-        bool ban1 = false;
-        bool ban2 = false;
-
         public userControlListadoServicio()
         {
             InitializeComponent();
