@@ -33,6 +33,7 @@ namespace Vistas.userControls.userControlABM
         public userControlABMCiudad()
         {
             InitializeComponent();
+            btnModificarUsuario.IsEnabled = false;
         }
 
         private void txtIdCiudad_KeyDown(object sender, KeyEventArgs e)
@@ -77,6 +78,7 @@ namespace Vistas.userControls.userControlABM
             txtIdCiudad.Clear();
             txtNombreCiudad.Clear();
             txtIdCiudad.IsEnabled = true;
+            btnModificarUsuario.IsEnabled = false;
         }
 
         private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
@@ -109,6 +111,7 @@ namespace Vistas.userControls.userControlABM
             {
                 txtIdCiudad.Text = v.Ciu_codigo.ToString();
                 txtNombreCiudad.Text = v.Ciu_nombre.ToString();
+                btnModificarUsuario.IsEnabled = true;
             }
         }
        
