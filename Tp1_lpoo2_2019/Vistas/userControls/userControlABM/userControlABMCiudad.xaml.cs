@@ -83,11 +83,11 @@ namespace Vistas.userControls.userControlABM
 
         private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            var v = ((Ciudad)Ciudades.SelectedItem);
+            var v = ((ClassCiudadString)Ciudades.SelectedItem);
             var resultado = MessageBox.Show("¿Modificar Ciudad?", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Question);
             if (resultado.Equals(MessageBoxResult.OK))
             {
-                if (v.ciu_nombre != txtNombreCiudad.Text)
+                if (v.Ciu_nombre != txtNombreCiudad.Text)
                 {
                     oCiudad.ciu_codigo = Convert.ToInt32(txtIdCiudad.Text);
                     oCiudad.ciu_nombre = Convert.ToString(txtNombreCiudad.Text);
