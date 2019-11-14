@@ -38,7 +38,7 @@
                 <ComboBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="94,0,0,159" Name="cmbCiudad" VerticalAlignment="Bottom" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2" Height="24" Grid.Row="2" />
                 
 
-                    <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,265,220" 
+                    <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,12,30" 
                               ItemsSource="{Binding Source={StaticResource datos_terminal}}"  
                               Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged">
 
@@ -56,7 +56,7 @@
 
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="120,360,0,0" Name="btnGuardarTerminal"  Cursor="Hand"   Width="167"  Click="btnGuardarTerminal_Click" TabIndex="4" Height="24" VerticalAlignment="Top"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,360,190,0" Name="btnModificarTerminal" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167" Click="btnModificarTerminal_Click"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,397,190,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnEliminarUsuario_Click"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="120,400,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,393,190,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnEliminarUsuario_Click"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="120,393,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5"/>
     </Grid>
 </UserControl>
