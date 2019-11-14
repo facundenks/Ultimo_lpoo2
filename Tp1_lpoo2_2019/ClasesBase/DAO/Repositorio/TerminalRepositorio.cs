@@ -28,6 +28,30 @@ namespace ClasesBase.DAO.Repositorio
             }
         }
 
+        public void eliminarTerminal(int id)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Terminal terminal = (from q in context.Terminal
+                                 where q.ter_codigo == id
+                                 select q).First();
+                context.DeleteObject(terminal);
+                context.SaveChanges();
+            }
+        }
+
+        public void modificarTerminal(Terminal unTerminal)
+        {
+            using (BDpasajesEntities context = new BDpasajesEntities())
+            {
+                Terminal oTerminal = context.Terminal.SingleOrDefault(p => p.ter_codigo == unTerminal.ter_codigo);
+                oTerminal.ter_codigo = unTerminal.ter_codigo;
+                oTerminal.ciu_codigo = unTerminal.ciu_codigo;
+                oTerminal.ter_nombre = unTerminal.ter_nombre;
+                context.SaveChanges();
+            }
+        }
+
         public Terminal buscarTerminal(int codigo)
         {
             using (BDpasajesEntities context = new BDpasajesEntities())

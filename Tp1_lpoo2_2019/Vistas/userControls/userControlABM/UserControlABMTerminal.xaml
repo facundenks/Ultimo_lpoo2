@@ -5,11 +5,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:svc="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
         mc:Ignorable="d"
-        d:DesignHeight="439" d:DesignWidth="830" Width="1037" Height="429">
+        d:DesignHeight="439" d:DesignWidth="830" Width="800" Height="429">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="datos_terminal"
+                            ObjectType="{x:Type svc:TerminalRepositorio}"
+                            MethodName="listarTerminales">
+        </ObjectDataProvider>
+
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="120,10" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0"/>
+                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <Setter Property="Margin" Value="20,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Background" Value="#FFFFFFDB"/>
+            <Setter Property="Height" Value="25"/>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
     <Grid>
-        <!--Grid.Resources>
-            <XmlDataProvider x:Key="tipo_servicio" Source="../../TipoServicio.xml" XPath="/servicios" />
-        </Grid.Resources-->
 
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
             <Label Content="Datos Terminal" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
@@ -28,35 +70,27 @@
                 </Grid.RowDefinitions>
                 <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="60,25,0,0" Name="lblNombre" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
                 <Label Content="Ciudad" Height="28" HorizontalAlignment="Left" Margin="60,75,0,0" Name="lblCiudad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2" />
-                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="91,25,0,0" Name="nombreTerminal" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="1"/>
-                <ComboBox x:Uid="FormTextBox"  HorizontalAlignment="Left" Margin="90,75,0,0" Name="cmbCiudad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2" />
-                <!--ListView Name="Autobuses" Grid.Column="1" Margin="253,25,6,248" Grid.RowSpan="3"
-                          ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}">
+                <TextBox DataContext="{StaticResource datos_terminal}" Style="{StaticResource EstiloError}" HorizontalAlignment="Left" Margin="87,10,0,0" Name="nombreTerminal" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" KeyDown="txtTermNombre_KeyDown" TabIndex="1" Width="120" Height="26" TextChanged="txtTermNombre_TextChanged">
+                    <Binding Path="Ter_nombre" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox>
+                <ComboBox x:Uid="FormTextBox" DataContext="{StaticResource datos_terminal}" HorizontalAlignment="Left" Margin="90,75,0,0" Name="cmbCiudad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2">
+                    <Binding Path="Ciu_codigo" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </ComboBox>
+                    <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,265,220" Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Width="55" Header="Codigo" DisplayMemberBinding="{Binding aut_codigo}"/>
-                            <GridViewColumn Width="100" Header="Capacidad" DisplayMemberBinding="{Binding aut_capacidad}"/>
-                            <GridViewColumn Width="110" Header="Tipo Servicio" DisplayMemberBinding="{Binding aut_tiposervicio}"/>
-                            <GridViewColumn Width="100" Header="Matricula" DisplayMemberBinding="{Binding aut_matricula}"/>
-                            <GridViewColumn Width="100" Header="Empresa" DisplayMemberBinding="{Binding emp_codigo}"/>
-                            <GridViewColumn Width="55" Header="Pisos" DisplayMemberBinding="{Binding aut_cantidadPisos}"/>
-                            <GridViewColumn Width="100" Header="Imagen">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <Image Height="40" Source="{Binding aut_imagen}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                            <GridViewColumn Width="133" Header="Codigo de Terminal" DisplayMemberBinding="{Binding ter_codigo}"/>
+                            <GridViewColumn Width="133" Header="Nombre de Terminal" DisplayMemberBinding="{Binding ter_nombre}"/>
+                            <GridViewColumn Width="133" Header="Ciudad de Terminal" DisplayMemberBinding="{Binding ciu_codigo}"/>
                         </GridView>
                     </ListView.View>
-                </ListView-->
+                    
+                </ListView>
             </Grid>
         </GroupBox>
 
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="120,360,0,0" Name="btnGuardarTerminal"  Cursor="Hand"   Width="167"  Click="btnGuardarTerminal_Click" TabIndex="4" Height="24" VerticalAlignment="Top"/>
-        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,360,286,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167"/>
+        <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Modificar"  Margin="0,360,286,0" Name="btnModificarTerminal" VerticalAlignment="Top" Cursor="Hand" Height="24"   HorizontalAlignment="Right" Width="167" Click="btnModificarTerminal_Click"/>
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,400,286,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" />
         <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}"  Background="#FFD73C61"  Content="Limpiar" HorizontalAlignment="Left" Margin="120,400,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24"  Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5"/>
     </Grid>

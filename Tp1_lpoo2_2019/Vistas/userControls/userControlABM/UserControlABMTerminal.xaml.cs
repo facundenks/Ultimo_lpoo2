@@ -104,5 +104,31 @@ namespace Vistas.userControls.userControlABM
             cmbCiudad.SelectedIndex = -1;
         }
 
+        private void list_terminales_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var v = ((Terminal)list_terminales.SelectedItem);
+            if (v != null)
+            {
+                nombreTerminal.IsEnabled = false;
+                nombreTerminal.Text = v.ter_nombre.ToString();
+                cmbCiudad.Text = v.ciu_codigo.ToString();
+            }
+        }
+
+        private void btnModificarTerminal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtTermNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtTermNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
 }
