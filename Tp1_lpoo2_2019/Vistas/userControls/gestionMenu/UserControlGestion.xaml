@@ -15,7 +15,7 @@
             <StackPanel Orientation="Horizontal">
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridUsuario" Background="#F45BB0DD"  MouseLeftButtonDown="GridUsuario_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10" Name="imgUsers" Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/585e4bd7cb11b227491c3397.png" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6" Name="imgUsers" Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/585e4bd7cb11b227491c3397.png" />
                     <Label Content=" Usuario " Height="40"   Name="lblTitleOption" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridAutobus" MouseLeftButtonDown="GridAutobus_MouseLeftButtonDown" Background="#F45BB0DD">
@@ -25,12 +25,12 @@
                         <RowDefinition Height="67*" />
                     </Grid.RowDefinitions>
                     <Rectangle Stroke="#F9AFA9AD" Grid.RowSpan="3" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/b54944f7322722034cfda55e601b4f8d-icono-de-viaje-de-autob-s-redondo-by-vexels.png" Grid.RowSpan="3" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/b54944f7322722034cfda55e601b4f8d-icono-de-viaje-de-autob-s-redondo-by-vexels1.png" Grid.RowSpan="3" />
                     <Label Content=" Autobus " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridCiudad" Background="#F45BB0DD" MouseLeftButtonDown="GridCiudad_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/f467c342671853ac3a9418e3f1ddcc9a.png" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/f467c342671853ac3a9418e3f1ddcc9a1.png" />
                     <Label Content=" Ciudad " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
             </StackPanel>
@@ -41,17 +41,17 @@
                         <ColumnDefinition Width="87*" />
                     </Grid.ColumnDefinitions>
                     <Rectangle Stroke="#F9AFA9AD" Grid.ColumnSpan="2" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="30,0,30,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/dollar-3717534_960_720.png" Grid.ColumnSpan="2" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/VENTAS1.png" Grid.ColumnSpan="2" />
                     <Label Content=" Ventas " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" Grid.ColumnSpan="2" />
                 </Grid>
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridZonas" Background="#F45BB0DD" MouseLeftButtonDown="GridTerminal_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-28.png" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-281.png" />
                     <Label Content=" Terminal " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridUsuarios" Background="#F45BB0DD" MouseLeftButtonDown="GridUsuarios_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
-                    <Image Height="80" HorizontalAlignment="Center" Margin="0,0,0,10"  Stretch="Fill" VerticalAlignment="Bottom" Width="80" Cursor="Hand" Source="/Vistas;component/Images/Customers1.png" />
+                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/Customers1.png" />
                     <Label Content=" Usuarios " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
             </StackPanel>

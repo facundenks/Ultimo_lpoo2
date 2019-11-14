@@ -42,8 +42,8 @@ namespace Vistas
 
         private void btnOpenMenu_Click(object sender, RoutedEventArgs e)
         {
-            btnOpenMenu.Visibility = Visibility.Collapsed;
-            btnCloseMenu.Visibility = Visibility.Visible;
+            /*btnOpenMenu.Visibility = Visibility.Collapsed;
+            btnCloseMenu.Visibility = Visibility.Visible;*/
             lblHora.Visibility = Visibility.Visible;
             lblFecha.Visibility = Visibility.Visible;
             lblUser.Visibility = Visibility.Visible;
@@ -54,8 +54,8 @@ namespace Vistas
 
         private void btnCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-            btnOpenMenu.Visibility = Visibility.Visible;
-            btnCloseMenu.Visibility = Visibility.Collapsed;
+            /*btnOpenMenu.Visibility = Visibility.Visible;
+            btnCloseMenu.Visibility = Visibility.Collapsed;*/
             lblHora.Visibility = Visibility.Collapsed;
             lblFecha.Visibility = Visibility.Collapsed;
             lblUser.Visibility = Visibility.Collapsed;

@@ -414,6 +414,39 @@
   <ItemGroup>
     <Resource Include="Minutos.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_bussisnes_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\colectivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\colectivo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_poweroff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\b54944f7322722034cfda55e601b4f8d-icono-de-viaje-de-autob-s-redondo-by-vexels1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\184160111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bus-stop-symbol-icon-281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VENTAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VENTAS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\f467c342671853ac3a9418e3f1ddcc9a1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
