@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClasesBase;
+using ClasesBase.DAO.Repositorio;
 
 namespace Vistas.userControls.userControlListados
 {
@@ -21,6 +22,7 @@ namespace Vistas.userControls.userControlListados
     public partial class userControlListadoVentaPorFecha : UserControl
     {
         ClassTrabajarVentaString ventas = new ClassTrabajarVentaString();
+        ClassTrabajarVentaString _classTrabajarVentaString = new ClassTrabajarVentaString();
         private CollectionViewSource vistaColeccionFiltradaPorFecha;
         public userControlListadoVentaPorFecha()
         {
@@ -81,12 +83,22 @@ namespace Vistas.userControls.userControlListados
 
             if (inicio <= fin)
             {
-                GridVentas.Children.Clear();
-                userControls.userControlListados.UserControlListadoFechas ventasFecha = new userControls.userControlListados.UserControlListadoFechas();
-                ventasFecha.OVenta = ventas.listarVentasPorFecha(inicio, fin);
-                String cantidad = ventasFecha.OVenta.Count.ToString();
-                String total = ventasFecha.OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
-                GridVentas.Children.Add(ventasFecha);
+
+                List<ClassVentas> ventas2 = ventas.listarVentasPorFecha(inicio,fin);
+                
+                if (ventas2 != null)
+                {
+                    GridVentas.Children.Clear();
+                    userControls.userControlListados.UserControlListadoFechas ventasFecha = new userControls.userControlListados.UserControlListadoFechas();
+                    ventasFecha.OVenta = ventas.listarVentasPorFecha(inicio, fin);
+                    String cantidad = ventasFecha.OVenta.Count.ToString();
+                    String total = ventasFecha.OVenta.Sum(x => Convert.ToDouble(x.PasajePrecio)).ToString();
+                    GridVentas.Children.Add(ventasFecha);
+                }
+                else {
+                    Ventas.ItemsSource = _classTrabajarVentaString.ventaStringList();
+                }
+                
             }
             else
             {
