@@ -25,6 +25,7 @@ namespace Vistas.userControls.userControlABM
         Terminal terminal = new Terminal();
         TerminalRepositorio _TerminalRepositorio = new TerminalRepositorio();
         CiudadRepositorio _CiudadRepositorio = new CiudadRepositorio();
+        ServicioRepositorio _ServicioReposiorio = new ServicioRepositorio();
         ObservableCollection<string> list = new ObservableCollection<string>();
         ClassTrabajarTerminalString listaTerminales = new ClassTrabajarTerminalString();
 
@@ -137,7 +138,42 @@ namespace Vistas.userControls.userControlABM
 
         private void btnEliminarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            var v = ((ClassTerminalString)list_terminales.SelectedItem);
+            if (v.Terminal_codigo != "")
+            {
+                var resultado = MessageBox.Show("¿Eliminar terminal?", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (resultado.Equals(MessageBoxResult.OK))
+                {
+                    Boolean band = false;
+                    List<Servicio> servicios = new List<Servicio>();
+                    servicios = _ServicioReposiorio.listarServicios();
 
+                    foreach (Servicio s in servicios)
+                    {
+                        //bool coso = _servicioReporsitorio.servicioValidarOrigen(ter.ter_codigo);
+                        if (s.ter_codigo_destino == Convert.ToInt32(v.Terminal_codigo) || s.ter_codigo_origen == Convert.ToInt32(v.Terminal_codigo))
+                        {
+                            band = true;
+                        }
+                    }
+
+                    if (band)
+                    {
+                        MessageBox.Show("La Terminal tiene un servicio Abierto", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        _TerminalRepositorio.eliminarTerminal(Convert.ToInt32(v.Terminal_codigo));
+                        MessageBox.Show("Terminal dada de Baja", "Gestion Terminal", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                        list_terminales.ItemsSource = listaTerminales.TerminalStringList();
+                        limpiar();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

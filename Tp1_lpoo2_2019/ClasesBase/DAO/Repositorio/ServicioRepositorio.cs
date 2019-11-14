@@ -232,15 +232,11 @@ namespace ClasesBase.DAO.Repositorio
                     return true;
                 }
             }
+        }
 
         public string buscarServicio()
         {
             throw new NotImplementedException();
         }
-
-/*        public Boolean verificarAutobus(int id)
-        {
-           
-        }*/
     }
 }
