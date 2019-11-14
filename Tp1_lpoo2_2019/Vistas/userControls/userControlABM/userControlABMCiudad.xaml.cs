@@ -99,7 +99,7 @@ namespace Vistas.userControls.userControlABM
                     //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
                     Ciudades.ItemsSource = listaCiudades.CiudadStringList();
                 }else{
-                    MessageBox.Show("No se Realizaron cambios!", "Gestion Autobus", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                    MessageBox.Show("No se Realizaron cambios!", "Gestion Ciudad", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                     limpiar();
                     //Ciudades.ItemsSource = _ciudadRepositorio.getCiudades();
                     Ciudades.ItemsSource = listaCiudades.CiudadStringList();
