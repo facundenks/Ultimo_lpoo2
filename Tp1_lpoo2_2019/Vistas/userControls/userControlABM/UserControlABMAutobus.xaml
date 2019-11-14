@@ -36,7 +36,7 @@
             <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="89,17,0,0" Name="txtCapacidad" VerticalAlignment="Top" IsReadOnly="False" IsEnabled="True" KeyDown="txtCapacidad_KeyDown" TabIndex="1" Grid.Column="1" />
             <ComboBox x:Uid="FormTextBox" ItemsSource="{Binding Source={StaticResource tipo_servicio},XPath=tipo/@name}" HorizontalAlignment="Left" Margin="88,0,0,287" Name="cmbServicio" VerticalAlignment="Bottom" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2" Height="23" />
             <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="88,93,0,0" Name="txtPatente" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3" />
-            <ListView Name="Autobuses" Grid.Column="1" Margin="254,17,0,177" ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}" HorizontalAlignment="Left">
+            <ListView Name="Autobuses" Grid.Column="1" Margin="254,17,0,177" ItemsSource="{Binding Source= {StaticResource lista_Autobuses}}" HorizontalAlignment="Left" SelectionChanged="lista_Autobuses_SelectionChanged" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="55" Header="Codigo" DisplayMemberBinding="{Binding aut_codigo}" />
@@ -74,8 +74,8 @@
             <ComboBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="88,132,0,0" Name="cmbEmpresa" VerticalAlignment="Top" Width="120" />
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Guardar" HorizontalAlignment="Left" Margin="239,237,0,0" Name="btnGuardarUsuario" Cursor="Hand" Width="167" Click="btnGuardarAutobus_Click" TabIndex="4" Height="24" VerticalAlignment="Top" Grid.Column="1" />
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Limpiar" HorizontalAlignment="Left" Margin="239,282,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Click="btnLimpiarUsuario_Click" TabIndex="5" Grid.Column="1" />
-            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Modificar" Margin="0,237,16,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24" HorizontalAlignment="Right" Width="167" Grid.Column="1" />
-            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,282,16,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Grid.Column="1" />
+            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Modificar" Margin="0,237,16,0" Name="btnModificarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24" HorizontalAlignment="Right" Width="167" Grid.Column="1" Click="btnModificarAutobus_click"/>
+            <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Eliminar" HorizontalAlignment="Right" Margin="0,282,16,0" Name="btnEliminarUsuario" VerticalAlignment="Top" Cursor="Hand" Height="24" Width="167" Grid.Column="1" Click="btnEliminarAutobus_click"/>
         </Grid>
     </Grid>
 </UserControl>
