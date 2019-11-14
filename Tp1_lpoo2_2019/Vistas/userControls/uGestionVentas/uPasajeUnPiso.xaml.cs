@@ -25,6 +25,7 @@ namespace Vistas.userControls.uGestionVentas
         PasajeRepositorio _pasajeRepositorio = new PasajeRepositorio();
         AutobusRepositorio _autobusRepositorio = new AutobusRepositorio();
         ClienteRepositorio _clienteRepositorio = new ClienteRepositorio();
+        TerminalRepositorio _terminalRepositorio = new TerminalRepositorio();
         Servicio oServicio = new Servicio();
         Autobus oAutobus = new Autobus();
         int asientoLibre = 0, asientoOcupado = 0;
@@ -84,6 +85,14 @@ namespace Vistas.userControls.uGestionVentas
             capacidad = (int)oAutobus.aut_capacidad;
             cargarAsientos(capacidad);
             contadorDeAsientos();
+            txtDestino.Text = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_destino).ter_nombre;
+            txtOrigen.Text = _terminalRepositorio.buscarTerminal((int)oServicio.ter_codigo_origen).ter_nombre;
+            txtSalida.Text = oServicio.ser_fecha.ToString();
+            BitmapImage b = new BitmapImage();
+            b.BeginInit();
+            b.UriSource = new Uri(_autobusRepositorio.buscarAutobus((int)oServicio.aut_codigo).aut_imagen.ToString());
+            b.EndInit();
+            foto.Source = b;
             if (band)
             {
                 scrol.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;

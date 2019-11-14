@@ -6,13 +6,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="795" d:DesignWidth="713" Loaded="UserControl_Loaded" VerticalContentAlignment="Top" HorizontalAlignment="Left" Background="Beige">
 
-    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="715" Height="330">
+    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="715" Height="430">
         <Grid Name="gridPrincipalPasajes" Width="716" Height="786">
-            <Grid Height="60" VerticalAlignment="Top" Margin="4,4,253,0">
+            <Grid Height="105" VerticalAlignment="Top" Margin="54,0,38,0">
                 <Label Content="Venta de Pasaje" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+                <Line X1="15" X2="600" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="-13,21,-15,-747" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="211,6,0,0" Name="txtOrigen" Text="TextBlock" VerticalAlignment="Top" Width="136" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="403,6,0,0" Name="txtDestino" Text="TextBlock" VerticalAlignment="Top" Width="149" />
+                <Label Content="Origen:" Height="28" HorizontalAlignment="Left" Margin="166,1,0,0" Name="label3" VerticalAlignment="Top" />
+                <Label Content="Destino:" Height="28" HorizontalAlignment="Left" Margin="353,1,0,0" Name="label4" VerticalAlignment="Top" />
+                <Line Margin="-13,21,-15,-747" Stroke="#F45BB0DD" X1="15" X2="600" Y1="50" Y2="50" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="211,44,0,0" Name="txtSalida" Text="TextBlock" VerticalAlignment="Top" Width="195" />
+                <Label Content="Salida:" Height="28" HorizontalAlignment="Left" Margin="166,0,0,38" Name="label5" VerticalAlignment="Bottom" />
+                <Image Height="45" HorizontalAlignment="Left" Margin="375,22,0,0" Name="foto" Stretch="Fill" VerticalAlignment="Top" Width="61" />
             </Grid>
-            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0" />
-            <GroupBox Header="Asientos" Height="712" HorizontalAlignment="Left" Margin="17,69,0,0" VerticalAlignment="Top" Width="411" Foreground="#F45BB0DD">
+            <GroupBox Header="Asientos" Height="712" HorizontalAlignment="Left" Margin="148,69,0,0" VerticalAlignment="Top" Width="411" Foreground="#F45BB0DD">
                 <Grid Height="679" Width="287">
                     <StackPanel Name="grdColumna1" Margin="157,12,-1,107"></StackPanel>
                     <StackPanel Name="grdColumna2" Margin="12,12,144,107"></StackPanel>

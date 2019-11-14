@@ -8,10 +8,10 @@
              d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded" Width="996">
 
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_servicios" 
             ObjectType="{x:Type svc:ClassTrabajarServicioFormat}" 
-            MethodName="listarServicios"/>-->
+            MethodName="listarServicios"/>
     </UserControl.Resources>
     
     <Grid Height="635" Width="976" Background="White">
