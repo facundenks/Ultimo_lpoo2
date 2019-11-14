@@ -44,6 +44,7 @@ namespace Vistas.userControls.userControlABM
             cargarTerminalOrigen();
             cargarTerminalDestino();
             dateFecha.SelectedDate = DateTime.Today;
+            btnModificarServicio.IsEnabled = false;
         }
 
         private void cargarTerminalOrigen()
@@ -112,6 +113,8 @@ namespace Vistas.userControls.userControlABM
         private void Servicios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ClassServicioString servicio = Servicios.SelectedItem as ClassServicioString;
+            btnModificarServicio.IsEnabled = true;
+            btnGuardarUsuario.IsEnabled = false;
             if (servicio == null)
             {
                 return;
@@ -185,6 +188,9 @@ namespace Vistas.userControls.userControlABM
                     }
 
                     Servicios.ItemsSource = _classTrabajarServicioFormat.listarServicios();
+
+                    btnModificarServicio.IsEnabled = false;
+                    btnGuardarUsuario.IsEnabled = true;
                 }
                 else
                 { 
