@@ -7,7 +7,7 @@
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="414" d:DesignWidth="678" Height="446" Background="#FFFDFDFD" Width="735" Loaded="Window_Loaded">
+             d:DesignHeight="414" d:DesignWidth="678" Height="446" Width="735" Loaded="Window_Loaded">
 
     <UserControl.Resources>
 
@@ -23,7 +23,7 @@
     </UserControl.Resources>
 
     <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="715" Height="431">
-        <Grid Name="GridFechas" Width="726" Background="White" Height="460">
+        <Grid Name="GridFechas" Width="726" Background="Transparent" Height="460">
         <GroupBox Header="Datos de Ventas por Fecha " Height="309" HorizontalAlignment="Left" Margin="1,26,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="720" Foreground="#F4F8F8F8" Background="#F45BB0DD" BorderBrush="White">
             <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}" Width="702">
                 <ListView.View>

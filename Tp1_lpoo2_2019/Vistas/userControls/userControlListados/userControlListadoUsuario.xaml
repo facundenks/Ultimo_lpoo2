@@ -7,7 +7,7 @@
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="414" d:DesignWidth="678" Height="405" Background="#FFFDFDFD" Width="700">
+             d:DesignHeight="414" d:DesignWidth="678" Height="405" Width="748">
     
     <UserControl.Resources>
         
@@ -23,10 +23,10 @@
         
     </UserControl.Resources>
 
-    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="689" Height="381">
-        <Grid Width="698">
-            <GroupBox Header="Datos de Usuario" Height="355" HorizontalAlignment="Left" Margin="1,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="698" Foreground="White" Background="#F45BB0DD" BorderBrush="#F45BB0DD">
-            <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}" Width="756">
+    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="724" Height="381">
+    <Grid Width="726" Background="Transparent">
+            <GroupBox Header="Datos de Usuario" Height="355" HorizontalAlignment="Left" Margin="4,37,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="704" Foreground="White" Background="#F45BB0DD" BorderBrush="#F45BB0DD">
+            <ListView Name="Usuarios" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_User}}" Width="685">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="200" Header="Rol" DisplayMemberBinding="{Binding CodigoUsuario1}"/>
