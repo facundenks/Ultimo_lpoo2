@@ -7,7 +7,7 @@
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="414" d:DesignWidth="678" Height="442" Background="#FFFDFDFD" Width="1182" Loaded="Window_Loaded">
+             d:DesignHeight="414" d:DesignWidth="678" Height="446" Background="#FFFDFDFD" Width="735" Loaded="Window_Loaded">
 
     <UserControl.Resources>
 
@@ -16,15 +16,16 @@
                             MethodName="listarVentasPorFecha"/>
 
         <CollectionViewSource x:Key="Vista_Ventas" Source="{StaticResource ResourceKey=lista_ventas_por_fecha}">
-            <!--<CollectionViewSource.SortDescriptions>
+            <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="PasajeFec" Direction="Ascending"/>
-            </CollectionViewSource.SortDescriptions>-->
+            </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
 
-    <Grid Name="GridFechas" Width="1181" Background="White" Height="460">
-        <GroupBox Header="Datos de Ventas por Fecha " Height="317" HorizontalAlignment="Left" Margin="6,42,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="1180" Foreground="#F45BB0DD" Background="#FFFAFAFA">
-            <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}">
+    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="715" Height="431">
+        <Grid Name="GridFechas" Width="726" Background="White" Height="460">
+        <GroupBox Header="Datos de Ventas por Fecha " Height="309" HorizontalAlignment="Left" Margin="1,26,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="720" Foreground="#F4F8F8F8" Background="#F45BB0DD" BorderBrush="White">
+            <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}" Width="702">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="80" Header="Codigo Pasaje" DisplayMemberBinding="{Binding PasajeCodigo}"/>
@@ -46,11 +47,12 @@
             </ListView>
         </GroupBox>
         <Button Content="Vista Previa" Margin="1035,380,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" Click="button1_Click" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,380,0,0" Name="textBlock1" Text="Cantidad de Pasajes Vendidos: " VerticalAlignment="Top" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="339,384,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="186,379,0,0" Name="txtCantidad" VerticalAlignment="Top" Width="133" IsReadOnly="True" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,380,496,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140" IsReadOnly="True" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,380,0,0" Name="textBlock1" Text="Cantidad de Pasajes Vendidos: " VerticalAlignment="Top" Foreground="White" FontWeight="Bold" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="329,375,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" Foreground="White" FontWeight="Bold" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="178,375,0,0" Name="txtCantidad" VerticalAlignment="Top" Width="133" IsReadOnly="True" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,375,51,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140" IsReadOnly="True" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="709,384,0,0" Name="textBlock3" Text="Horario de Mayores Ventas" VerticalAlignment="Top" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="873,379,0,0" Name="txtMayorHorario" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
     </Grid>
+    </ScrollViewer>    
 </UserControl>
