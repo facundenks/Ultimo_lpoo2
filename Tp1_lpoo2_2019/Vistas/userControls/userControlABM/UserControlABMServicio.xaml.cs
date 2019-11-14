@@ -44,6 +44,7 @@ namespace Vistas.userControls.userControlABM
             cargarTerminalOrigen();
             cargarTerminalDestino();
             dateFecha.SelectedDate = DateTime.Today;
+            btnModificarServicio.IsEnabled = false;
         }
 
         private void cargarTerminalOrigen()
@@ -72,6 +73,19 @@ namespace Vistas.userControls.userControlABM
                 listAutobus.Add(a.aut_matricula);
             }
             cmbAtobuses.ItemsSource = listAutobus;
+            btnModificarServicio.IsEnabled = true;
+        }
+
+        private void btnLimpiar(object sender, RoutedEventArgs e)
+        {
+            cmbHora.SelectedIndex = -1;
+            cmbMinutos.SelectedIndex = -1;
+            cmbEstado.SelectedIndex = -1;
+            cmbAtobuses.SelectedIndex = -1;
+            cmbDestino.SelectedIndex = -1;
+            cmbOrigen.SelectedIndex = -1;
+            dateFecha.SelectedDate = DateTime.Today;
+            btnModificarServicio.IsEnabled = false;
         }
 
         private void btnGuardarUsuario_Click(object sender, RoutedEventArgs e)
@@ -112,6 +126,8 @@ namespace Vistas.userControls.userControlABM
         private void Servicios_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ClassServicioString servicio = Servicios.SelectedItem as ClassServicioString;
+            btnModificarServicio.IsEnabled = true;
+            btnGuardarUsuario.IsEnabled = false;
             if (servicio == null)
             {
                 return;
@@ -185,6 +201,9 @@ namespace Vistas.userControls.userControlABM
                     }
 
                     Servicios.ItemsSource = _classTrabajarServicioFormat.listarServicios();
+
+                    btnModificarServicio.IsEnabled = false;
+                    btnGuardarUsuario.IsEnabled = true;
                 }
                 else
                 { 

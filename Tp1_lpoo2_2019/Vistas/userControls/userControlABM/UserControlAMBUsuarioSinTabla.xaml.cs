@@ -78,6 +78,22 @@ namespace Vistas.userControls.userControlABM
             InitializeComponent();
         }
 
+        private void txtDNI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         private void btnNuevoCliente_Click(object sender, RoutedEventArgs e)
         {
             if (txtEmail.Text.Length == 0)

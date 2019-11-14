@@ -70,39 +70,44 @@ namespace ClasesBase
         {
             List<Pasaje> lista = PasDAO.pasajesPorFecha(inicio, fin);
             List<ClassVentas> pasajeFormat = new List<ClassVentas>();
-
-            foreach (Pasaje item in lista)
+            if (lista != null)
             {
-                ClassVentas ven= new ClassVentas();
-                Servicio ser = SerDAO.buscarServicio((int)item.ser_codigo); 
-                Autobus auto = AutDAO.buscarAutobus((int)ser.aut_codigo);
-                Cliente cli = CliDAO.buscarCliente((String)item.cli_dni);
-                Terminal terOrigen = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_origen);
-                Terminal terDest = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_destino);
-                Empresa emp = EmpDAO.buscarEmpresa((int)auto.emp_codigo);
+                foreach (Pasaje item in lista)
+                {
+                    ClassVentas ven = new ClassVentas();
+                    Servicio ser = SerDAO.buscarServicio((int)item.ser_codigo);
+                    Autobus auto = AutDAO.buscarAutobus((int)ser.aut_codigo);
+                    Cliente cli = CliDAO.buscarCliente((String)item.cli_dni);
+                    Terminal terOrigen = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_origen);
+                    Terminal terDest = _terminalRepositorio.buscarTerminal((int)ser.ter_codigo_destino);
+                    Empresa emp = EmpDAO.buscarEmpresa((int)auto.emp_codigo);
 
-                ven.AutobusMatricula = auto.aut_matricula;
-                ven.AutobusTipoServicio = auto.aut_tiposervicio;
+                    ven.AutobusMatricula = auto.aut_matricula;
+                    ven.AutobusTipoServicio = auto.aut_tiposervicio;
 
-                ven.ServicioCodigo = Convert.ToString(ser.ser_codigo);
-                ven.ServicioFec = Convert.ToString(ser.ser_fecha);
-                ven.ServicioCodOrigen = Convert.ToString(terOrigen.ter_nombre);
-                ven.ServicioCodDestino = Convert.ToString(terDest.ter_nombre);
+                    ven.ServicioCodigo = Convert.ToString(ser.ser_codigo);
+                    ven.ServicioFec = Convert.ToString(ser.ser_fecha);
+                    ven.ServicioCodOrigen = Convert.ToString(terOrigen.ter_nombre);
+                    ven.ServicioCodDestino = Convert.ToString(terDest.ter_nombre);
 
-                ven.ClienteDNI = Convert.ToString(cli.cli_dni);
-                ven.ClienteApellido = cli.cli_apellido;
-                ven.ClienteNombre = cli.cli_nombre;
+                    ven.ClienteDNI = Convert.ToString(cli.cli_dni);
+                    ven.ClienteApellido = cli.cli_apellido;
+                    ven.ClienteNombre = cli.cli_nombre;
 
-                ven.PasajeCodigo = Convert.ToString(item.pas_codigo);
-                ven.PasajeAsiento = Convert.ToString(item.pas_asiento);
-                ven.PasajeFec = Convert.ToString(item.pas_fechaHora);
-                ven.PasajePrecio = Convert.ToString(item.pas_precio);
+                    ven.PasajeCodigo = Convert.ToString(item.pas_codigo);
+                    ven.PasajeAsiento = Convert.ToString(item.pas_asiento);
+                    ven.PasajeFec = Convert.ToString(item.pas_fechaHora);
+                    ven.PasajePrecio = Convert.ToString(item.pas_precio);
 
-                ven.NombreEmpresa = Convert.ToString(emp.emp_nombre);
-                //ven.NombreEmpresa = "Bolut";
-                pasajeFormat.Add(ven);
-            }      
-            return pasajeFormat;          
+                    ven.NombreEmpresa = Convert.ToString(emp.emp_nombre);
+                    //ven.NombreEmpresa = "Bolut";
+                    pasajeFormat.Add(ven);
+                }
+                return pasajeFormat; 
+            }
+            else {
+                return null;
+            }                          
          }        
      }
 }

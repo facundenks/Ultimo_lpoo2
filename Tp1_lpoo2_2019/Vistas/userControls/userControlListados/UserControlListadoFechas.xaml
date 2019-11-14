@@ -7,7 +7,7 @@
              xmlns:coleccionUsuario="clr-namespace:ClasesBase.DAO.Repositorio;assembly=ClasesBase"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
-             d:DesignHeight="414" d:DesignWidth="678" Height="446" Width="735" Loaded="Window_Loaded">
+             d:DesignHeight="414" d:DesignWidth="678" Height="446" Width="754" Loaded="Window_Loaded">
 
     <UserControl.Resources>
 
@@ -22,8 +22,8 @@
         </CollectionViewSource>
     </UserControl.Resources>
 
-    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="715" Height="431">
-        <Grid Name="GridFechas" Width="726" Background="Transparent" Height="460">
+    <ScrollViewer Name="scrol" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Width="741" Height="431">
+        <Grid Name="GridFechas" Width="825" Background="Transparent" Height="491">
         <GroupBox Header="Datos de Ventas por Fecha " Height="309" HorizontalAlignment="Left" Margin="1,26,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="720" Foreground="#F4F8F8F8" Background="#F45BB0DD" BorderBrush="White">
             <ListView Name="Ventas" Margin="5,46,5,5" ItemsSource="{Binding Source= {StaticResource Vista_Ventas}}" Width="702">
                 <ListView.View>
@@ -46,13 +46,13 @@
                 </ListView.View>
             </ListView>
         </GroupBox>
-        <Button Content="Vista Previa" Margin="1035,380,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" Click="button1_Click" />
+        <Button Content="Vista Previa" Margin="535,336,0,0" Name="button1" HorizontalAlignment="Left" Width="107" Height="23" VerticalAlignment="Top" Background="#FFC84D45" Click="button1_Click" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,380,0,0" Name="textBlock1" Text="Cantidad de Pasajes Vendidos: " VerticalAlignment="Top" Foreground="White" FontWeight="Bold" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="329,375,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" Foreground="White" FontWeight="Bold" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="317,375,0,0" Name="textBlock2" Text="Monto Total de Pasajes Vendidos ($) : " VerticalAlignment="Top" Foreground="White" FontWeight="Bold" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="178,375,0,0" Name="txtCantidad" VerticalAlignment="Top" Width="133" IsReadOnly="True" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,375,51,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140" IsReadOnly="True" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="709,384,0,0" Name="textBlock3" Text="Horario de Mayores Ventas" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="873,379,0,0" Name="txtMayorHorario" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,375,150,0" Name="txtMontoTotal" VerticalAlignment="Top" Width="140" IsReadOnly="True" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="17,341,0,0" Name="textBlock3" Text="Horario de Mayores Ventas" VerticalAlignment="Top" Foreground="White" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="178,336,0,0" Name="txtMayorHorario" VerticalAlignment="Top" Width="133" IsReadOnly="True" />
     </Grid>
     </ScrollViewer>    
 </UserControl>

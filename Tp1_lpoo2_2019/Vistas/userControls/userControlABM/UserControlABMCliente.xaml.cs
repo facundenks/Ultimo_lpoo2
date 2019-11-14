@@ -28,6 +28,7 @@ namespace Vistas.userControls.userControlABM
         public UserControlABMCliente()
         {
             InitializeComponent();
+            deshabilitarBotones();
         }
 
         private void txtDNI_KeyDown(object sender, KeyEventArgs e)
@@ -50,12 +51,12 @@ namespace Vistas.userControls.userControlABM
         {
             if (txtEmail.Text.Length == 0)
             {
-                MessageBox.Show("Enter an email.");
+                MessageBox.Show("Ingrese un email.", "Gestion Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 txtEmail.Focus();
             }
             else if (!Regex.IsMatch(txtEmail.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
             {
-                MessageBox.Show("Enter a valid email.");
+                MessageBox.Show("Debe ingresar un email Valido.", "Gestion Cliente", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 txtEmail.Select(0, txtEmail.Text.Length);
                 txtEmail.Focus();
             }
@@ -63,27 +64,49 @@ namespace Vistas.userControls.userControlABM
             {
                 if (txtApellido.Text != "" && txtDNI.Text != "" && txtEmail.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
                 {
-
-                    if (MessageBox.Show("Guardar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                    if (validarDNI(txtDNI.Text))
                     {
-                        oCliente.cli_dni = txtDNI.Text;
-                        oCliente.cli_nombre = txtNombre.Text;
-                        oCliente.cli_apellido = txtApellido.Text;
-                        oCliente.cli_email = txtEmail.Text;
-                        oCliente.cli_telefono = txtTelefono.Text;
-
-                        _clienteRepositorio.AgrgarCliente(oCliente);
-
-                        list_clientes.ItemsSource =_clienteRepositorio.listarClientes();
-
+                        MessageBox.Show("El DNI ya existe en el sistema", "Gestion Clientes", MessageBoxButton.OK, MessageBoxImage.Error);
                         limpiar();
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Guardar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+                        {
+                            oCliente.cli_dni = txtDNI.Text;
+                            oCliente.cli_nombre = txtNombre.Text;
+                            oCliente.cli_apellido = txtApellido.Text;
+                            oCliente.cli_email = txtEmail.Text;
+                            oCliente.cli_telefono = txtTelefono.Text;
+
+                            _clienteRepositorio.AgrgarCliente(oCliente);
+
+                            list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
+                            MessageBox.Show("Cliente dado de alta", "Gestion Clientes", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                            limpiar();
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Completar todos los campos");
+                    MessageBox.Show("Debe completar todos los campos", "Gestion Clientes", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private Boolean validarDNI(String dni)
+        {
+            Boolean band = false;
+            List<Cliente> clientes = _clienteRepositorio.listarClientes();
+            foreach (Cliente c in clientes)
+            {
+                if (c.cli_dni.Equals(dni))
+                {
+                    band = true;
+                }
+            }
+
+            return band;
         }
 
         private void limpiar()
@@ -93,6 +116,7 @@ namespace Vistas.userControls.userControlABM
             txtEmail.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
+            deshabilitarBotones();
         }
 
         private void btnLimpiarUsuario_Click_1(object sender, RoutedEventArgs e)
@@ -119,6 +143,7 @@ namespace Vistas.userControls.userControlABM
                 txtApellido.Text = v.cli_apellido.ToString();
                 txtTelefono.Text = v.cli_telefono.ToString();
                 txtEmail.Text = v.cli_email.ToString();
+                habilitarBotones();
             } 
         }
 
@@ -151,7 +176,8 @@ namespace Vistas.userControls.userControlABM
         {
             Cliente unCliente = new Cliente();
 
-            if (MessageBox.Show("Modificar Cliente", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Question) == MessageBoxResult.OK)
+            var resultado = MessageBox.Show("¿Modificar Cliente?", "Gestion Cliente", MessageBoxButton.OK, MessageBoxImage.Question);
+            if (resultado.Equals(MessageBoxResult.OK))
             {
                 unCliente.cli_dni = Convert.ToString(txtDNI.Text);
                 unCliente.cli_nombre = Convert.ToString(txtNombre.Text);
@@ -165,6 +191,18 @@ namespace Vistas.userControls.userControlABM
 
                 list_clientes.ItemsSource = _clienteRepositorio.listarClientes();
             }
+        }
+
+        private void deshabilitarBotones()
+        {
+            btnEliminarUsuario.IsEnabled = false;
+            btnModificarUsuario.IsEnabled = false;
+        }
+
+        private void habilitarBotones()
+        {
+            btnEliminarUsuario.IsEnabled = true;
+            btnModificarUsuario.IsEnabled = true;
         }
     }
 }
