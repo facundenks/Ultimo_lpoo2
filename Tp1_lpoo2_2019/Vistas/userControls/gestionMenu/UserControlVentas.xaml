@@ -18,11 +18,11 @@
                     <Image Height="98" HorizontalAlignment="Center" Margin="0,0,6,6" Name="imgUsers" Stretch="Fill" VerticalAlignment="Bottom" Width="134" Cursor="Hand" Source="/Vistas;component/Images/585e4bd7cb11b227491c3397.png"/>
                     <Label Content=" Cliente " Height="40"   Name="lblTitleOption" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridEntradas" Background="#F45BB0DD">
+                <!--<Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridEntradas" Background="#F45BB0DD">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
                     <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/b54944f7322722034cfda55e601b4f8d-icono-de-viaje-de-autob-s-redondo-by-vexels1.png" />
                     <Label Content=" Viaje " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
-                </Grid>
+                </Grid>-->
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridVentas" MouseLeftButtonDown="GridPasaje_MouseLeftButtonDown" Background="#F45BB0DD">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
                     <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/184160111.png" />
@@ -30,7 +30,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridVenta" Background="#F45BB0DD">
+                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridTermi" MouseLeftButtonDown="GridTermi_MouseLeftButtonDown" Background="#F45BB0DD">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="53*" />
                         <ColumnDefinition Width="87*" />
@@ -38,11 +38,6 @@
                     <Rectangle Stroke="#F9AFA9AD" Grid.ColumnSpan="2" />
                     <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/VENTAS1.png" Grid.ColumnSpan="2" />
                     <Label Content=" Ventas " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" Grid.ColumnSpan="2" />
-                </Grid>
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridTermi" MouseLeftButtonDown="GridTermi_MouseLeftButtonDown" Background="#F45BB0DD">
-                    <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
-                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-281.png" />
-                    <Label Content=" Terminal " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" />
                 </Grid>
                 <Grid Background="#F45BB0DD" Height="150" Name="grid1" Width="140" Margin="50 70 0 0" MouseLeftButtonDown="GridServicio_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />

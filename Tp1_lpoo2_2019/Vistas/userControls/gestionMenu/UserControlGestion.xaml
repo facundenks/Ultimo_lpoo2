@@ -35,15 +35,6 @@
                 </Grid>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridPasaje" Background="#F45BB0DD">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="53*" />
-                        <ColumnDefinition Width="87*" />
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Stroke="#F9AFA9AD" Grid.ColumnSpan="2" />
-                    <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/VENTAS1.png" Grid.ColumnSpan="2" />
-                    <Label Content=" Ventas " Height="40"    VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="#F42A2B32" Foreground="#F9AFA9AD" Grid.ColumnSpan="2" />
-                </Grid>
                 <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50 70 0 0" Height="150" Width="140" Name="GridZonas" Background="#F45BB0DD" MouseLeftButtonDown="GridTerminal_MouseLeftButtonDown">
                     <Rectangle Grid.Row="0" Stroke="#F9AFA9AD" />
                     <Image Height="98" HorizontalAlignment="Center" Margin="6,0,6,6"  Stretch="Fill" VerticalAlignment="Bottom" Width="128" Cursor="Hand" Source="/Vistas;component/Images/bus-stop-symbol-icon-281.png" />
