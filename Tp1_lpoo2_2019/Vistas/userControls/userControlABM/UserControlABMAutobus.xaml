@@ -10,10 +10,10 @@
         <ImageBrush />
     </UserControl.Background>
     <UserControl.Resources>
-        <!--<ObjectDataProvider 
+        <ObjectDataProvider 
             x:Key="lista_Autobuses" 
             ObjectType="{x:Type svc:AutobusRepositorio}" 
-            MethodName="getAutobus"/>-->
+            MethodName="getAutobus"/>
     </UserControl.Resources>
     
     <Grid Height="463" Width="693">

@@ -38,7 +38,8 @@
                 <ComboBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="90,75,0,0" Name="cmbCiudad" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" Width="120" TabIndex="2"/>
                 
                     <ListView Name="list_terminales" Grid.Column="1" Margin="225,16,265,220" 
-                              ItemsSource="{Binding Source={StaticResource datos_terminal}}"  Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged">
+                              ItemsSource="{Binding Source={StaticResource datos_terminal}}"  
+                              Grid.RowSpan="3" SelectionChanged="list_terminales_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="133" Header="Codigo de Terminal" DisplayMemberBinding="{Binding Terminal_codigo}"/>
