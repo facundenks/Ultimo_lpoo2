@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
+
              d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <ObjectDataProvider 
@@ -12,14 +13,12 @@
             ObjectType="{x:Type svc:ClassTrabajarCiudadString}" 
             MethodName="CiudadStringList"/>
     </UserControl.Resources>
+
     <Grid>
         <Grid Margin="10,10,-10,-10">
-            <Grid Height="60" VerticalAlignment="Top" Width="1350">
-                <Label Content="Datos Ciudad" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" Height="45" HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Center" />
-            </Grid>
-            <Line Stroke="#F45BB0DD" X1="15" X2="1000" Y1="50" Y2="50" />
-            <GroupBox Foreground="#F45BB0DD" Header="Datos de Ciudad" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosCiudad" VerticalAlignment="Top" Width="582">
-                <Grid Background="White">
+            <Line Stroke="#F4FCFEFF" X1="15" X2="1000" Y1="50" Y2="50" Margin="0,0,18,0" />
+            <GroupBox Foreground="White" Header="Datos de Ciudad" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosCiudad" VerticalAlignment="Top" Width="582" BorderBrush="White" Background="#F45BB0DD">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="28*" />
                         <ColumnDefinition Width="243*" />
@@ -29,8 +28,8 @@
                         <RowDefinition Height="18*" />
                         <RowDefinition Height="137*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Codigo de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" Margin="6,9,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
-                    <Label Content="Nombre de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblId" Target="{Binding}" VerticalAlignment="Bottom" Grid.Row="2" Margin="6,0,0,93" Grid.ColumnSpan="2" />
+                    <Label Content="Codigo de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblDNI" Target="{Binding}" VerticalAlignment="Top" Grid.Row="1" Margin="6,9,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                    <Label Content="Nombre de Ciudad" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Name="lblId" Target="{Binding}" VerticalAlignment="Bottom" Grid.Row="2" Margin="6,0,0,93" Grid.ColumnSpan="2" />
                     <TextBox Grid.Column="1" HorizontalAlignment="Right" IsEnabled="True" IsReadOnly="False" Margin="0,9,322,0" Name="txtIdCiudad" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2" KeyDown="txtIdCiudad_KeyDown" TabIndex="1"/>
                     <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="69,29,0,0" Name="txtNombreCiudad" VerticalAlignment="Top" TabIndex="2"/>
                     <ListView Name="Ciudades" Grid.Column="1" Grid.RowSpan="3" Height="186" HorizontalAlignment="Left" Margin="195,6,0,0" Width="310" ItemsSource="{Binding Source= {StaticResource datos_ciudad}}" SelectionChanged="Ciudades_SelectionChanged">
@@ -53,6 +52,9 @@
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Guardar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,335,0,0" Name="btnGuardarUsuario" VerticalAlignment="Top" Width="167" Height="24" Click="btnGuardarUsuario_Click" TabIndex="3"/>
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Modificar" Cursor="Hand" HorizontalAlignment="Left" Margin="317,335,0,0" Name="btnModificarUsuario" VerticalAlignment="Top" Width="167" Height="24" Click="btnModificarUsuario_Click" />
             <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Content="Limpiar" Cursor="Hand" HorizontalAlignment="Left" Margin="118,365,0,0" Name="btnLimpiarUsuario" VerticalAlignment="Top" Width="167" Height="24" Click="btnLimpiarUsuario_Click" TabIndex="4"/>
+        </Grid>
+        <Grid Height="60" VerticalAlignment="Top" Margin="0,0,124,0">
+            <Label Content="Datos Ciudad" FontSize="20" FontWeight="Bold" Foreground="White" Height="45" HorizontalAlignment="Left" Margin="10 0 0 0" VerticalAlignment="Center" />
         </Grid>
     </Grid>
 </UserControl>

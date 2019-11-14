@@ -10,41 +10,41 @@
             <ColumnDefinition Width="601*" />
             <ColumnDefinition Width="11*" />
         </Grid.ColumnDefinitions>
-        <Grid Height="60" Width="1350" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="0,0,-738,0">
+        <Grid Height="60" VerticalAlignment="Top" Margin="0,0,200,0">
             <Label Content="Datos Autobus" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+            <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="-523,0,742,-315" Loaded="Line_Loaded" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,35,0" Loaded="Line_Loaded" />
-        <GroupBox Header="Datos de Autobus" Height="476" HorizontalAlignment="Left" Margin="26,76,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="720" Foreground="#F45BB0DD" Grid.ColumnSpan="2">
-            <Grid Background="White" Height="506" Width="708">
+        <GroupBox Header="Datos de Autobus" Height="276" HorizontalAlignment="Left" Margin="10,66,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="605" Foreground="#F4FFFFFF" BorderBrush="#F4FFFFFF" Background="#BB5BB0DD">
+            <Grid  Height="258" Width="601">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="11*" />
                     <ColumnDefinition Width="697*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="33*" />
-                    <RowDefinition Height="18*" />
-                    <RowDefinition Height="137*" />
+                    <RowDefinition Height="38*" />
+                    <RowDefinition Height="40*" />
+                    <RowDefinition Height="180*" />
                 </Grid.RowDefinitions>
-                <Label Content="Datos cliente" Height="28" HorizontalAlignment="Left" Margin="0,54,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" />
-                <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="0,7,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Column="1" Grid.Row="1" />
-                <Label Content="Precio            $" Height="28" HorizontalAlignment="Left" Margin="0,43,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" />
-                <Label Content="Fecha" Height="28" HorizontalAlignment="Left" Margin="11,31,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="Black" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" />
-                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="89,7,0,0" Name="txtAsiento" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" IsEnabled="True" TabIndex="1" Grid.Row="1" />
-                <TextBox x:Uid="FormTextBox" Grid.Row="1" HorizontalAlignment="Left" Margin="89,43,0,0" Name="txtPrecio" VerticalAlignment="Top" IsReadOnly="False" Grid.Column="1" IsEnabled="True" TabIndex="3" Grid.RowSpan="2" KeyDown="txtPrecio_KeyDown" />
-                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,31,0,0" Name="txtFecha" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
-                <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Vender" Grid.Column="1" Grid.Row="2" Height="23" Margin="41,78,0,0" Name="btnVender" VerticalAlignment="Top" Click="btnVender_Click" HorizontalAlignment="Left" Width="168" />
-                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="89,57,0,0" Name="txtDniCliente" TabIndex="1" VerticalAlignment="Top" Grid.Column="1" />
+                <Label Content="Datos cliente" Height="28" HorizontalAlignment="Left" Margin="0,15,0,0" Name="lblDNI" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="White" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" />
+                <Label Content="Asiento" Height="28" HorizontalAlignment="Left" Margin="2,9,0,0" Name="lblId" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="White" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" />
+                <Label Content="Precio            $" Height="28" HorizontalAlignment="Left" Margin="2,49,0,0" Name="lblCapacidad" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="White" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" />
+                <Label Content="Fecha" Height="28" HorizontalAlignment="Left" Margin="2,85,0,0" Name="lblTelefono" VerticalAlignment="Top" DataContext="{Binding}" IsEnabled="True" Target="{Binding}" Foreground="White" FontWeight="Bold" Grid.Row="2" Grid.ColumnSpan="2" />
+                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="78,12,0,0" Name="txtAsiento" IsReadOnly="True" Grid.Column="1" IsEnabled="True" TabIndex="1" Grid.Row="2" Height="25" VerticalAlignment="Top" Width="121" />
+                <Button Style="{StaticResource ResourceKey=btn_plantilla_aceptar}" Background="#FFD73C61" Content="Vender" Grid.Column="1" Grid.Row="2" Height="23" Margin="40,128,0,0" Name="btnVender" VerticalAlignment="Top" Click="btnVender_Click" HorizontalAlignment="Left" Width="168" />
+                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="79,0,0,0" Name="txtDniCliente" TabIndex="1" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" />
                 <Button Background="#FFD73C61" Content="Nuevo Cliente" Height="23" HorizontalAlignment="Left" Margin="41,15,0,0" Name="btnNuevoCliente" Style="{StaticResource btn_plantilla_aceptar}" VerticalAlignment="Top" Width="168" Grid.Column="1" Click="btnNuevoCliente_Click" />
+                <ListView Name="list_clientes" Margin="256,11,17,0" MouseDoubleClick="list_clientes_MouseDoubleClick" Height="223" VerticalAlignment="Top" Grid.Column="1" Grid.RowSpan="3">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="DNI" DisplayMemberBinding="{Binding cli_dni}" />
+                            <GridViewColumn Width="100" Header="Nombre" DisplayMemberBinding="{Binding cli_nombre}" />
+                            <GridViewColumn Width="110" Header="Apellido" DisplayMemberBinding="{Binding cli_apellido}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <TextBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="True" Margin="78,85,0,0" Name="txtFecha" TabIndex="3" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Width="121" />
+                <TextBox x:Uid="FormTextBox" HorizontalAlignment="Left" Margin="79,49,0,0" Name="txtPrecio" IsReadOnly="False" IsEnabled="True" TabIndex="3" KeyDown="txtPrecio_KeyDown" Height="25" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
             </Grid>
         </GroupBox>
-        <ListView Name="list_clientes" Margin="287,108,1,0" MouseDoubleClick="list_clientes_MouseDoubleClick" Height="223" VerticalAlignment="Top">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="100" Header="DNI" DisplayMemberBinding="{Binding cli_dni}"/>
-                    <GridViewColumn Width="100" Header="Nombre" DisplayMemberBinding="{Binding cli_nombre}"/>
-                    <GridViewColumn Width="110" Header="Apellido" DisplayMemberBinding="{Binding cli_apellido}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </UserControl>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
-             d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded" Width="732">
+             d:DesignHeight="652" d:DesignWidth="875" Loaded="UserControl_Loaded" Width="732" Foreground="White">
 
     <UserControl.Resources>
         <ObjectDataProvider 
@@ -27,10 +27,10 @@
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="958" Height="426">
                 <Label Content="Autobus" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,62,0,0" Name="lblId" Target="{Binding}" VerticalAlignment="Top" />
                 <Label Content="Fecha" DataContext="{Binding}" FontWeight="Bold" Foreground="#FFF8E9E9" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,101,0,0" Name="lblCapacidad" Target="{Binding}" VerticalAlignment="Top" />
-                <Label Content="Destino" DataContext="{Binding}" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,267,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" />
+                <Label Content="Destino" DataContext="{Binding}" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,267,0,0" Name="lblTelefono" Target="{Binding}" VerticalAlignment="Top" />
                 <ComboBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="99,238,0,0" Name="cmbOrigen" TabIndex="2" VerticalAlignment="Top" Width="120" Height="23" />
-                <Label Content="Origen" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,233,0,0" Name="label1" Target="{Binding}" VerticalAlignment="Top" />
-                <Label Content="Estado" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="23,199,0,0" Name="label2" VerticalAlignment="Top" Width="66" />
+                <Label Content="Origen" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,233,0,0" Name="label1" Target="{Binding}" VerticalAlignment="Top" />
+                <Label Content="Estado" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" Margin="23,199,0,0" Name="label2" VerticalAlignment="Top" Width="66" />
                 <ComboBox Height="23" HorizontalAlignment="Left" Margin="99,272,0,0" Name="cmbDestino" VerticalAlignment="Top" Width="120" />
                 <ComboBox HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False"  Margin="99,67,0,0" Name="cmbAtobuses" TabIndex="2" VerticalAlignment="Top" Width="120" Height="23" />
                 <ComboBox Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="99,204,0,0" Name="cmbEstado" TabIndex="2" VerticalAlignment="Top" Width="120" >
@@ -40,8 +40,8 @@
                 </ComboBox>
                 <DatePicker Height="25" HorizontalAlignment="Left" Margin="99,101,0,0" Name="dateFecha" VerticalAlignment="Top" Width="120" />
                 <ComboBox Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" ItemsSource="{Binding Source={StaticResource tipo_servicio},XPath=tipo/@name}" Margin="99,170,0,0" Name="cmbMinutos" TabIndex="2" VerticalAlignment="Top" Width="120" />
-                <Label Content="Minutos" FontWeight="Bold" Foreground="Black" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,165,0,0" Name="label3" Target="{Binding}" VerticalAlignment="Top" />
-                <Label Content="Hora" FontWeight="Bold" Foreground="#FF5C5656" Height="28" HorizontalAlignment="Left" Margin="23,131,0,0" Name="label4" VerticalAlignment="Top" Width="66" />
+                <Label Content="Minutos" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" IsEnabled="True" Margin="23,165,0,0" Name="label3" Target="{Binding}" VerticalAlignment="Top" />
+                <Label Content="Hora" FontWeight="Bold" Foreground="#FFEFDCDC" Height="28" HorizontalAlignment="Left" Margin="23,131,0,0" Name="label4" VerticalAlignment="Top" Width="66" />
                 <ComboBox Height="23" HorizontalAlignment="Left" IsEnabled="True" IsReadOnly="False" Margin="99,136,0,0" Name="cmbHora" TabIndex="2" VerticalAlignment="Top" Width="120">
                     <ComboBoxItem Content="00"/>
                     <ComboBoxItem Content="1"/>

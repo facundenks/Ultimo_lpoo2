@@ -49,13 +49,13 @@
         </Style>
         
     </UserControl.Resources>
-        <Grid>
+        <Grid Background="Transparent">
         <Grid Height="60" Width="1350" VerticalAlignment="Top"  >
-            <Label Content="Registro de Cliente" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#F45BB0DD" />
+            <Label Content="Registro de Cliente" Margin="10 0 0 0" Height="45" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" />
         </Grid>
-        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F45BB0DD" Margin="0,0,-65,0" Loaded="Line_Loaded" />
-        <GroupBox Header="Datos de Cliente" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="745" Foreground="#F45BB0DD">
-            <Grid Background="White" Width="703">
+        <Line X1="15" X2="1000" Y1="50" Y2="50" Stroke="#F4FFFFFF" Margin="0,0,-5,0" Loaded="Line_Loaded" />
+        <GroupBox Header="Datos de Cliente" Height="229" HorizontalAlignment="Left" Margin="6,90,0,0" Name="bgDatosUsuario" VerticalAlignment="Top" Width="745" Background="#F45BB0DD" Foreground="White">
+            <Grid Width="703">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="28*" />
                     <ColumnDefinition Width="243*" />
@@ -87,7 +87,7 @@
                     <Binding Path="Cli_email" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox>
 
-                <ListView Name="list_clientes" Grid.Column="1" Margin="225,16,6,88" Grid.RowSpan="3" SelectionChanged="list_clientes_SelectionChanged">
+                <ListView Name="list_clientes" Grid.Column="1" Margin="225,16,6,11" Grid.RowSpan="3" SelectionChanged="list_clientes_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="100" Header="DNI" DisplayMemberBinding="{Binding cli_dni}"/>
